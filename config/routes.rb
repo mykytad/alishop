@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'products#index'
+  get 'products/:id' => 'products#show'
   get 'contact' => 'pages#contact'
   get 'about' => 'pages#about'
   get 'help' => 'pages#help'
