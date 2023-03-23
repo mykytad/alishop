@@ -1,4 +1,4 @@
-<%= form_with model: @producte, html:{multipart: true} do |form| %>
+<%= form_with model: @store, html:{multipart: true} do |form| %>
 
     <div>
         <%= form.label :name %></br>
@@ -9,8 +9,8 @@
         <%= form.text_area :discription %>
     </div>
     <div>
-        <%= form.label :price %></br>
-        <%= form.text_field :price %>
+        <%= form.label :phone %></br>
+        <%= form.text_field :phone %>
     </div>
     <!--
     <div>

@@ -1,0 +1,7 @@
+<ul>
+    <% @stores.each do |store| %>
+        <li>
+            <%= link_to store.name, "#", class:"nav-link" %>
+        </li>
+    <% end %>
+</ul>
