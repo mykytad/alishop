@@ -1,0 +1,20 @@
+<%= form_with  do |form| %>
+
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%= form.label :discription %>
+        <%= form.text_area :discription %>
+    </div>
+    <!--
+    <div>
+        <%= form.text_field :image %>
+    </div>
+    -->
+    <div>
+        <%= form.submit %>
+    </div>
+
+<% end %>

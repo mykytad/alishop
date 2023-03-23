@@ -1,4 +1,7 @@
-<% @products.each do |product| %>
-    <%= product.name %>
-    <%= product.price %>
-<% end %>
+<ul>
+    <% @products.each do |product| %>
+        <li>
+            <%= link_to product.name, "#", class:"nav-link" %>
+        </li>
+    <% end %>
+</ul>
