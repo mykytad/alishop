@@ -5,7 +5,6 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :discription
       t.integer :price
       t.integer :discount
-      t.integer :user_id
       t.integer :store_id
       t.timestamps
     end

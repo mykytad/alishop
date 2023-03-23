@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :store_users
-    has_many :store, through: :store_users
-    has_many :product
-    has_many :order
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 end

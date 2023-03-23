@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_22_163014) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_23_142859) do
   create_table "order_products", force: :cascade do |t|
     t.integer "product_id"
     t.integer "order_id"
@@ -31,7 +31,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_163014) do
     t.string "discription"
     t.integer "price"
     t.integer "discount"
-    t.integer "user_id"
     t.integer "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,12 +53,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_163014) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "email"
-    t.boolean "admin", default: false
     t.integer "phone"
     t.integer "public_phone"
+    t.boolean "admin", default: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
