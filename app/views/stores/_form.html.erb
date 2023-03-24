@@ -1,24 +1,17 @@
-<%= form_with model: @store, html:{multipart: true} do |form| %>
-
+<%= form_with model: @store do |form| %>  
     <div>
         <%= form.label :name %></br>
         <%= form.text_field :name %>
     </div>
     <div>
-        <%= form.label :discription %></br>
-        <%= form.text_area :discription %>
+        <%= form.label :description %></br>
+        <%= form.text_area :description %>
     </div>
     <div>
         <%= form.label :phone %></br>
         <%= form.text_field :phone %>
     </div>
-    <!--
-    <div>
-        <%= form.text_field :image %>
-    </div>
-    -->
     <div>
         <%= form.submit %>
     </div>
-
 <% end %>

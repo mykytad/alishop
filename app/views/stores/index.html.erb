@@ -1,7 +1,8 @@
+<h1> ALL STORE </h1>
+
 <ul>
-    <% @stores.each do |store| %>
-        <li>
-            <%= link_to store.name, "#", class:"nav-link" %>
-        </li>
+    <% @stores.each do |store|%>
+        <li> <%=link_to store.name, store %> </li>
     <% end %>
 </ul>
+<%= link_to "create store", new_store_path %>
