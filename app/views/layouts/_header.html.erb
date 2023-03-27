@@ -25,7 +25,7 @@
                 <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
               </a>
               <ul class="dropdown-menu text-small">
-                <%= link_to "Profile", "#", class:"dropdown-item" %>
+                <li><%= link_to "Profile", current_user, class:"dropdown-item" %></li>
                 <li><%= link_to "Setting", edit_user_registration_path, class:"dropdown-item" %></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><%= link_to "Sign out", destroy_user_session_path, class:"dropdown-item", data: { turbo_method: :delete } %></li>
