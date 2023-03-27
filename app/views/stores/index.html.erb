@@ -1,8 +1,15 @@
 <h1> ALL STORE </h1>
 
-<ul>
+
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     <% @stores.each do |store|%>
-        <li> <%=link_to store.name, store %> </li>
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+                <p class="card-text"> <%= link_to store.name, store %> </p>
+            </div>
+        </div>
     <% end %>
-</ul>
+</div>
 <%= link_to "create store", new_store_path %>

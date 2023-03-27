@@ -1,51 +1,52 @@
 class StoresController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
-    def index
-        @stores = Store.all
+  def index
+    @stores = Store.all
+  end
+
+  def show
+    @store = Store.find(params[:id])
+  end
+
+  def new
+    @store = Store.new
+  end
+
+  def create
+    @store = Store.new(store_params)
+
+    if @store.save
+      redirect_to @store
+    else
+      render :new
     end
+  end
 
-    def show
-        @store = Store.find(params[:id])
+  def edit
+    @store = Store.find(params[:id])
+  end
+
+  def update
+    @store = Store.find(params[:id])
+
+    if @store.update(store_params)
+      redirect_to @store
+    else
+      render :edit
     end
+  end
 
-    def new
-        @store = Store.new
-    end
+  def destroy
+    @store = Store.find(params[:id])
+    @store.destroy
 
-    def create
-        @store = Store.new(store_params)
-        
-        if @store.save
-            redirect_to @store
-        else
-            render :new
-        end
-    end
+    redirect_to root_path
+  end
 
-    def edit
-        @store = Store.find(params[:id])
-    end
+  private
 
-    def update
-        @store = Store.find(params[:id])
-
-        if @store.update(store_params)
-            redirect_to @store
-        else
-            render :edit
-        end
-    end
-
-    def destroy
-        @store = Store.find(params[:id])
-        @store.destroy
-
-        redirect_to root_path
-    end
-
-    private
-    def store_params
-        params.require(:store).permit(:name, :description, :phone)
-    end
+  def store_params
+    params.require(:store).permit(:name, :description, :phone)
+  end
 end
