@@ -1,0 +1,22 @@
+<h2> Сreate a product </h2>
+<%= form_with model: [ @store, @store.products.build ] do |form| %>  
+    <div>
+        <%= form.label :name %></br>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%= form.label :description %></br>
+        <%= form.text_area :description %>
+    </div>
+    <div>
+        <%= form.label :price %></br>
+        <%= form.number_field :price %>
+    </div>
+    <div>
+        <%= form.label :discount %></br>
+        <%= form.text_field :discount %>
+    </div>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

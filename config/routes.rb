@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
-  get 'contact' => 'pages#contact'
-  get 'about' => 'pages#about'
-  get 'help' => 'pages#help'
+  devise_for :users
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get "contact" => "pages#contact"
+  get "about" => "pages#about"
+  get "help" => "pages#help"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :stores do
+    resources :products, only: [:new, :create, :destroy]
+  end
+
+  resources :products, only: [:index]
+
+  root "home#index"
 end
