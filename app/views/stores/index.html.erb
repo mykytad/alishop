@@ -1,15 +1,19 @@
 <h1> ALL STORE </h1>
+<div class="row g-4">
 
-
-
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-    <% @stores.each do |store|%>
-        <div class="col">
-          <div class="card shadow-sm">
-            <div class="card-body">
-                <p class="card-text"> <%= link_to store.name, store %> </p>
-            </div>
+  <% @stores.each do |store| %>
+    <div class="col-3">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"> <%=store.name%></h5>
+          <p class="card-text"> <%= store.description %> </p>
+          <%= link_to "Go to shop", store, class:"btn btn-primary" %>
         </div>
-    <% end %>
+      </div>
+    </div>
+  <% end%>
+
 </div>
+
 <%= link_to "create store", new_store_path %>
