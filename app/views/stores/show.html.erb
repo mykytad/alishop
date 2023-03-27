@@ -2,20 +2,18 @@
     <h1> <%= @store.name %> </h1>
     <p> <%= @store.description %> </p>
     <p> <%= @store.phone %> </p>
-    <p> <%= link_to "Edit store", edit_store_path, class:"btn btn-outline-primary" %> </p>
-    <p> <%=link_to "Сreate a product", new_store_product_path(@store.id), class:"btn btn-primary" %> </p> 
-    <p> <%= link_to "Destroy store", store_path, data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-danger" %> </p>
 
+    <% if current_user %>
+        <% if @store.user_id == current_user.id %>
+            <p> <%= link_to "Edit store", edit_store_path, class:"btn btn-outline-primary" %> </p>
+            <p> <%=link_to "Create a product", new_store_product_path(@store.id), class:"btn btn-primary" %> </p> 
+            <p> <%= link_to "Destroy store", store_path, data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-danger" %> </p>
+        <% end %>
+    <% end %>
+
+   
     <% @store.products.each do |product| %>
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title"> <%=product.name%></h5>
-                <p class="card-text"> <%= product.description %> </p>
-                <%= link_to "Buy", "#", class:"btn btn-primary" %>
-                <%= link_to "Detailed", "#", class:"btn btn-outline-primary" %>
-            </div>
-        </div>
+        <%= render product %>
     <% end%>
 
 </div>

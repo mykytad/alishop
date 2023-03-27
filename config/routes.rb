@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   get "help" => "pages#help"
 
   resources :stores do
-    resources :products, only: [:new, :create, :destroy]
+    resources :products
   end
 
   resources :products, only: [:index]
 
-  resources :users
+   resources :users
 
   root "home#index"
 end
