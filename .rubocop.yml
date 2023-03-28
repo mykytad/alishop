@@ -39,6 +39,9 @@ Style/Documentation:
 Style/SymbolArray:
   Enabled: false
 
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
 AllCops:
   Exclude:
     - 'config/**/*'
