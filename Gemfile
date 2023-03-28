@@ -48,6 +48,7 @@ gem "carrierwave"
 gem "mini_magick"
 
 gem 'rubocop-rails', require: false
+gem "rubocop-discourse"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
