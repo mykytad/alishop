@@ -15,6 +15,7 @@ class StoresController < ApplicationController
 
   def create
     @store = Store.new(store_params)
+    @store.user_id = current_user.id
 
     if @store.save
       redirect_to @store
@@ -24,11 +25,11 @@ class StoresController < ApplicationController
   end
 
   def edit
-    @store = Store.find(params[:id])
+    @store = current_user_store
   end
 
   def update
-    @store = Store.find(params[:id])
+    @store = current_user_store
 
     if @store.update(store_params)
       redirect_to @store
@@ -38,7 +39,7 @@ class StoresController < ApplicationController
   end
 
   def destroy
-    @store = Store.find(params[:id])
+    @store = current_user_store
     @store.destroy
 
     redirect_to root_path
@@ -48,5 +49,9 @@ class StoresController < ApplicationController
 
   def store_params
     params.require(:store).permit(:name, :description, :phone)
+  end
+
+  def current_user_store
+    current_user.stores.find(params[:id])
   end
 end
