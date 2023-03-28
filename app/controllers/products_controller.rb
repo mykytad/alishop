@@ -29,6 +29,6 @@ class ProductsController < ApplicationController
   end
 
   def store
-    @store ||= Store.find(params[:store_id])
+    @store ||= current_user.stores.find(params[:store_id])
   end
 end
