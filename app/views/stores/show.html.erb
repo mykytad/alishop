@@ -11,9 +11,10 @@
         <% end %>
     <% end %>
 
-   
-    <% @store.products.each do |product| %>
-        <%= render product %>
-    <% end%>
+   <div class="row g-4">
+        <% @store.products.each do |product| %>
+            <%= render product %>
+        <% end%>
+    </div>
 
 </div>
