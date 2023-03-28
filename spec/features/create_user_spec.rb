@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.feature "create user", type: :feature do
-
   it "creates a new user" do
     visit new_user_registration_path
     fill_in :user_name, with: "Tom"
@@ -15,5 +14,4 @@ RSpec.feature "create user", type: :feature do
     expect(body).to have_content "Tom"
     expect(body).to have_link "Sign out"
   end
-
 end
