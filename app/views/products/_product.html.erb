@@ -1,22 +1,21 @@
-    <div class="col-3">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"> <%=product.name%></h5>
-          <p class="card-text"> <%= product.description %> </p>
-          <% if product.discount == 0 %>
-            <p class="card-text"> <%= product.price %>$ </p>
-          <% else %>
-            <p class="card-text ">
-              <span class="discount"><%= product.price - product.discount %>$</span>
-              <span class="line-through "><%= product.price %>$</span>  
-            </p>
+<div class="col-3">
+  <div class="card" style="width: 18rem;">
+  <%= image_tag product.image.url(:card),alt: product.name, class: "img" if product.image? %>
+    <div class="card-body">
+      <h5 class="card-title"> <%=product.name%></h5>
+      <p class="card-text"> <%= product.description %> </p>
+      <% if product.discount == 0 %>
+        <p class="card-text"> <%= product.price %>$ </p>
+      <% else %>
+        <p class="card-text ">
+          <span class="discount"><%= product.price - product.discount %>$</span>
+          <span class="line-through "><%= product.price %>$</span>  
+        </p>
+      <% end %>
 
-          <% end %>
-          
-          <%= link_to "Buy", "#", class:"btn btn-primary" %>
-          <%= link_to "Detailed", store_product_path(product.store_id, product.id), class:"btn btn-outline-primary" %>
-          <%= link_to "Delete", "#", data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-danger" %>
-        </div>
-      </div>
+      <%= link_to "Buy", "#", class:"btn btn-primary" %>
+      <%= link_to "Detailed", store_product_path(product.store_id, product.id), class:"btn btn-outline-primary" %>
+      <%= link_to "Delete", "#", data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-danger" %>
     </div>
+  </div>
+</div>

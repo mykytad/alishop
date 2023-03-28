@@ -1,3 +1,4 @@
 <h2> <%= @product.name %> </h2>
+<%= image_tag @product.image.url(:large),alt: @product.name, class: "img" if @product.image? %>
 <p> <%= @product.description %> </p>
 <p> <%= @product.price %> $ </p>

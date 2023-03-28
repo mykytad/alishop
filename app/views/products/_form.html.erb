@@ -1,5 +1,5 @@
 <h2> Сreate a product </h2>
-<%= form_with model: [ @store, @store.products.build ] do |form| %>  
+<%= form_with model: [ @store, @store.products.build ], html: { multipart: true } do |form| %>  
     <div>
         <%= form.label :name %></br>
         <%= form.text_field :name %>
@@ -15,6 +15,10 @@
     <div>
         <%= form.label :discount %></br>
         <%= form.text_field :discount %>
+    </div>
+    <div>
+        <%= form.file_field :image %>
+        <%= form.hidden_field :image_cache %>
     </div>
     <div>
         <%= form.submit %>

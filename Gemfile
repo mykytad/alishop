@@ -44,6 +44,9 @@ gem "bootsnap", require: false
 
 gem "devise"
 
+gem "carrierwave"
+gem "mini_magick"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
