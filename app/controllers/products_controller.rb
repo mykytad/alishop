@@ -25,10 +25,10 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :discount)
+    params.require(:product).permit(:name, :description, :price, :discount, :image)
   end
 
   def store
-    @store ||= Store.find(params[:store_id])
+    @store ||= current_user.stores.find(params[:store_id])
   end
 end

@@ -20,3 +20,7 @@
  .discount{
   color:red
  }
+ .product_image{
+  display:block;
+  margin-bottom: 10px
+ }

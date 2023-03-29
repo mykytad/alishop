@@ -1,3 +1,11 @@
 <h2> <%= @product.name %> </h2>
+<%= image_tag @product.image.url(:large),alt: @product.name, class: "product_image" if @product.image? %>
 <p> <%= @product.description %> </p>
 <p> <%= @product.price %> $ </p>
+
+<%= link_to "Buy", "#", class:"btn btn-primary" %>
+<% if current_user %>
+  <% if @product.store.user_id == current_user.id %>
+    <%= link_to "Delete", "#", data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-danger" %>
+  <% end %>
+<% end %>
