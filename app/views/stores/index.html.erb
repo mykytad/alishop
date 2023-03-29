@@ -1,5 +1,5 @@
 <h1> ALL STORE </h1>
-<div class="row g-4">
+<div class="row mb-5 g-4">
 
   <% @stores.each do |store| %>
     <div class="col-3">
@@ -16,4 +16,4 @@
 
 </div>
 
-<%= link_to "create store", new_store_path %>
+<%= link_to "create store", new_store_path, class:"mt-5 btn btn-outline-primary" %>
