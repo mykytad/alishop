@@ -1,7 +1,12 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.order(:name)
+
+    if !params[:search].nil? && params[:search] != ""
+      @products = @products.where("lower(name) like ?", "%#{params[:search].downcase}%")
+    end
   end
+
 
   def show
     @product = Product.find(params[:id])
