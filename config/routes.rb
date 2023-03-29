@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get "contact" => "pages#contact"
   get "about" => "pages#about"
   get "help" => "pages#help"
+  get "cart/add" =>"cart#add"
+  get "cart/delete" =>"cart#delete"
+  get "cart/show" =>"cart#show"
 
   resources :stores do
     resources :products
