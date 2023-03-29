@@ -48,6 +48,3 @@ AllCops:
     - 'db/schema.rb'
     - 'spec/spec_helper.rb'
     - 'vendor/**/*'
-
-inherit_gem:
-  rubocop-discourse: default.yml
