@@ -7,10 +7,9 @@ class CartController < ApplicationController
 
   def show
     @cart = session[:cart]
-    @products = Product.where({:id => @cart})
+    @products = Product.where({ :id => @cart })
   end
 
   def delete
-    
   end
 end
