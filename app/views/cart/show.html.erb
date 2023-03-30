@@ -2,4 +2,5 @@
 <% @products.each do |product| %>
   <p> <%= product.name %> </p>
   <p> <%= product.price %> </p>
+  <%= link_to "Delete", "#", data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-danger" %>
 <%end%>

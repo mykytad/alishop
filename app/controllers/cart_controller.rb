@@ -11,5 +11,6 @@ class CartController < ApplicationController
   end
 
   def delete
+    @cart = session[:cart]
   end
 end
