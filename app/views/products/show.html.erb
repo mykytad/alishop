@@ -3,9 +3,9 @@
 <p> <%= @product.description %> </p>
 <p> <%= @product.price %> $ </p>
 
-<%= link_to "Buy", "#", class:"btn btn-primary" %>
+<%= link_to "Buy", cart_add_path({:product_id => @product.id}), class:"btn btn-primary" %>
 <% if current_user %>
   <% if @product.store.user_id == current_user.id %>
-    <%= link_to "Delete", "#", data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-danger" %>
+    <%= link_to "Delete", @store, data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-danger" %>
   <% end %>
 <% end %>

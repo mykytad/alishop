@@ -1,6 +1,14 @@
 
 <% @products.each do |product| %>
-  <p> <%= product.name %> </p>
-  <p> <%= product.price %> </p>
-  <%= link_to "Delete", "#", data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-danger" %>
+<div class = "col-12 d-flex row justify-content-between">
+  <div class = "col-2">
+    <p class = "col-3"> <%= product.name %> </p>
+  </div>
+  <div class = "col-6 row justify-content-end align-items-center">
+    <%= link_to "Add", "#", class:"btn btn-primary rounded-pill px-3 col-2" %>
+    <p class = "col-1"> <%= product.price %> </p>
+    <%= link_to "Delete", cart_delete_path, data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-danger rounded-pill px-3 col-2" %>
+  </div>
+</div>
+<hr/>
 <%end%>
