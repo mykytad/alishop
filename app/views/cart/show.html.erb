@@ -10,7 +10,7 @@
       
       <%= @cart.count(product.id.to_s)%>
       
-      <%= link_to "Delete",cart_delete_path({:product_id => product.id}), data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-danger rounded-pill px-3 col-2" %>
+      <%= link_to "Delete",cart_delete_path, data:{turbo_method: :delete}, class:"btn btn-danger rounded-pill px-3 col-2" %>
 
       <p class = "col-1"> <%= product.price * @cart.count(product.id.to_s) %>$ </p>
     </div>

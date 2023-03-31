@@ -11,9 +11,7 @@ class CartController < ApplicationController
   end
 
   def delete
-    # @cart = session[:cart]
-    @cart = session[:cart].delete(params[:product_id])
-    # @cart = session[:cart].delete(:product_id)
+    @cart = session[:cart].delete(:product_id)
   end
 end
 
