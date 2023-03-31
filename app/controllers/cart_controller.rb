@@ -11,7 +11,16 @@ class CartController < ApplicationController
   end
 
   def delete
-    @products = Product.where({ :id => @cart })
-    @products.destroy
+    # @cart = session[:cart]
+    @cart = session[:cart].delete(params[:product_id])
+    # @cart = session[:cart].delete(:product_id)
   end
 end
+
+#minus
+# > x = [1,2,3,2]
+# => [1, 2, 3, 2] 
+# > x.delete_at(x.index 2)
+# => 2 
+# > x
+# => [1, 3, 2] 
