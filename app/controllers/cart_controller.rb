@@ -11,14 +11,15 @@ class CartController < ApplicationController
   end
 
   def delete
-    @cart = session[:cart].delete(:product_id)
+    product_id = params[:product_id].to_s
+    position = session[:cart].index(product_id)
+    session[:cart].delete_at(position)
+    redirect_to cart_show_path
+  end
+
+  def delete_all
+    product_id = params[:product_id].to_s
+    session[:cart].delete(product_id)
+    redirect_to cart_show_path
   end
 end
-
-#minus
-# > x = [1,2,3,2]
-# => [1, 2, 3, 2] 
-# > x.delete_at(x.index 2)
-# => 2 
-# > x
-# => [1, 3, 2] 
