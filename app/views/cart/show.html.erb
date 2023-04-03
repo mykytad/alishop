@@ -6,20 +6,25 @@
   <% @products.each do |product| %>
     <div class = "col-12 d-flex row justify-content-between">
       <div class = "col-2">
-        <p class = "col-3"> <%= product.name %> </p>
+        <span class = "col-3"> <%= product.name %> </span>
       </div>
 
       <div class = "col-6 row justify-content-end align-items-center">
         <%= link_to "Add", cart_add_path({:product_id => product.id}), class:"btn btn-primary rounded-pill px-3 col-2" %>
         
-        <%= @cart.count(product.id.to_s)%>
+        <span class="col-1"> <%= @cart.count(product.id.to_s)%> </span>
         
-        <%= link_to "Delete",cart_delete_path({:product_id => product.id}), class:"btn btn-danger rounded-pill px-3 col-2" %>
-        <%= link_to "Delete all",cart_delete_all_path({:product_id => product.id}), class:"btn btn-danger rounded-pill px-3 col-2" %>
+        <%= link_to "Delete", cart_delete_path({:product_id => product.id}), class:"btn btn-danger rounded-pill px-3 col-2" %>
+        
+        <span class = "col-1"> <%= product.price * @cart.count(product.id.to_s) %>$ </span>
 
-        <p class = "col-1"> <%= product.price * @cart.count(product.id.to_s) %>$ </p>
+        <%= link_to "", cart_delete_all_path({:product_id => product.id}), class:"btn-close btn_close" %>
       </div>
     </div>
     <hr/>
-  <%end%> 
+  <%end%>
+
+<%= @sum %>$
+
+
 <% end %>
