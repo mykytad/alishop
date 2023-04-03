@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "help" => "pages#help"
   get "cart/add" =>"cart#add"
   get "cart/delete" =>"cart#delete"
+  get "cart/delete_all" => "cart#delete_all"
   get "cart/show" =>"cart#show"
 
   resources :stores do

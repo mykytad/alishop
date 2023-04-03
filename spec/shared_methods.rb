@@ -8,3 +8,23 @@ def log_in(user)
   fill_in :user_password, with: "111111"
   click_button "Log in"
 end
+
+def test_store
+  visit new_store_path
+  fill_in :store_name, with: "Shop"
+  fill_in :store_description, with: "Shop description"
+  fill_in :store_phone, with: "1234567890"
+  click_button "Create Store"
+end
+
+def test_product
+  log_in(test_user)
+  test_store
+
+  click_link "Create a product"
+  fill_in :product_name, with: "Phone"
+  fill_in :product_description, with: "color: space grey"
+  fill_in :product_price, with: "950"
+  fill_in :product_discount, with: "0"
+  click_button "Create Product"
+end

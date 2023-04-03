@@ -44,6 +44,9 @@ Style/PercentLiteralDelimiters:
 Style/GuardClause:
   Enabled: false
 
+Bundler/OrderedGems:
+  Enabled: false
+
 AllCops:
   Exclude:
     - 'config/**/*'

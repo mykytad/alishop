@@ -17,11 +17,7 @@ RSpec.feature "create store", type: :feature do
 
   it "creates a new store and product" do
     log_in(test_user)
-    visit new_store_path
-    fill_in :store_name, with: "Shop"
-    fill_in :store_description, with: "Shop description"
-    fill_in :store_phone, with: "1234567890"
-    click_button "Create Store"
+    test_store
 
     click_link "Create a product"
     fill_in :product_name, with: "Phone"
