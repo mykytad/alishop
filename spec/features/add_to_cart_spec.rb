@@ -23,5 +23,11 @@ RSpec.feature "add to cart ", type: :feature do
 
   it "clear cart" do
     test_product
+    click_link "Buy"
+    click_link "Add"
+    click_link "delete_all"
+
+    expect(body).to have_content "Your cart is empty"
+    expect(body).to have_content "Your cart"
   end
 end

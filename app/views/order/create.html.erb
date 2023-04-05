@@ -1,4 +1,4 @@
-<h2>Checkout form</h2>
+<h2>Place an order</h2>
 <main> 
   <div class="row g-5">
 
@@ -11,9 +11,13 @@
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0"><%= product.name%></h6>
+              
               <small class="text-body-secondary"><%= product.description %></small>
             </div>
-            <span class="text-body-secondary"><%= product.price %>$</span>
+            <div>
+              <span class=""><%= @cart.count(product.id.to_s) %>x</span>
+              <span class="text-body-secondary"><%= product.price %>$</span>
+            </div>
           </li>
       <% end %>
       <li class="list-group-item d-flex justify-content-between">
@@ -23,7 +27,6 @@
     </div>
 
     <div class="col-md-7 col-lg-8">
-      <h4 class="mb-3">Billing address</h4>
       <%= form_with class:"needs-validation" do |form| %>
         <div class="row g-3">
           <div class="col-sm-6">
@@ -43,16 +46,6 @@
           </div>
 
           <div class="col-12">
-            <%= form.label :Username, class:"form-label" %>
-            <div class="input-group has-validation">
-              <%= form.text_field :Username,placeholder:"Username", class:"form-control" %>
-              <div class="invalid-feedback">
-                Your username is required.
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12">
             <%= form.label :Email, class:"form-label" %>
             <%= form.text_field :email, placeholder:"you@example.com", class:"form-control" %>
             <div class="invalid-feedback">
@@ -68,32 +61,24 @@
             </div>
           </div>
 
-          <div class="col-md-5">
-            <%= form.label :Country, for:"country", class:"form-label" %>
-            <%= form.select :country, ["Choose...", "United States", "Canada"] %>
-            <div class="invalid-feedback">
-              Please select a valid country.
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <%= form.label :State, for:"country", class:"form-label" %>
-            <%= form.select :country, ["Choose...", "California"] %>
-            <div class="invalid-feedback">
-              Please provide a valid state.
-            </div>
-          </div>
-
-          <div class="col-md-3">
+          <div class="col-12">
             <%= form.label :Zip, class:"form-label" %>
             <%= form.text_field :zip, class:"form-control" %>
             <div class="invalid-feedback">
               Zip code required.
             </div>
           </div>
+
+          <div class="col-md-5">
+            <%= form.label :Country, for:"country", class:"form-label" %>
+            <%= form.country_select :country_code %>
+            <div class="invalid-feedback">
+              Please select a valid country.
+            </div>
+          </div> 
         </div>
 
-        <hr class="my-4">
+        <!--<hr class="my-4">
 
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="same-address">
@@ -103,64 +88,12 @@
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="save-info">
           <label class="form-check-label" for="save-info">Save this information for next time</label>
-        </div>
+        </div>-->
 
         <hr class="my-4">
 
-        <h4 class="mb-3">Payment</h4>
 
-        <div class="my-3">
-          <div class="form-check">
-            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
-            <label class="form-check-label" for="credit">Credit card</label>
-          </div>
-          <div class="form-check">
-            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
-            <label class="form-check-label" for="debit">Debit card</label>
-          </div>
-          <div class="form-check">
-            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
-            <label class="form-check-label" for="paypal">PayPal</label>
-          </div>
-        </div>
-
-        <div class="row gy-3">
-          <div class="col-md-6">
-            <label for="cc-name" class="form-label">Name on card</label>
-            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-            <small class="text-body-secondary">Full name as displayed on card</small>
-            <div class="invalid-feedback">
-              Name on card is required
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <label for="cc-number" class="form-label">Credit card number</label>
-            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-            <div class="invalid-feedback">
-              Credit card number is required
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <label for="cc-expiration" class="form-label">Expiration</label>
-            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-            <div class="invalid-feedback">
-              Expiration date required
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <label for="cc-cvv" class="form-label">CVV</label>
-            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-            <div class="invalid-feedback">
-              Security code required
-            </div>
-          </div>
-        </div>
-
-        <hr class="my-4">
-        <%= form.submit "Continue to checkout", class:"w-100 btn btn-primary btn-lg" %>
+        <%= form.submit "Create an order", class:"w-100 btn btn-primary btn-lg" %>
       <% end %>
     </div>
   </div>
