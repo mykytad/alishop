@@ -5,8 +5,8 @@
 <% else %>
   <% @products.each do |product| %>
     <div class = "col-12 d-flex row justify-content-between">
-      <div class = "col-2">
-        <span class = "col-3"> <%= product.name %> </span>
+      <div class = "col-4">
+        <span> <%= product.name %> </span>
       </div>
 
       <div class = "col-6 row justify-content-end align-items-center">
@@ -18,13 +18,19 @@
         
         <span class = "col-1"> <%= product.price * @cart.count(product.id.to_s) %>$ </span>
 
-        <%= link_to "", cart_delete_all_path({:product_id => product.id}), class:"btn-close btn_close" %>
+        <%= link_to "", cart_delete_all_path({:product_id => product.id}), title:"delete_all", class:"btn-close btn_close" %>
       </div>
     </div>
     <hr/>
   <%end%>
 
-<%= @sum %>$
-
+  <div class="row justify-content-between">
+  <div class="col-4">
+    <%= link_to "Place order", checkout_path,  class:"btn btn-primary rounded-pill" %>
+  </div>
+  <div class="col-6 justify-content-end ">
+    <strong class="align-self-end"><%= @sum %>$</strong>
+  </div>
+  </div>
 
 <% end %>

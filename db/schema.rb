@@ -27,10 +27,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_110843) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.integer "price"
-    t.integer "discount"
+    t.string "name", null: false
+    t.string "description", null: false
+    t.integer "price", null: false
+    t.integer "discount", null: false
     t.integer "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,9 +45,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_110843) do
   end
 
   create_table "stores", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.integer "phone"
+    t.string "name", null: false
+    t.string "description", null: false
+    t.integer "phone", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
