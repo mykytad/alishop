@@ -1,5 +1,4 @@
 <h1> Your cart </h1>
-<%= @cart %>
 <hr/>
 <% if @products.empty? %>
   <p>Your cart is empty</p>
@@ -28,7 +27,6 @@
   <div>
     <%= @sum %>$
     <%= link_to "To order", checkout_path,  class:"btn btn-primary rounded-pill px-3 col-2" %>
-
   </div>
 
 <% end %>
