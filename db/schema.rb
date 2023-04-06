@@ -25,9 +25,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_110843) do
     t.string "address", null: false
     t.string "zip", null: false
     t.string "country", null: false
-    t.string "status", null: false
+    t.string "status", default: "new", null: false
     t.integer "sum_price", null: false
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

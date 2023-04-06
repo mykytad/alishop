@@ -11,7 +11,7 @@ class CartController < ApplicationController
     @products = Product.where({ :id => @cart })
     @sum = 0
     @products.each do |product|
-      @sum += product.price * @cart.count(product.id.to_s)
+      @sum += (product.price - product.discount) * @cart.count(product.id.to_s)
     end
     # @cart.each do |cart|
     #   @sum += @products.find(cart).price

@@ -16,7 +16,7 @@
         
         <%= link_to "Delete", cart_delete_path({:product_id => product.id}), class:"btn btn-danger rounded-pill px-3 col-2" %>
         
-        <span class = "col-1"> <%= product.price * @cart.count(product.id.to_s) %>$ </span>
+        <span class = "col-1"> <%= (product.price - product.discount) * @cart.count(product.id.to_s) %>$ </span>
 
         <%= link_to "", cart_delete_all_path({:product_id => product.id}), title:"delete_all", class:"btn-close btn_close" %>
       </div>
@@ -26,7 +26,7 @@
 
   <div class="row justify-content-between">
   <div class="col-4">
-    <%= link_to "Place order", checkout_path,  class:"btn btn-primary rounded-pill" %>
+    <%= link_to "Place order", new_order_path,  class:"btn btn-primary rounded-pill" %>
   </div>
   <div class="col-6 justify-content-end ">
     <strong class="align-self-end"><%= @sum %>$</strong>
