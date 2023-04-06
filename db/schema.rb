@@ -19,8 +19,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_110843) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "status"
-    t.integer "sum_price"
+    t.string "name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.string "address", null: false
+    t.string "zip", null: false
+    t.string "country", null: false
+    t.string "status", null: false
+    t.integer "sum_price", null: false
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

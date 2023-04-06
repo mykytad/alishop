@@ -39,7 +39,7 @@
 
           <div class="col-sm-6">
             <%= form.label :Last_Name, class:"form-label" %>
-            <%= form.text_field :Last_Name, class:"form-control" %>
+            <%= form.text_field :last_name, class:"form-control" %>
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -47,7 +47,7 @@
 
           <div class="col-12">
             <%= form.label :Email, class:"form-label" %>
-            <%= form.text_field :email, placeholder:"you@example.com", class:"form-control" %>
+            <%= form.text_field :email, placeholder:"you@example.com", autocomplete: "email", class:"form-control" %>
             <div class="invalid-feedback">
               Please enter a valid email address for shipping updates.
             </div>
