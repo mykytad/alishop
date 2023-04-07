@@ -8,7 +8,7 @@ class Cart
   end
 
   def products
-    Product.where({:id => @product_ids})
+    Product.where({ :id => @product_ids })
   end
 
   def sum
