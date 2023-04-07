@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get "cart/delete_all" => "cart#delete_all"
   get "cart/show" =>"cart#show"
 
-  resources :order
+  resources :orders
+
   resources :stores do
     resources :products
   end

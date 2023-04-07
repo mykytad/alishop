@@ -1,37 +1,30 @@
 class CartController < ApplicationController
-  before_action :cart
+  before_action :load_cart
 
   def add
-    session[:cart] << params[:product_id]
+    @cart.add_product(product_id)
+
     redirect_to cart_show_path
   end
 
   def show
-    @cart = session[:cart]
-    @products = Product.where({ :id => @cart })
-    @sum = 0
-    @products.each do |product|
-      @sum += (product.price - product.discount) * @cart.count(product.id.to_s)
-    end
-    # @cart.each do |cart|
-    #   @sum += @products.find(cart).price
-    # end
+    @products = @cart.products
+    @sum = @cart.sum
   end
 
   def delete
-    product_id = params[:product_id].to_s
-    position = session[:cart].index(product_id)
-    session[:cart].delete_at(position)
+    @cart.delete_product(product_id)
+
     redirect_to cart_show_path
   end
 
   def delete_all
-    product_id = params[:product_id].to_s
-    session[:cart].delete(product_id)
+    @cart.delete_all_product(product_id)
+
     redirect_to cart_show_path
   end
 
-  def cart
-    session[:cart] = session[:cart].to_a
+  def product_id
+    params[:product_id].to_s
   end
 end

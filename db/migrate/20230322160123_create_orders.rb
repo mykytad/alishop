@@ -5,10 +5,10 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.string :last_name, null: false
       t.string :email, null: false
       t.string :address, null: false
-      t.string :zip, null: false
+      t.integer :zip, null: false
       t.string :country, null: false
       t.string :status, null: false, default: "new"
-      t.integer :sum_price, null: false
+      t.integer :sum_price
       t.integer :user_id, null: false
       t.timestamps
     end
