@@ -3,7 +3,7 @@ class CartController < ApplicationController
 
   def add
     @cart.add_product(product_id)
-    
+
     redirect_to cart_show_path
   end
 
