@@ -3,6 +3,7 @@ class Cart
     unless session.is_a?(Array)
       raise "session is not an array"
     end
+    
     @product_ids = session
   end
 
