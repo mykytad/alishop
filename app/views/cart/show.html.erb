@@ -10,11 +10,11 @@
       </div>
 
       <div class = "col-6 row justify-content-end align-items-center">
-        <%= link_to "Add", cart_add_path({:product_id => product.id}), class:"btn btn-primary rounded-pill px-3 col-2" %>
+        <%= link_to "Add", cart_add_path({:product_id => product.id}), title:"add", class:"btn btn-primary rounded-pill px-3 col-2" %>
         
         <span class="col-1"> <%= @cart.count(product.id.to_s)%> </span>
         
-        <%= link_to "Delete", cart_delete_path({:product_id => product.id}), class:"btn btn-danger rounded-pill px-3 col-2" %>
+        <%= link_to "Delete", cart_delete_path({:product_id => product.id}), title:"delete", class:"btn btn-danger rounded-pill px-3 col-2" %>
         
         <span class = "col-1"> <%= product.price_with_discount * @cart.count(product.id.to_s) %>$ </span>
 

@@ -1,6 +1,9 @@
 class Cart
-  def initialize(cart)
-    @product_ids = cart.to_a
+  def initialize(session)
+    unless session.is_a?(Array)
+      raise "session is not an array"
+    end
+    @product_ids = session
   end
 
   def add_product(product_id)

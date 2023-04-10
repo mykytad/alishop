@@ -14,7 +14,7 @@
         </p>
       <% end %>
 
-      <%= link_to "Buy", cart_add_path({:product_id => product.id}), class:"btn btn-primary" %>
+      <%= link_to "Buy", cart_add_path({:product_id => product.id}), title:"buy", class:"btn btn-primary" %>
       <%= link_to "Detailed", store_product_path(product.store_id, product.id), class:"btn btn-outline-primary" %>
 
       <% if current_user %>
