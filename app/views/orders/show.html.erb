@@ -2,11 +2,13 @@
   <main class="px-3">
     <h1>Thank you</h1>
     <p class="lead">
-      Your order № <%=@order.id%>
+      Your order № <strong> <%=@order.id%> </strong>
     </p>
     <p class="lead">
-      If you have any questions, you can contact us on the number
+      You will be contacted as soon as possible on the number you provided
     </p>
-    <p></p>
+    <p>
+      <%= link_to "back to the store", products_path, class:"btn btn-outline-primary" %>
+    </p>
   </main>
 </div>

@@ -24,6 +24,12 @@ class CartController < ApplicationController
     redirect_to cart_show_path
   end
 
+  def clear
+    @cart.clear_product
+
+    redirect_to root_path
+  end
+
   def product_id
     params[:product_id].to_s
   end

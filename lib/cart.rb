@@ -37,6 +37,6 @@ class Cart
   end
 
   def clear_product
-    @product_ids = []
+    @product_ids.clear
   end
 end

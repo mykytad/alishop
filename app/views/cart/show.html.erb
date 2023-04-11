@@ -3,6 +3,7 @@
 <% if @products.empty? %>
   <p>Your cart is empty</p>
 <% else %>
+  <%= link_to "Clear", clear_path %>
   <% @products.each do |product| %>
     <div class = "col-12 d-flex row justify-content-between">
       <div class = "col-4">
@@ -28,7 +29,7 @@
   <div class="col-4">
     <%= link_to "Place order", new_order_path,  class:"btn btn-primary rounded-pill" %>
   </div>
-  <div class="col-6 justify-content-end ">
+  <div class="col-6 justify-content-end">
     <strong class="align-self-end"><%= @sum %>$</strong>
   </div>
   </div>
