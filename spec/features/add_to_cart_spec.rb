@@ -3,9 +3,9 @@ require "shared_methods"
 
 RSpec.feature "add to cart ", type: :feature do
   before do
-   test_product
+    test_product
   end
-  
+
   it "add product to cart" do
     click_link "Buy"
 
