@@ -27,7 +27,7 @@ class CartController < ApplicationController
   def clear
     @cart.clear_product
 
-    redirect_to root_path
+    redirect_to cart_show_path
   end
 
   def product_id

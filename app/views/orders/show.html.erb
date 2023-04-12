@@ -26,16 +26,9 @@
 
     <div class="col-md-7 col-lg-8">
       <h4 class="mb-3">Your order №<%=@order.id%></h4>
-
-      
-      <%@order.products.each do |order|%>
-        <%=order.name%>
+      <% @products.each do |product| %>
+        <%= product.name %>
       <% end %>
-      <p>products </p>
-      <p>products </p>
-      <p>products </p>
-      <p>products </p>
-      <p>products </p>
     </div>
   </div>
 </main>

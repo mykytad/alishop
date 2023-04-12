@@ -19,11 +19,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_110843) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.string "products"
     t.string "name", null: false
     t.string "last_name", null: false
     t.string "email", null: false
     t.string "address", null: false
-    t.string "zip", null: false
+    t.integer "zip", null: false
     t.string "country", null: false
     t.string "status", default: "new", null: false
     t.integer "sum_price"
