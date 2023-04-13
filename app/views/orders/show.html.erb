@@ -26,9 +26,23 @@
 
     <div class="col-md-7 col-lg-8">
       <h4 class="mb-3">Your order №<%=@order.id%></h4>
-      <% @products.each do |product| %>
-        <%= product.name %>
-      <% end %>
+      
+      <div class="col-12 d-flex justify-content-between">
+      <div class="col-2">
+        <% @products.each do |product| %>
+          <p >
+            <%= product.name %> <!--<%= product.price - product.discount %>-->
+          </p>
+        <% end %>
+        </div>
+        <div class="col-8 d-flex justify-content-end">
+        <% @order_products.each do |order_product| %>
+          <p class="col-2">
+            <%= order_product.product_price %>
+          </p>
+        <% end %>
+        <div>
+      </div>
     </div>
   </div>
 </main>
