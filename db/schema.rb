@@ -13,6 +13,7 @@
 ActiveRecord::Schema[7.0].define(version: 2023_03_28_110843) do
   create_table "order_products", force: :cascade do |t|
     t.integer "product_price", null: false
+    t.integer "product_count", null: false
     t.integer "product_id"
     t.integer "order_id"
     t.datetime "created_at", null: false
@@ -20,7 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_110843) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "products"
     t.string "name", null: false
     t.string "last_name", null: false
     t.string "email", null: false

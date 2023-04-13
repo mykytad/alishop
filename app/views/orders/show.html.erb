@@ -38,7 +38,7 @@
         <div class="col-8 d-flex justify-content-end">
         <% @order_products.each do |order_product| %>
           <p class="col-2">
-            <%= order_product.product_price %>
+            <small class="text-body-secondary"><%= order_product.product_count %>x</small> <%= order_product.product_price %>$
           </p>
         <% end %>
         <div>

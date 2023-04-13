@@ -1,7 +1,6 @@
 class CreateOrders < ActiveRecord::Migration[7.0]
   def change
     create_table :orders do |t|
-      t.string :products
       t.string :name, null: false
       t.string :last_name, null: false
       t.string :email, null: false
