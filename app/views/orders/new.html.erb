@@ -11,7 +11,6 @@
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0"><%= product.name%></h6>
-              
               <small class="text-body-secondary"><%= product.description %></small>
             </div>
             <div>
@@ -27,7 +26,7 @@
     </div>
 
     <div class="col-md-7 col-lg-8">
-      <%= form_with class:"needs-validation" do |form| %>
+      <%= form_with model: @order  do |form| %>
         <div class="row g-3">
           <div class="col-sm-6">
             <%= form.label :name, class:"form-label" %>
@@ -38,7 +37,7 @@
           </div>
 
           <div class="col-sm-6">
-            <%= form.label :Last_Name, class:"form-label" %>
+            <%= form.label :last_name, class:"form-label" %>
             <%= form.text_field :last_name, class:"form-control" %>
             <div class="invalid-feedback">
               Valid last name is required.
@@ -46,7 +45,7 @@
           </div>
 
           <div class="col-12">
-            <%= form.label :Email, class:"form-label" %>
+            <%= form.label :email, class:"form-label" %>
             <%= form.text_field :email, placeholder:"you@example.com", autocomplete: "email", class:"form-control" %>
             <div class="invalid-feedback">
               Please enter a valid email address for shipping updates.
@@ -54,7 +53,7 @@
           </div>
 
           <div class="col-12">
-            <%= form.label :Address, class:"form-label" %>
+            <%= form.label :address, class:"form-label" %>
             <%= form.text_field :address, class:"form-control" %>
             <div class="invalid-feedback">
               Please enter your shipping address.
@@ -62,16 +61,18 @@
           </div>
 
           <div class="col-12">
-            <%= form.label :Zip, class:"form-label" %>
+            <%= form.label :zip, class:"form-label" %>
             <%= form.text_field :zip, class:"form-control" %>
             <div class="invalid-feedback">
               Zip code required.
             </div>
           </div>
 
+          <%= form.hidden_field :sum_price, value: @sum %>
+
           <div class="col-md-5">
-            <%= form.label :Country, for:"country", class:"form-label" %>
-            <%= form.country_select :country_code %>
+            <%= form.label :country, for:"country", class:"form-label" %>
+            <%= form.country_select :country %>
             <div class="invalid-feedback">
               Please select a valid country.
             </div>
@@ -90,7 +91,7 @@
           <label class="form-check-label" for="save-info">Save this information for next time</label>
         </div>-->
 
-        <hr class="my-4">
+       <hr class="my-4">
 
 
         <%= form.submit "Create an order", class:"w-100 btn btn-primary btn-lg" %>
