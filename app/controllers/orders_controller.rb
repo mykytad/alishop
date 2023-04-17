@@ -20,19 +20,22 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.user_id = current_user.id
-    @products = @cart.products
+    
     if @order.save
       @cart.products.each do |product|
         order_product = OrderProduct.new(:product_id => product.id, :order_id => @order.id)
         order_product.product_price = product.price - product.discount
         order_product.product_count = @cart.count(product.id.to_s)
+        order_product.product_name = product.name
         order_product.save!
       end
       @cart.clear_product
 
       redirect_to @order
     else
-      render :new
+      @products = @cart.products
+      @sum = @cart.sum
+      render :new, status: :unprocessable_entity
     end
   end
 
