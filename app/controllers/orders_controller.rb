@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.user_id = current_user.id
-    
+
     if @order.save
       @cart.products.each do |product|
         order_product = OrderProduct.new(:product_id => product.id, :order_id => @order.id)
