@@ -19,7 +19,7 @@
 
       <% if current_user %>
         <% if product.store.user_id == current_user.id %>
-          <%= link_to "Edit", "#", class:"btn btn-outline-primary" %>
+          <%= link_to "Edit", edit_store_product_path(product.store_id, product.id), class:"btn btn-outline-primary" %>
           <%= link_to "Delete", store_product_path(product.store_id, product.id), data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-danger" %>
         <% end %>
       <% end %>
