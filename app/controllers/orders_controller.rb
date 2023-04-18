@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :load_cart
 
   def index
-    @orders = Order.all
+    @orders = Order.where(:user_id => current_user.id)
   end
 
   def show

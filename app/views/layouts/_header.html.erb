@@ -28,7 +28,6 @@
           <% if user_signed_in? %>
             <ul class="nav">
               <li class="nav-item"><%= link_to "Profile", current_user, class:"nav-link link-dark px-2" %></li>
-              <li class="nav-item"><%= link_to "Setting", edit_user_registration_path, class:"nav-link link-dark px-2" %></li>
               <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, class:"nav-link link-dark px-2", data: { turbo_method: :delete } %></li>
             </ul>
           <% else %>
