@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def help
   end
+
+  def create_stor_info
+  end
 end
