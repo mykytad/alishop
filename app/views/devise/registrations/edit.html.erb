@@ -1,6 +1,8 @@
-<main class="form-signin text-center m-auto d-flex justify-content-center col-12"> <!--  w-100  -->
+<main class="form-signin m-auto d-flex justify-content-center col-12">
   <div class="col-4">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <div class="d-flex justify-content-center">
+      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    </div>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -32,10 +34,10 @@
 
       <div class="row mb-3">
         <div class="field col-sm-8 w-100">
-          <%= f.label :password, class:"col-sm-2 col-form-label" %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.label :password, class:"col-sm-2 col-form-label" %> <small class = "text-body-secondary">(leave blank if you don't want to change it)</small><br />
           <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
           <% if @minimum_password_length %>
-            <em class = "fw-lighter"><%= @minimum_password_length %> characters minimum</em>
+            <small class = "text-body-secondary"><%= @minimum_password_length %> characters minimum</small>
           <% end %>
         </div>
       </div>
@@ -49,23 +51,23 @@
 
       <div class="row mb-3">
           <div class="field col-sm-8 w-100">
-          <%= f.label :current_password, class:"col-sm-5 col-form-label" %> 
-          <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
-          <i class = "fw-lighter">(we need your current password to confirm your changes)</i><br />
+          <%= f.label :current_password, class:"col-sm-4 col-form-label" %>
+          <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %> 
+          <small class = "text-body-secondary">(we need your current password to confirm your changes)</small><br />
         </div>
       </div>
 
       <div class="actions">
-        <%= f.submit "Update", class:"btn btn-primary" %>
+        <%= f.submit "Update", class:"btn btn-primary w-100" %>
       </div>
     <% end %>
 
-    <h3>Cancel my account</h3>
+    <h3 class="mt-2">Cancel my account</h3>
 
     <div>
-      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete,class:"btn btn-outline-danger mt-2" %>
+      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete,class:"btn btn-outline-danger mt-2 w-100" %>
     </div>
 
-    <%= link_to "Back", :back, class:"btn btn-outline-primary mt-2" %>
+    <%= link_to "Back", :back, class:"btn btn-outline-primary mt-2 w-100" %>
   </div>
 </main>
