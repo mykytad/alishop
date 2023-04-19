@@ -1,5 +1,47 @@
-<%@orders.each do |order|%>
-<p> <%= order.id %> </p>
-<span> <%= order.name %> </span>
-<hr>
-<% end %>
+
+<div class="row g-5">
+
+  <div class="bg-body-tertiary col-md-5 col-lg-4 order-md-last" style="border-radius:20px;background:#6d757d;">
+    
+    <div class="mt-3 list-group mb-3">
+      <div>
+        <p class="my-0">
+          <%= link_to "My order", orders_path, class:"nav-link" %>
+        </p>
+      </div>
+      <hr>
+      <div>
+        <p class="my-0">
+          <%= link_to "Setting", edit_user_registration_path, class:"nav-link" %>
+        </p>
+      </div>
+    </div>
+    <hr>
+
+  </div>
+
+  <div class="col-md-7 col-lg-8">
+    <div class="col-12 d-flex flex-column">
+      <div class="col-11 d-flex justify-content-between">
+        <p class="col-2">
+            Order number
+        </p>
+        <p class="col-2">
+            Order nustatus
+        </p>
+        <p class="col-2">
+            Order price
+        </p>
+      </div>
+      <%@orders.each do |order|%>
+        <div class="col-11 d-flex justify-content-between bg-body-tertiary">
+          <p class="col-1 px-2"><%=order.id%></p>
+          <p class="col-2"><%=order.status%></p>
+          <p class="col-2"><%=order.sum_price%></p>
+          <%= link_to "More", order_path(order.id), class:"px-2" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

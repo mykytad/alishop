@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_28_110843) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_19_123135) do
   create_table "order_products", force: :cascade do |t|
-    t.string "product_name"
+    t.string "product_name", null: false
     t.integer "product_price", null: false
     t.integer "product_count", null: false
-    t.integer "product_id"
-    t.integer "order_id"
+    t.integer "product_id", null: false
+    t.integer "order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_110843) do
     t.integer "zip", null: false
     t.string "country", null: false
     t.string "status", default: "new", null: false
-    t.integer "sum_price"
+    t.integer "sum_price", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_110843) do
     t.string "description", null: false
     t.integer "price", null: false
     t.integer "discount", null: false
-    t.integer "store_id"
+    t.integer "store_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"

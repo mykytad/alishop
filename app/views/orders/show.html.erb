@@ -29,39 +29,39 @@
       <h4 class="mb-3">Your order №<%=@order.id%></h4>
       
       <div class="col-12 d-flex flex-column">
-          <div class="col-11 d-flex justify-content-between">
+        <div class="col-11 d-flex justify-content-between">
+          <p class="col-2">
+            Product name
+          </p>
+          <p class="col-1">
+            Price
+          </p>
+          <p class="col-2">
+            Count
+          </p>
+          <p class="col-1">
+            sum
+          </p>
+        </div>
+        <hr>
+
+        <% @order_products.each do |order_product| %>
+          <div class="col-11 d-flex justify-content-between bg-body-tertiary">
             <p class="col-2">
-              Product name
+              <!--<%= order_product.product.image %>-->
+              <%= order_product.product_name %><br>
             </p>
             <p class="col-1">
-              Price
+              <%= order_product.product_price %>$
             </p>
-            <p class="col-2">
-              Count
+            <p class="text-body-secondary col-2">
+              <%= order_product.product_count %>
             </p>
             <p class="col-1">
-              sum
+              <%= order_product.product_price * order_product.product_count %>$
             </p>
           </div>
-          <hr>
-
-          <% @order_products.each do |order_product| %>
-           <div class="col-11 d-flex justify-content-between bg-body-tertiary">
-              <p class="col-2">
-                <!--<%= order_product.product.image %>-->
-                <%= order_product.product_name %><br>
-              </p>
-              <p class="col-1">
-                <%= order_product.product_price %>$
-              </p>
-              <p class="text-body-secondary col-2">
-                <%= order_product.product_count %>
-              </p>
-              <p class="col-1">
-                <%= order_product.product_price * order_product.product_count %>$
-              </p>
-            </div>
-          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
