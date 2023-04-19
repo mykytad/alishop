@@ -1,4 +1,7 @@
-<h3 class=""> Last products </h3>
+<div class="d-flex"> 
+  <h3 > Last products </h3>
+  <%= link_to "All products", products_path %>
+</div>
 
 <div class="row g-4">
 
@@ -10,7 +13,11 @@
 
 <hr/>
 
-<h3> Last stores </h3>
+<div class="d-flex"> 
+  <h3> Last stores </h3>
+  <%= link_to "All stores", stores_path %>
+</div>
+
 <div class="row g-4">
 
   <% @stores.each do |store| %>
@@ -21,7 +28,10 @@
 
 <hr/>
 
-<h3> Last discount products </h3>
+<div> 
+  <h3> Last discount products </h3>
+</div>
+
 <div class="row g-4">
 
   <% @discount_products.each do |discount_product|%>
