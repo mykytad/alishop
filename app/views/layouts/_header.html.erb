@@ -15,9 +15,6 @@
         <%end%></li>
         </ul>
 
-        
-
-
         <div>
           <ul class="nav">
           <li><%= link_to cart_show_path, class:"nav-link px-2 link-dark" do %>
@@ -27,6 +24,19 @@
               <% end %>
           </li>
             <% if user_signed_in? %>
+
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown link
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><%= link_to "Profile", current_user, class:"nav-link link-dark px-2" %></li>
+                  <li class="nav-item"><%= link_to "My order", orders_path, class:"nav-link link-dark px-2" %></li>
+                  <li class="nav-item"><%= link_to "Setting", edit_user_registration_path, class:"nav-link link-dark px-2" %></li>
+                  <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, class:"nav-link link-dark px-2", data: { turbo_method: :delete } %></li>
+                </ul>
+              </div>
+
               <li class="nav-item"><%= link_to "Profile", current_user, class:"nav-link link-dark px-2" %></li>
               <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, class:"nav-link link-dark px-2", data: { turbo_method: :delete } %></li>
             <% else %>
