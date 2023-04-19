@@ -1,12 +1,29 @@
-<h2> <%= @product.name %> </h2>
-<%= image_tag @product.image.url(:large),alt: @product.name, class: "product_image" if @product.image? %>
-<p> <%= @product.description %> </p>
-<p> <%= @product.price %> $ </p>
 
-<%= link_to "Buy", cart_add_path({:product_id => @product.id}), class:"btn btn-primary" %>
-<% if current_user %>
-  <% if @product.store.user_id == current_user.id %>
-    <%= link_to "Edit", edit_store_product_path(@product.store_id, @product.id), class:"btn btn-outline-primary" %>
-    <!--<%= link_to "Delete", @store, data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-danger" %>-->
-  <% end %>
-<% end %>
+<div class="d-flex col-12">
+  <div class="col-9">
+    <h2> <%= @product.name %> </h2>
+    <%= image_tag @product.image.url(:large),alt: @product.name, class: "product_image" if @product.image? %>
+    <p> <%= @product.description %> </p>
+  </div>
+
+  <div class="col-3">
+    <p> <%= @product.description %> </p>
+   
+    <% if @product.discount == 0 %>
+        <p class="card-text"> <%= @product.price %>$ </p>
+      <% else %>
+        <p class="card-text ">
+          <span class="discount"><%= @product.price - @product.discount %>$</span>
+          <span class="line-through"><%= @product.price %>$</span>  
+        </p>
+      <% end %>
+    <%= link_to "Buy", cart_add_path({:product_id => @product.id}), class:"btn btn-primary" %>
+    
+    <% if current_user %>
+      <% if @product.store.user_id == current_user.id %>
+        <%= link_to "Edit", edit_store_product_path(@product.store_id, @product.id), class:"btn btn-outline-primary" %>
+        <!--<%= link_to "Delete", @store, data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-danger" %>-->
+      <% end %>
+    <% end %>
+  </div>
+</div>

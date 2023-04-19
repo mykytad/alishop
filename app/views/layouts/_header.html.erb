@@ -4,6 +4,15 @@
         <%= link_to "Ali Shop", root_path, class:"nav-link px-2 link-secondary" %>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+          <% current_user.stores.each do |store|%>
+            <li>
+              <%= link_to store_path(store.id), class:"nav-link px-2 link-dark" do %> 
+              <%= store.name %>
+                <span class="badge bg-secondary"></span>
+              <% end %>
+            </li>
+          <% end %>
           <!--<li><%= link_to "Home", root_path, class:"nav-link px-2 link-dark" %></li>
           <li><%= link_to "All Store", stores_path, class:"nav-link px-2 link-dark" %></li>
           <li><%= link_to "All Products", products_path, class:"nav-link px-2 link-dark" %></li>-->
