@@ -47,6 +47,12 @@ Style/GuardClause:
 Bundler/OrderedGems:
   Enabled: false
 
+Lint/DeprecatedClassMethods:
+  Enabled: false
+
+Lint/UselessAssignment:
+  Enabled: false
+
 AllCops:
   Exclude:
     - 'config/**/*'

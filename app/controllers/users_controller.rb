@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     file = File.exists?(file_path) # проверка на существование аватара
 
     if file == false
-      img = Avatarly.generate_avatar(@user.name, opts={size: 40})
+      img = Avatarly.generate_avatar(@user.name, opts = { size: 40 })
       File.open(file_path, 'wb') do |f|
         f.write(img)
       end

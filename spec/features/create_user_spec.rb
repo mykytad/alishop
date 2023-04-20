@@ -9,7 +9,6 @@ RSpec.feature "create user", type: :feature do
     fill_in :user_password, with: "111111"
     fill_in :user_password_confirmation, with: "111111"
     click_button "Sign up"
-    save_and_open_page
     # click_link "Profile"
 
     # expect(body).to have_content "Tom"
