@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
         order_product.product_price = product.price - product.discount
         order_product.product_count = @cart.count(product.id.to_s)
         order_product.product_name = product.name
+        order_product.store_id = product.store_id
         order_product.save!
       end
       @cart.clear_product

@@ -5,13 +5,16 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 
-          <% current_user.stores.each do |store|%>
-            <li>
-              <%= link_to store_path(store.id), class:"nav-link px-2 link-dark" do %> 
-              <%= store.name %>
-                <span class="badge bg-secondary"></span>
-              <% end %>
-            </li>
+
+          <% if current_user %>
+            <% current_user.stores.each do |store|%>
+              <li>
+                <%= link_to store_path(store.id), class:"nav-link px-2 link-dark" do %> 
+                <%= store.name %>
+                  <span class="badge bg-secondary"></span>
+                <% end %>
+              </li>
+            <% end %>
           <% end %>
           <!--<li><%= link_to "Home", root_path, class:"nav-link px-2 link-dark" %></li>
           <li><%= link_to "All Store", stores_path, class:"nav-link px-2 link-dark" %></li>
