@@ -17,6 +17,13 @@ Rails.application.routes.draw do
     resources :products
   end
 
+  namespace :meneger do
+    resources :stores, only: [:index, :destroy]
+    resources :products, only: [:index, :destroy]
+    # root ""
+  end
+
+
   resources :products, only: [:index]
 
    resources :users
