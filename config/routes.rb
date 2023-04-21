@@ -17,16 +17,17 @@ Rails.application.routes.draw do
     resources :products
   end
 
-  namespace :meneger do
-    resources :stores, only: [:index, :destroy]
-    resources :products, only: [:index, :destroy]
-    # root ""
+  namespace :manager do
+    resources :stores do
+      resources :orders
+      resources :products
+    end
+
+    resources :products, only: [:index]
   end
 
-
   resources :products, only: [:index]
-
-   resources :users
+  resources :users
 
   root "home#index"
 end

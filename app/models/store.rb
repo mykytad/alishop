@@ -1,5 +1,6 @@
 class Store < ApplicationRecord
   has_many :products, :dependent => :destroy
+  has_many :orders
   belongs_to :user
 
   validates :name, presence: true
