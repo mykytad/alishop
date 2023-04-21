@@ -30,4 +30,16 @@ RSpec.feature "create store", type: :feature do
     expect(body).to have_content "color: space grey"
     expect(body).to have_content "950$"
   end
+
+  it "edit product" do
+    test_product
+
+    click_link "Edit"
+    fill_in :product_discount, with: "50"
+    click_button "Create product"
+
+    expect(body).to have_content "Phone"
+    expect(body).to have_content "color: space grey"
+    expect(body).to have_content "900$"
+  end
 end

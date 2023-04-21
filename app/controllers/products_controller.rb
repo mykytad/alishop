@@ -20,6 +20,20 @@ class ProductsController < ApplicationController
     redirect_to store_path(@store)
   end
 
+  def edit
+    @product = store.products.find(params[:id])
+  end
+
+  def update
+    @product = store.products.find(params[:id])
+
+    if @product.update(product_params)
+      redirect_to store_path(@store)
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @product = store.products.find(params[:id])
     @product.destroy

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "contact" => "pages#contact"
   get "about" => "pages#about"
   get "help" => "pages#help"
+  get "create_stor_info" => "pages#create_stor_info"
   get "cart/add" =>"cart#add"
   get "cart/delete" =>"cart#delete"
   get "cart/delete_all" => "cart#delete_all"
@@ -15,6 +16,13 @@ Rails.application.routes.draw do
   resources :stores do
     resources :products
   end
+
+  namespace :meneger do
+    resources :stores, only: [:index, :destroy]
+    resources :products, only: [:index, :destroy]
+    # root ""
+  end
+
 
   resources :products, only: [:index]
 

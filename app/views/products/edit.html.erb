@@ -1,0 +1,3 @@
+<h2> Edit Product </h2>
+<%= render "form", product: @product %>
+<%= link_to "Delete", @store, data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"mt-2 btn btn-outline-danger" %>

@@ -1,0 +1,2 @@
+class MenegerController < ApplicationController
+end
