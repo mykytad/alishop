@@ -3,10 +3,12 @@ class Manager::OrdersController < ApplicationController
     store = Store.find(params[:store_id])
     @orders = store.orders
     @orders = @orders.order(:id => :DESC)
-    # @orders_status_new = @orders.where(:status => :new)
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_products = @order.order_products
+    @products = @order.products
   end
 
   def destroy
