@@ -1,43 +1,54 @@
-
-<div class="row g-5">
-  <div class="bg-body-tertiary col-md-5 col-lg-4 order-md-last" style="border-radius:20px;background:#6d757d;">    
-    <div class="mt-3 list-group mb-3">
-      <hr>
-    </div>
+<main>
+  <div class="py-5 text-center">
+    <h4 class="mb-3 h2"><%= @store.name %> Orders</h4>
   </div>
+  <div class="row g-5">
+    <div class="bg-body-tertiary col-md-5 col-lg-4 order-md-last" style="border-radius:20px;background:#6d757d;">    
+      <div class="mt-3 list-group mb-3">
 
-  <div class="col-md-7 col-lg-8">
-    <div class="col-12 d-flex flex-column">
-      <div class="col-11 d-flex justify-content-between">
-        <p class="col-2">
-            Number
-        </p>
-        <p class="col-2">
-            Status
-        </p>
-        <p class="col-1">
-            Price
-        </p>
-        <p class="col-3">
-            Client email
-        </p>
-        <p class="col-2">
-            Created at
-        </p>
-        <p class="col-1"></p>
+        <% if current_user %>
+        <% if @store.user_id == current_user.id %>
+          <%= link_to "Edit store", edit_store_path(@store.id), class:"btn btn-outline-primary" %>
+          <%= link_to "Create a new product", new_store_product_path(@store.id), class:"my-3 btn btn-outline-primary" %>
+          <%= link_to "Destroy store", store_path(@store.id), data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-secondary" %>
+        <% end %>
+        <% end %>
       </div>
-
-      <%@orders.each do |order|%>
-        <div class="col-11 d-flex justify-content-between bg-body-tertiary">
-          <p class="col-2 px-2"><%=order.id%></p>
-          <p class="col-2"><%=order.status%></p>
-          <p class="col-1"><%=order.sum_price%></p>
-          <p class="col-3"><%=order.email%></p>
-          <p class="col-2"><%=order.created_at.to_s(:short)%></p>
-          <%= link_to "More", manager_store_order_path(order.store_id, order.id), class:"col-1 px-2" %>
-        </div>
-      <% end %>
     </div>
-  </div>
 
-</div>
+    <div class="col-md-7 col-lg-8">
+      <div class="col-12 d-flex flex-column">
+        <div class="col-11 d-flex justify-content-between">
+          <p class="col-2">
+              Number
+          </p>
+          <p class="col-2">
+              Status
+          </p>
+          <p class="col-1">
+              Price
+          </p>
+          <p class="col-3">
+              Client email
+          </p>
+          <p class="col-2">
+              Created at
+          </p>
+          <p class="col-1"></p>
+        </div>
+
+        <%@orders.each do |order|%>
+          <div class="col-11 d-flex justify-content-between bg-body-tertiary">
+            <p class="col-2 px-2"><%=order.id%></p>
+            <p class="col-2"><%=order.status%></p>
+            <p class="col-1"><%=order.sum_price%></p>
+            <p class="col-3"><%=order.email%></p>
+            <p class="col-2"><%=order.created_at.to_s(:short)%></p>
+            <%= link_to "More", manager_store_order_path(order.store_id, order.id), class:"col-1 px-2" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</main>
