@@ -21,37 +21,42 @@
       <div class="mb-5 text-center">
         <h4 class="mb-3 h2"><%= @store.name %> Orders</h4>
       </div>
-      <div class="col-12 d-flex flex-column">
-        <div class="col-11 d-flex justify-content-between">
-          <p class="col-2">
-              Number
-          </p>
-          <p class="col-2">
-            Status
-          </p>
-          <p class="col-1">
-            Price
-          </p>
-          <p class="col-3">
-            Client email
-          </p>
-          <p class="col-2">
-            Created at
-          </p>
-          <p class="col-1"></p>
-        </div>
-
-        <%@orders.each do |order|%>
-          <div class="col-11 d-flex justify-content-between bg-body-tertiary">
-            <p class="col-2 px-2"><%=order.id%></p>
-            <p class="col-2"><%=order.status%></p>
-            <p class="col-1"><%=order.sum_price%></p>
-            <p class="col-3"><%=order.email%></p>
-            <p class="col-2"><%=order.created_at.to_s(:short)%></p>
-            <%= link_to "More", manager_store_order_path(order.store_id, order.id), class:"col-1 px-2" %>
+      <% if @store.store_new_orders == 0 %>
+        <p class="h2"> You don't have orders yet </p>
+      <% else %>
+        <div class="col-12 d-flex flex-column">
+          <div class="col-11 d-flex justify-content-between">
+            <p class="col-2">
+                Number
+            </p>
+            <p class="col-2">
+              Status
+            </p>
+            <p class="col-1">
+              Price
+            </p>
+            <p class="col-3">
+              Client email
+            </p>
+            <p class="col-2">
+              Created at
+            </p>
+            <p class="col-1"></p>
           </div>
-        <% end %>
-      </div>
+
+          <%@orders.each do |order|%>
+            <div class="col-11 d-flex justify-content-between bg-body-tertiary">
+              <p class="col-2 px-2"><%=order.id%></p>
+              <p class="col-2"><%=order.status%></p>
+              <p class="col-1"><%=order.sum_price%></p>
+              <p class="col-3"><%=order.email%></p>
+              <p class="col-2"><%=order.created_at.to_s(:short)%></p>
+              <%= link_to "More", manager_store_order_path(order.store_id, order.id), class:"col-1 px-2" %>
+            </div>
+          <% end %>
+        
+        </div>
+      <% end %>
     </div>
 
   </div>

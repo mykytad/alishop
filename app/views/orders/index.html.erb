@@ -50,7 +50,11 @@
           <p class="text-body-secondary col-2 px-2"><%= order.id %></p>
           <p class="text-body-secondary col-2"><%= order.status %></p>
           <p class="text-body-secondary col-2"><%= number_to_currency(order.sum_price) %></p>
-          <p class="col-2"><%= link_to order.store.name, store_path(order.store.id) %></p>
+          <% if order.store %>
+            <p class="col-2"><%= link_to order.store.name, store_path(order.store.id) %></p>
+          <% else %>
+            <p class="text-body-secondary col-2">(deleted)</p>
+          <% end %>
           <p class="text-body-secondary col-2"><%= order.created_at.to_s(:short) %></p>
           <%= link_to "More", order_path(order.id), class:"col-1 px-2" %>
         </div>

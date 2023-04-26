@@ -38,7 +38,7 @@
           <p class="col-2">
             Count
           </p>
-          <p class="col-1">
+          <p class="col-2">
             sum
           </p>
         </div>
@@ -46,7 +46,11 @@
         <% @order_products.each do |order_product| %>
           <div class="col-11 d-flex justify-content-between bg-body-tertiary">
             <p class="text-body-secondary col-2">
+              <% if order_product.product %>
               <!--<%= order_product.product.image %>-->
+              <% else %>
+              <p>(deleted)</p>
+              <% end %>
               <%= order_product.product_name %><br>
             </p>
             <p class="text-body-secondary col-1">
@@ -55,7 +59,7 @@
             <p class="text-body-secondary col-2">
               <%= order_product.product_count %>
             </p>
-            <p class="text-body-secondary col-1">
+            <p class="text-body-secondary col-2">
               <%= number_to_currency(order_product.product_price * order_product.product_count) %>
             </p>
           </div>
