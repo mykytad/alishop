@@ -1,8 +1,1 @@
-<%= form_with model: @order do |form| %>
-  <div class="d-flex justify-content-between pt-2">
-    <%= form.label :status %><br>
-    <%= form.select :status, ["new", "in progress", "completed"], selected: "public", class:"mx-2" %>
-  </div>
-  <hr>
-  <%= form.submit "Save changes", class:"w-100 btn btn-primary btn-lg mb-2" %>
-<% end %>
+<%= render "orders/form"%>

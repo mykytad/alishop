@@ -33,35 +33,19 @@ class OrdersController < ApplicationController
           @order_product.save
         end
       end
+
       sum_price = 0
       order.order_products.each do |product|
         sum_price += product.product_count * product.product_price
       end
+
       order.sum_price = sum_price
       order.save
     end
+
     @cart.clear_product
 
     redirect_to orders_path
-    # @order = Order.new(order_params)
-    # @order.user_id = current_user.id
-
-    # if @order.save
-    #   # @cart.products.each do |product|
-    #   #   order_product = OrderProduct.new(:product_id => product.id, :order_id => @order.id)
-    #   #   order_product.product_price = product.price - product.discount
-    #   #   order_product.product_count = @cart.count(product.id.to_s)
-    #   #   order_product.product_name = product.name
-    #   #   order_product.save!
-    #   end
-    #   # @cart.clear_product
-
-    #   # redirect_to @order
-    # else
-    #   @products = @cart.products
-    #   @sum = @cart.sum
-    #   render :new, status: :unprocessable_entity
-    # end
   end
 
   def edit
@@ -81,6 +65,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:name, :last_name, :email, :address, :zip, :country)
+    params.require(:order).permit(:name, :last_name, :email, :address, :zip, :country, :status)
   end
 end
