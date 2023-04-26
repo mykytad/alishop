@@ -8,9 +8,12 @@
 
         <% if current_user %>
           <% if @store.user_id == current_user.id %>
-            <%= link_to "Edit store", edit_store_path(@store.id), class:"mb-3 btn btn-outline-primary" %>
-            <%= link_to "Show all store product", "#", class:"btn btn-outline-primary" %>
-            <%= link_to "Create a new product", new_store_product_path(@store.id), class:"my-3 btn btn-outline-primary" %>
+            <%= link_to "Edit store", edit_store_path(@store.id), class:"btn btn-outline-primary" %>
+            <hr>
+            <%= link_to "Show all store product", manager_store_path(@store.id), class:"btn btn-outline-primary" %>
+            <hr>
+            <%= link_to "Create a new product", new_store_product_path(@store.id), class:"btn btn-outline-primary" %>
+            <hr>
             <%= link_to "Destroy store", store_path(@store.id), data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-secondary" %>
           <% end %>
         <% end %>
@@ -24,16 +27,16 @@
               Number
           </p>
           <p class="col-2">
-              Status
+            Status
           </p>
           <p class="col-1">
-              Price
+            Price
           </p>
           <p class="col-3">
-              Client email
+            Client email
           </p>
           <p class="col-2">
-              Created at
+            Created at
           </p>
           <p class="col-1"></p>
         </div>

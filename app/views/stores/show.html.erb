@@ -3,10 +3,9 @@
     <p> <%= @store.description %> </p>
     <p> <%= @store.phone %> </p>
 
-   <div class="row g-4">
+    <div class="row g-4">
         <% @store.products.each do |product| %>
             <%= render product %>
-        <% end%>
+        <% end %>
     </div>
-
 </div>
