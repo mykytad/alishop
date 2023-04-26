@@ -26,11 +26,11 @@ class OrdersController < ApplicationController
       order.sum_price = 0
       if order.save
         @cart.products.where(:store_id => store.id).each do |product|
-          order_product = OrderProduct.new(:product_id => product.id, :order_id => order.id)
-          order_product.product_price = product.price - product.discount
-          order_product.product_count = @cart.count(product.id.to_s)
-          order_product.product_name = product.name
-          order_product.save
+          @order_product = OrderProduct.new(:product_id => product.id, :order_id => order.id)
+          @order_product.product_price = product.price - product.discount
+          @order_product.product_count = @cart.count(product.id.to_s)
+          @order_product.product_name = product.name
+          @order_product.save
         end
       end
       sum_price = 0
@@ -64,6 +64,20 @@ class OrdersController < ApplicationController
     # end
   end
 
+  def edit
+    @order = Order.find(params[:id])
+  end
+
+  def update
+    @order = Order.find(params[:id])
+
+    if @order.update(order_params)
+      redirect_to manager_store_order_path(@order.store_id, @order.id)
+    else
+      render :edit
+    end
+  end
+  
   private
 
   def order_params

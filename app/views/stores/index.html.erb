@@ -1,10 +1,10 @@
-<h1> ALL STORE </h1>
-<div class="row mb-5 g-4">
+<div>
+  <h1> ALL STORE </h1>
+</div>
+<div class="row my-5 g-4">
 
   <% @stores.each do |store| %>
     <%= render store %>
   <% end%>
 
 </div>
-
-<%= link_to "create store", create_stor_info_path, class:"mt-5 btn btn-outline-primary" %>

@@ -11,20 +11,6 @@ class Manager::OrdersController < ApplicationController
     @products = @order.products
   end
 
-  def edit
-    @order = Order.find(params[:id])
-  end
-
-  def update
-    @order = Order.find(params[:id])
-    
-    if @order.update(order_params)
-      redirect_to manager_store_order_path(@order.store_id, @order.id)      
-    else
-      render :edit
-    end
-  end
-
   def destroy
   end
 end
