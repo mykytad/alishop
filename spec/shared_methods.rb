@@ -21,7 +21,8 @@ def test_product
   log_in(test_user)
   test_store
 
-  click_link "Create a product"
+  click_link "Shop"
+  click_link "Create a new product"
   fill_in :product_name, with: "Phone"
   fill_in :product_description, with: "color: space grey"
   fill_in :product_price, with: "950"

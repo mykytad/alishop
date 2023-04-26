@@ -3,7 +3,6 @@
     <h2>Thank you for your order</h2>
     
   </div>
-  <%=@product%>
   <div class="row g-5">
     <div class="bg-body-tertiary col-md-5 col-lg-4 order-md-last" style="border-radius:20px;background:#6d757d;">
       <div class="mt-3 list-group mb-3">
@@ -43,22 +42,21 @@
             sum
           </p>
         </div>
-        <hr>
 
         <% @order_products.each do |order_product| %>
           <div class="col-11 d-flex justify-content-between bg-body-tertiary">
-            <p class="col-2">
+            <p class="text-body-secondary col-2">
               <!--<%= order_product.product.image %>-->
               <%= order_product.product_name %><br>
             </p>
-            <p class="col-1">
-              <%= order_product.product_price %>$
+            <p class="text-body-secondary col-1">
+              <%= number_to_currency(order_product.product_price) %>
             </p>
             <p class="text-body-secondary col-2">
               <%= order_product.product_count %>
             </p>
-            <p class="col-1">
-              <%= order_product.product_price * order_product.product_count %>$
+            <p class="text-body-secondary col-1">
+              <%= number_to_currency(order_product.product_price * order_product.product_count) %>
             </p>
           </div>
         <% end %>

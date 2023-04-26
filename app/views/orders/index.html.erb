@@ -24,6 +24,7 @@
   </div>
 
   <div class="col-md-7 col-lg-8">
+    <h4 class="mb-5">Your orders</h4>
     <div class="col-12 d-flex flex-column">
       <div class="col-11 d-flex justify-content-between">
         <p class="col-2">
@@ -46,11 +47,11 @@
 
       <%@orders.each do |order|%>
         <div class="col-11 d-flex justify-content-between bg-body-tertiary">
-          <p class="col-2 px-2"><%=order.id%></p>
-          <p class="col-2"><%=order.status%></p>
-          <p class="col-2"><%=number_to_currency(order.sum_price)%></p>
-          <p class="col-2"><%=order.store.name%></p>
-          <p class="col-2"><%=order.created_at.to_s(:short)%></p>
+          <p class="text-body-secondary col-2 px-2"><%= order.id %></p>
+          <p class="text-body-secondary col-2"><%= order.status %></p>
+          <p class="text-body-secondary col-2"><%= number_to_currency(order.sum_price) %></p>
+          <p class="col-2"><%= link_to order.store.name, store_path(order.store.id) %></p>
+          <p class="text-body-secondary col-2"><%= order.created_at.to_s(:short) %></p>
           <%= link_to "More", order_path(order.id), class:"col-1 px-2" %>
         </div>
       <% end %>

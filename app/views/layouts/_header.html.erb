@@ -11,9 +11,11 @@
               <li>
                 <%= link_to manager_store_orders_path(store.id), class:"nav-link px-2 link-dark" do %> 
                   <%= store.name %>
+                  <% if store.orders.where(:status => :new).count != 0 %>
                   <span class="badge rounded-pill bg-danger">
                     <%= store.orders.where(:status => :new).count %>
                   </span>
+                  <% end %>
                 <% end %>
               </li>
             <% end %>

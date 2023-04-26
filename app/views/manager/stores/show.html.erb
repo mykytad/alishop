@@ -43,7 +43,7 @@
               <%= link_to "Edit", edit_store_product_path(product.store_id, product.id) %>
             </p>
             <p class="col-1 px-2">
-              <%= link_to "Delete", "#" %>
+              <%= link_to "Delete", store_product_path(product.store_id, product.id), data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"} %>
             </p>
           </div>
         <% end %>
