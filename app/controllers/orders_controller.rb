@@ -77,7 +77,7 @@ class OrdersController < ApplicationController
       render :edit
     end
   end
-  
+
   private
 
   def order_params
