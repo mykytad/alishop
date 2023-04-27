@@ -29,7 +29,7 @@
       
       <div class="col-12 d-flex flex-column">
         <div class="col-11 d-flex justify-content-between">
-          <p class="col-2">
+          <p class="col-3">
             Product name
           </p>
           <p class="col-1">
@@ -45,14 +45,18 @@
 
         <% @order_products.each do |order_product| %>
           <div class="col-11 d-flex justify-content-between bg-body-tertiary">
-            <p class="text-body-secondary col-2">
+            <div class="text-body-secondary d-flex col-3 justify-content-between">
               <% if order_product.product %>
-              <!--<%= order_product.product.image %>-->
+                <p class="col-1">
+                  <!--<%= order_product.product.image %>-->
+                </p>
               <% else %>
-              <p>(deleted)</p>
+                <p class="col-4">
+                  <%= image_tag("no_picture_image.png") %>
+                </p>
               <% end %>
-              <%= order_product.product_name %><br>
-            </p>
+              <p class="col-8"><%= order_product.product_name %></p><br>
+            </div>
             <p class="text-body-secondary col-1">
               <%= number_to_currency(order_product.product_price) %>
             </p>
