@@ -31,10 +31,18 @@
 
         <% @order_products.each do |order_product| %>
           <div class="col-11 d-flex justify-content-between bg-body-tertiary">
-            <p class="col-2">
-              <!--<%= order_product.product.image %>-->
-              <%= order_product.product_name %><br>
-            </p>
+            <div class="text-body-secondary d-flex col-3 justify-content-between">
+              <% if order_product.product %>
+                <p class="col-3">
+                  <%= image_tag order_product.product.image.url(:mini),alt: order_product.product.name, class: "card-img-top" if order_product.product.image? %>
+                </p>
+              <% else %>
+                <p class="col-4">
+                  <%= image_tag("no_picture_image.png") %>
+                </p>
+              <% end %>
+              <p class="col-8"><%= order_product.product_name %></p><br>
+            </div>
             <p class="col-1">
               <%= order_product.product_price %>$
             </p>
