@@ -47,8 +47,8 @@
           <div class="col-11 d-flex justify-content-between bg-body-tertiary">
             <div class="text-body-secondary d-flex col-3 justify-content-between">
               <% if order_product.product %>
-                <p class="col-1">
-                  <!--<%= order_product.product.image %>-->
+                <p class="col-3">
+                  <%= image_tag order_product.product.image.url(:mini),alt: order_product.product.name, class: "card-img-top" if order_product.product.image? %>
                 </p>
               <% else %>
                 <p class="col-4">
