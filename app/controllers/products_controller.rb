@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = store.products.create(product_params)
-    redirect_to store_path(@store)
+    redirect_to manager_store_path(@store)
   end
 
   def edit
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
     @product = store.products.find(params[:id])
 
     if @product.update(product_params)
-      redirect_to store_path(@store)
+      redirect_to manager_store_path(@store)
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   def destroy
     @product = store.products.find(params[:id])
     @product.destroy
-    redirect_to store_path(@store)
+    redirect_to manager_store_path(@store)
   end
 
   private

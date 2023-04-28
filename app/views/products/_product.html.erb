@@ -16,14 +16,6 @@
 
       <%= link_to "Buy", cart_add_path({:product_id => product.id}), title:"buy", class:"btn btn-primary" %>
       <%= link_to "Detailed", store_product_path(product.store_id, product.id), class:"btn btn-outline-primary" %>
-
-      <% if current_user %>
-        <% if product.store.user_id == current_user.id %>
-          <%= link_to "Edit", edit_store_product_path(product.store_id, product.id), class:"btn btn-outline-primary" %>
-          <!--<%= link_to "Delete", store_product_path(product.store_id, product.id), data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-danger" %>-->
-        <% end %>
-      <% end %>
-
     </div>
   </div>
 </div>  
