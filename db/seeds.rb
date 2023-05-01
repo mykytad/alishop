@@ -21,13 +21,15 @@ store = Store.create!(
 )
 
 i = 0
-while i <= 15 do
+image = File.open("public/products.png")
+while i <= 10 do
   Product.create!(
     name: Faker::Coffee.blend_name,
     description: Faker::Coffee.notes,
     price: 600,
-    discount: 50,
-    store_id: store.id
+    discount: rand(0..50),
+    store_id: store.id,
+    image: image
   )
   i += 1
 end
