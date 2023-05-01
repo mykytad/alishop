@@ -41,7 +41,7 @@
               </p>
             </div>
             <p class="col-1">
-              <%= number_to_currency(product.price) %>
+              <%= number_to_currency(product.price - product.discount) %>
             </p>
             <p class="col-1">
               <%= product.discount %>

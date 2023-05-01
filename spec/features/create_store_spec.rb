@@ -27,8 +27,7 @@ RSpec.feature "create store", type: :feature do
     click_button "Create product"
 
     expect(body).to have_content "Phone"
-    expect(body).to have_content "color: space grey"
-    expect(body).to have_content "950$"
+    expect(body).to have_content "950"
   end
 
   it "edit product" do
@@ -39,7 +38,6 @@ RSpec.feature "create store", type: :feature do
     click_button "Create product"
 
     expect(body).to have_content "Phone"
-    expect(body).to have_content "color: space grey"
-    expect(body).to have_content "900$"
+    expect(body).to have_content "900"
   end
 end

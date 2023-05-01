@@ -6,23 +6,23 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 user = User.create!(
-  name: Faker::JapaneseMedia::OnePiece.character, 
-  email: Faker::Internet.email, 
-  phone: Faker::PhoneNumber.cell_phone_in_e164.to_i, 
-  password:"123456", 
-  password_confirmation:"123456"
+  name: Faker::JapaneseMedia::OnePiece.character,
+  email: Faker::Internet.email,
+  phone: Faker::PhoneNumber.cell_phone_in_e164.to_i,
+  password: "123456",
+  password_confirmation: "123456"
 )
 
 store = Store.create!(
   name: Faker::Company.name,
-  phone: Faker::PhoneNumber.cell_phone_in_e164.to_i, 
+  phone: Faker::PhoneNumber.cell_phone_in_e164.to_i,
   description: Faker::Company.catch_phrase,
   user_id: user.id
 )
 
 i = 0
 image = File.open("public/products.png")
-while i <= 10 do
+while i <= 10
   Product.create!(
     name: Faker::Coffee.blend_name,
     description: Faker::Coffee.notes,
