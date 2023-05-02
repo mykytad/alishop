@@ -4,10 +4,11 @@ require "shared_methods"
 RSpec.feature "add to cart ", type: :feature do
   before do
     test_product
+    visit root_path
   end
 
   it "add product to cart" do
-    click_link "Buy"
+    click_link 'Buy'
 
     expect(body).to have_content "Phone"
     expect(body).to have_content "1"

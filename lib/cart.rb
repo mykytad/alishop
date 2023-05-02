@@ -39,4 +39,13 @@ class Cart
   def clear_product
     @product_ids.clear
   end
+
+  def stores
+    # products = products
+    product_stores = products.map(&:store_id)
+    # do |product|
+    #   product.store_id
+    # end
+    Store.where(:id => product_stores)
+  end
 end

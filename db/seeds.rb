@@ -5,3 +5,32 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+user = User.create!(
+  name: Faker::JapaneseMedia::OnePiece.character,
+  email: Faker::Internet.email,
+  phone: Faker::PhoneNumber.cell_phone_in_e164.to_i,
+  password: "123456",
+  password_confirmation: "123456"
+)
+
+store = Store.create!(
+  name: Faker::Company.name,
+  phone: Faker::PhoneNumber.cell_phone_in_e164.to_i,
+  description: Faker::Company.catch_phrase,
+  user_id: user.id
+)
+
+i = 0
+image = File.open("public/products.png")
+while i <= 10
+  Product.create!(
+    name: Faker::Coffee.blend_name,
+    description: Faker::Coffee.notes,
+    price: 600,
+    discount: rand(0..50),
+    store_id: store.id,
+    image: image
+  )
+  i += 1
+end
+puts "success"

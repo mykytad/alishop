@@ -1,6 +1,10 @@
-class Meneger::StoresController < ApplicationController
+class Manager::StoresController < ApplicationController
   def index
     @stores = Store.where(:user_id => current_user.id)
+  end
+
+  def show
+    @store = Store.find(params[:id])
   end
 
   def destroy

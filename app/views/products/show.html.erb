@@ -2,7 +2,7 @@
 <div class="d-flex col-12">
   <div class="col-9">
     <h2> <%= @product.name %> </h2>
-    <%= image_tag @product.image.url(:large),alt: @product.name, class: "product_image" if @product.image? %>
+    <%= image_tag @product.image.url(:large),alt: @product.name, class: "col-11 product_image" if @product.image? %>
     <p> <%= @product.description %> </p>
   </div>
 

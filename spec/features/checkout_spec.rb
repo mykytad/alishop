@@ -4,6 +4,7 @@ require "shared_methods"
 RSpec.feature "checkout form", type: :feature do
   it "visit checkout" do
     test_product
+    visit root_path
     click_link "Buy"
     click_link "Place order"
 

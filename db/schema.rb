@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_20_112210) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_01_113511) do
   create_table "order_products", force: :cascade do |t|
     t.string "product_name", null: false
     t.integer "product_price", null: false
@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_20_112210) do
     t.integer "order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "store_id"
+    t.string "product_image"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -33,6 +33,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_20_112210) do
     t.string "status", default: "new", null: false
     t.integer "sum_price", null: false
     t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "store_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "order_id"
+    t.string "payment_type"
+    t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,4 +89,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_20_112210) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "stores", "users"
 end
