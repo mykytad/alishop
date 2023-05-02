@@ -4,8 +4,6 @@ class Order < ApplicationRecord
   has_many :products, through: :order_products
   belongs_to :store
 
-  mount_uploader :image, ImageUploader
-
   validates :zip, presence: true
   validates :email, presence: true
 end
