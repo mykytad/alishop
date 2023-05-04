@@ -11,8 +11,16 @@ Rails.application.routes.draw do
   get "cart/show" =>"cart#show"
   get "clear" => "cart#clear"
 
-  resources :orders do
-    resources :payments, only: [:new]
+  resources :orders 
+
+  resources :payments, only: [] do
+    # member do payments/:id/foo
+    #   get "foo"
+    # end
+    collection do #payments/foo
+      get "checkout"
+      post "execute"
+    end
   end
 
   resources :stores do

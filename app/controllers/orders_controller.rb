@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @payments = []
     @cart.stores.each do |store|
       order = Order.new(order_params)
       order.user_id = current_user.id
@@ -41,12 +42,19 @@ class OrdersController < ApplicationController
       end
 
       order.sum_price = sum_price
-      order.save
+      if order.save
+        payment = Payment.new(:order_id => order.id, :user_id => order.user_id)
+        payment.save
+        @payments << payment
+      end
     end
 
+    payment_ids = @payments.map do |payment|
+      payment.id
+    end
     @cart.clear_product
 
-    redirect_to orders_path
+    redirect_to checkout_payments_path(:ids => payment_ids)
   end
 
   def edit

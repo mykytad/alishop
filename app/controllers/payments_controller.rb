@@ -1,9 +1,14 @@
 class PaymentsController < ApplicationController
-  def new
-    @payment = Payment.new
+  def checkout
+    @payments = Payment.where(:id => params[:ids])
   end
 
-  def create
-    @payment = Payment.new
+  def execute
+  end
+
+  private
+
+  def payment_params
+    params.require(:payment).permit(:payment_type, :status, :user_id, :order_id)
   end
 end
