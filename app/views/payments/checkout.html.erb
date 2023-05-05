@@ -1,37 +1,36 @@
-<h4 class="mb-3">Payment</h4>
+<div class="col-md-7 col-lg-8">
+  <h4 class="mb-3">Payment</h4>
 
-<%= form_tag (checkout_payments_path) do %>
-  <div class="my-3">
-    <div> 
-      <%= radio_button_tag :payment_type, "Card" %>
-      <%= label_tag :Card %>
+  <%= form_tag (execute_payments_path) do %>
+    <div class="col-2 mb-2"> 
+      <%= label_tag :payment_type, "Payment type", class:"form-label" %>
+      <%= select_tag :payment_type, raw("<option>Payment</option><option>Card</option><option>Cash</option>"), class:"form-select" %>
     </div>
-    <div> 
-      <%= radio_button_tag :payment_type, "Cash" %>
-      <%= label_tag :Cash %>
-    </div>
-  </div>
+    <div class="row gy-3 mt-2">
+      <div class="col-md-6">
+        <%= label_tag :name_on_card, "Name on card", class:"form-label" %>
+        <%= text_field_tag "name on card", nil, class:"form-control me-2" %>
+        <small class="text-body-secondary">Full name as displayed on card</small>
+      </div>
 
-  <div class="row gy-3">
-    <div class="col-md-6">
-      <%= label_tag :name_on_card, "Name on card", class:"form-label" %>
-      <%= text_field_tag "name on card", nil, class:"orm-control me-2" %>
-      <small class="text-body-secondary">Full name as displayed on card</small>
-    </div>
+      <div class="col-md-6">
+        <%= label_tag :credit_card_number, "Credit card number", class:"form-label" %>
+        <%= text_field_tag "credit_card_number", nil, class:"form-control me-2" %>
+      </div>
 
-    <div class="col-md-6">
-      <%= label_tag :credit_card_number, "Credit card number", class:"form-label" %>
-      <%= text_field_tag "credit_card_number", nil, class:"orm-control me-2" %>
-    </div>
+      <div class="col-md-3">
+        <%= label_tag :expiration, "Expiration", class:"form-label" %>
+        <%= text_field_tag "expiration", nil, class:"form-control me-2" %>
+      </div>
 
-    <div class="col-md-3">
-      <%= label_tag :expiration, "Expiration", class:"form-label" %>
-      <%= text_field_tag "expiration", nil, class:"orm-control me-2" %>
+      <div class="col-md-3">
+        <%= label_tag :cvv, "CVV", class:"form-label" %>
+        <%= text_field_tag "cvv", nil, class:"form-control me-2" %>
+      </div>
+      <%= hidden_field_tag :ids, :payment_ids %>
+      <div>
+        <%= submit_tag "Pay", class:"col-3 btn btn-primary btn-lg" %>
+      </div>
     </div>
-
-    <div class="col-md-3">
-      <%= label_tag :cvv, "cvv", class:"form-label" %>
-      <%= text_field_tag "cvv", nil, class:"orm-control me-2" %>
-    </div>
-  </div>
-<%end%>
+  <%end%>
+</div>
