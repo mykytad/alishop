@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     # end
     collection do #payments/foo
       get "checkout"
+      get "successful_payment"
       post "execute"
     end
   end
