@@ -53,6 +53,12 @@ Lint/DeprecatedClassMethods:
 Lint/UselessAssignment:
   Enabled: false
 
+Style/Next:
+  Enable: false
+
+Style/SymbolProc:
+  Enable: false
+
 AllCops:
   Exclude:
     - 'config/**/*'

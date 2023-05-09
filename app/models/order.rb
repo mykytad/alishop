@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   has_many :order_products
   has_many :products, through: :order_products
   belongs_to :store
+  has_one :payment
 
   validates :zip, presence: true
   validates :email, presence: true

@@ -7,10 +7,11 @@ class PaymentsController < ApplicationController
   end
 
   def execute
-    redirect_to successful_payment_payments_path
+    @payments = Payment.where(:id => params[:ids])
+    redirect_to successful_payments_path
   end
 
-  def successful_payment
+  def successful
   end
 
   private
