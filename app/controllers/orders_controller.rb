@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
       order.user_id = current_user.id
       order.store_id = store.id
       order.sum_price = 0
+
       if order.save
         @cart.products.where(:store_id => store.id).each do |product|
           @order_product = OrderProduct.new(:product_id => product.id, :order_id => order.id)

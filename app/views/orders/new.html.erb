@@ -26,7 +26,7 @@
             </div>
             <div>
               <span class=""><%= @cart.count(product.id.to_s) %>x</span>
-              <span class="text-body-secondary"><%= product.price %>$</span>
+              <span class="text-body-secondary"><%= product.price - product.discount %>$</span>
             </div>
           </li>
       <% end %>

@@ -41,7 +41,7 @@
             sum
           </p>
           <p class="col-2">
-            payment state
+            Payment status
           </p>
         </div>
 
@@ -68,9 +68,11 @@
             <p class="text-body-secondary col-2">
               <%= number_to_currency(order_product.product_price * order_product.product_count) %>
             </p>
-            <p class="text-body-secondary col-2">
-              <%= @order.payment.status %>
-            </p>
+            <% if @order.payment.status? %>
+                <p class="col-2 text-body-secondary">paid</p>
+              <% else %>
+                <p class="col-2 text-body-secondary">not paid</p>
+              <% end %>
           </div>
         <% end %>
       </div>

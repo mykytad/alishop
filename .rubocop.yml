@@ -54,10 +54,10 @@ Lint/UselessAssignment:
   Enabled: false
 
 Style/Next:
-  Enable: false
+  Enabled: false
 
 Style/SymbolProc:
-  Enable: false
+  Enabled: false
 
 AllCops:
   Exclude:

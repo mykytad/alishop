@@ -26,8 +26,8 @@
       <% else %>
         <div class="col-12 d-flex flex-column">
           <div class="col-11 d-flex justify-content-between">
-            <p class="col-2">
-                Number
+            <p class="col-1">
+                №
             </p>
             <p class="col-2">
               Status
@@ -41,16 +41,24 @@
             <p class="col-2">
               Created at
             </p>
+            <p class="col-2">
+              Payment status
+            </p>
             <p class="col-1"></p>
           </div>
 
           <%@orders.each do |order|%>
             <div class="col-11 d-flex justify-content-between bg-body-tertiary">
-              <p class="col-2 px-2"><%=order.id%></p>
+              <p class="col-1 px-2"><%=order.id%></p>
               <p class="col-2"><%=order.status%></p>
               <p class="col-1"><%=order.sum_price%></p>
               <p class="col-3"><%=order.email%></p>
               <p class="col-2"><%=order.created_at.to_s(:short)%></p>
+              <% if order.payment.status? %>
+                <p class="col-2">paid</p>
+              <% else %>
+                <p class="col-2">not paid</p>
+              <% end %>
               <%= link_to "More", manager_store_order_path(order.store_id, order.id), class:"col-1 px-2" %>
             </div>
           <% end %>
