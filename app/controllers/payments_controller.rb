@@ -23,7 +23,7 @@ class PaymentsController < ApplicationController
           params[:cvv]
         )
         if credit_pay_status
-          payment.status = true 
+          payment.status = true
           payment.save
         end
       end
