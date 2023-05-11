@@ -53,6 +53,12 @@ Lint/DeprecatedClassMethods:
 Lint/UselessAssignment:
   Enabled: false
 
+Style/Next:
+  Enabled: false
+
+Style/SymbolProc:
+  Enabled: false
+
 AllCops:
   Exclude:
     - 'config/**/*'
@@ -60,3 +66,4 @@ AllCops:
     - 'db/schema.rb'
     - 'spec/spec_helper.rb'
     - 'vendor/**/*'
+    - 'lib/credit_pay.rb'

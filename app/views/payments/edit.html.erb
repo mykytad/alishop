@@ -1,0 +1,5 @@
+<h2>Pay</h2>
+<%= form_for model: @payment do |f| %>
+  <%= f.label :payment_type %>
+  <%= f.select :payment_type,["Cash", "Card"]  %>
+<% end %>

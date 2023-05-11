@@ -1,0 +1,32 @@
+<div class="col-md-7 col-lg-8">
+  <h2 class="mb-3">Payment</h2>
+
+  <%= form_tag (execute_payments_path) do %>
+    <div class="col-3 mb-2"> 
+      <%= label_tag :payment_type, "Payment type", class:"form-label" %>
+      <%= select_tag :payment_type, options_for_select([ "Cash", "MasterCard/VISA" ], "MasterCard/VISA"), class:"form-select" %>
+    </div>
+    <div class="column gy-3 mt-4">
+      <div class="col-md-4">
+        <%= label_tag :credit_card_number, "Credit card number", class:"form-label" %>
+        <%= text_field_tag "credit_card_number", nil, maxlength: 16, class:"form-control me-2" %>
+      </div>
+
+      <div class="row my-4"> 
+        <div class="col-md-2">
+          <%= label_tag :expiration, "Expiration", class:"form-label" %>
+          <%= text_field_tag "expiration", nil, maxlength: 4, class:"form-control me-2" %>
+        </div>
+
+        <div class="col-md-2">
+          <%= label_tag :cvv, "CVV", class:"form-label" %>
+          <%= text_field_tag "cvv", nil, maxlength: 3, class:"form-control me-2" %>
+        </div>
+      </div>
+      <%= hidden_field_tag :ids, @payment_ids %>
+      <div>
+        <%= submit_tag "Pay", class:"col-3 btn btn-primary btn-lg" %>
+      </div>
+    </div>
+  <%end%>
+</div>
