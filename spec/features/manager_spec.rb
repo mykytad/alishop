@@ -11,7 +11,7 @@ RSpec.feature "manager", type: :feature do
   it "order list" do
     expect(body).to have_content "Shop"
     expect(body).to have_content "1"
-    
+
     visit manager_store_orders_path(1)
     expect(body).to have_content "Shop Orders"
     expect(body).to have_content "new"
