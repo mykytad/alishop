@@ -2,21 +2,12 @@ require "rails_helper"
 require "shared_methods"
 
 RSpec.feature "checkout form", type: :feature do
-  it "visit checkout" do
+  before do
     test_product
     visit root_path
-    click_link "Buy"
-    click_link "Place order"
-
-    expect(body).to have_content "Place an order"
-    expect(body).to have_content "Your cart"
-    expect(body).to have_content "Phone"
-    expect(body).to have_content "950$"
   end
 
   it "place order" do
-    test_product
-    visit root_path
     click_link "Buy"
     click_link "Place order"
 
@@ -34,6 +25,7 @@ RSpec.feature "checkout form", type: :feature do
     click_button "Create an order"
 
     expect(body).to have_content "Payment"
+
     select "MasterCard/VISA", from: :payment_type
     fill_in :credit_card_number, with: "1111222233334444"
     fill_in :expiration, with: "1229"

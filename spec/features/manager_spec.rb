@@ -7,6 +7,11 @@ RSpec.feature "manager", type: :feature do
     visit root_path
   end
 
-  # it "order status" do
-  # end
+  it "order list" do
+    test_order
+    expect(body).to have_content "Shop"
+    expect(body).to have_content "1"
+    click_link "Shop"
+    expect(body).to have_content "Shop Orders"
+  end
 end
