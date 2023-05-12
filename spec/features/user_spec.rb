@@ -18,7 +18,6 @@ RSpec.feature "create user", type: :feature do
 
   it "profile show" do
     log_in(test_user)
-    save_and_open_page
     click_link :profile_link
   end
 end
