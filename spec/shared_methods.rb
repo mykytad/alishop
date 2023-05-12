@@ -1,5 +1,10 @@
 def test_user
-  User.create(name: "Tomas", email: "tomas@example.com", phone: "0987654321", password: "111111")
+  User.create(
+    name: "Tomas",
+    email: "tomas@example.com",
+    phone: "0987654321",
+    password: "111111"
+  )
 end
 
 def log_in(user)
