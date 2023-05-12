@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
         order.order_products.each do |product|
           sum_price += product.product_count * product.product_price
         end
-  
+
         order.sum_price = sum_price
         if order.save
           payment = Payment.new(:order_id => order.id, :user_id => order.user_id)
@@ -47,10 +47,10 @@ class OrdersController < ApplicationController
           payments << payment
         end
       else
-          @order = order
-          @products = @cart.products
-          @sum = @cart.sum
-          return render(:new, status: :unprocessable_entity)
+        @order = order
+        @products = @cart.products
+        @sum = @cart.sum
+        return render(:new, status: :unprocessable_entity)
       end
     end
 
