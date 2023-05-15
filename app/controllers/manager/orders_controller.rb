@@ -1,5 +1,4 @@
 class Manager::OrdersController < ApplicationController
-
   def index
     @store = Store.find(params[:store_id])
     @orders = @store.orders
