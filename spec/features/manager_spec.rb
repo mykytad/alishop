@@ -19,7 +19,7 @@ RSpec.feature "manager", type: :feature do
   end
 
   it "order show" do
-    visit manager_store_orders_path(1)
+    click_link :store_link
     click_link "More"
 
     expect(body).to have_content "Order №1"

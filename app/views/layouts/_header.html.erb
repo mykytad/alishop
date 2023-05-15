@@ -9,7 +9,7 @@
           <% if current_user %>
             <% current_user.stores.each do |store|%>
               <li>
-                <%= link_to manager_store_orders_path(store.id), class:"nav-link px-2 link-dark" do %> 
+                <%= link_to manager_store_orders_path(store.id), class:"nav-link px-2 link-dark", id:"store_link" do %> 
                   <%= store.name %>
                   <% if store.store_new_orders != 0 %>
                     <span class="badge rounded-pill bg-danger">

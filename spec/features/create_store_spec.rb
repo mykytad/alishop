@@ -18,7 +18,7 @@ RSpec.feature "create store", type: :feature do
     log_in(test_user)
     test_store
 
-    click_link "Shop"
+    click_link :store_link
     click_link "Create a new product"
     fill_in :product_name, with: "Phone"
     fill_in :product_description, with: "color: space grey"
