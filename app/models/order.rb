@@ -5,6 +5,10 @@ class Order < ApplicationRecord
   belongs_to :store
   has_one :payment
 
-  validates :zip, presence: true
+  validates :name, presence: true
+  validates :last_name, presence: true
   validates :email, presence: true
+  validates :address, presence: true
+  validates :country, presence: true
+  validates :zip, presence: true
 end

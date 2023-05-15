@@ -9,7 +9,7 @@
           <% if current_user %>
             <% current_user.stores.each do |store|%>
               <li>
-                <%= link_to manager_store_orders_path(store.id), class:"nav-link px-2 link-dark" do %> 
+                <%= link_to manager_store_orders_path(store.id), class:"nav-link px-2 link-dark", id:"store_link" do %> 
                   <%= store.name %>
                   <% if store.store_new_orders != 0 %>
                     <span class="badge rounded-pill bg-danger">
@@ -55,7 +55,7 @@
                 </ul>
               </div>
 
-              <li class="nav-item"><%= link_to "Profile", current_user, class:"nav-link link-dark px-2" %></li>
+              <li class="nav-item"><%= link_to "Profile", current_user, class:"nav-link link-dark px-2", id:"profile_link" %></li>
               <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, class:"nav-link link-dark px-2", data: { turbo_method: :delete } %></li>
             <% else %>
               <li class="nav-item"><%= link_to "Log in", new_user_session_path, class:"nav-link link-dark px-2" %></li>
