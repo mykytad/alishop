@@ -1,4 +1,5 @@
 class Manager::OrdersController < ApplicationController
+  before_action :authenticate_user!
   def index
     @store = Store.find(params[:store_id])
     @orders = @store.orders
