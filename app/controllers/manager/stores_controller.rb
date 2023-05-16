@@ -1,5 +1,4 @@
 class Manager::StoresController < ManagerController
-
   def index
     @stores = Store.where(:user_id => current_user.id)
   end
