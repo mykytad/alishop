@@ -42,7 +42,7 @@ class StoresController < ApplicationController
     @store = current_user_store
     @store.destroy
 
-    redirect_to root_path
+    redirect_to manager_stores_path
   end
 
   private

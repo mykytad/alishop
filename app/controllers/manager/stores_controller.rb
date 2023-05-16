@@ -11,7 +11,7 @@ class Manager::StoresController < ManagerController
     @store = Store.find(params[:id])
     @store.destroy
 
-    redirect_to meneger_stores_path
+    redirect_to manager_stores_path
   end
 
   private
