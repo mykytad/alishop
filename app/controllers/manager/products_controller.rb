@@ -1,6 +1,4 @@
 class Manager::ProductsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :manager
 
   def index
   end

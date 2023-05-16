@@ -1,6 +1,4 @@
-class Manager::StoresController < ApplicationController
-  before_action :authenticate_user!
-  before_action :manager
+class Manager::StoresController < ManagerController
 
   def index
     @stores = Store.where(:user_id => current_user.id)
