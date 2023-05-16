@@ -1,7 +1,4 @@
-class Manager::StoresController < ApplicationController
-  before_action :authenticate_user!
-  before_action :manager
-
+class Manager::StoresController < ManagerController
   def index
     @stores = Store.where(:user_id => current_user.id)
   end
@@ -14,7 +11,7 @@ class Manager::StoresController < ApplicationController
     @store = Store.find(params[:id])
     @store.destroy
 
-    redirect_to meneger_stores_path
+    redirect_to manager_stores_path
   end
 
   private
