@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :name, null: false
       t.string :description, null: false
       t.integer :price, null: false
-      t.integer :discount, null: false, default:"0"
+      t.integer :discount, null: false, default: "0"
       t.integer :store_id, null: false
       t.timestamps
     end
