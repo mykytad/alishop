@@ -11,7 +11,7 @@
             <hr>
             <%= link_to "Create a new product", new_store_product_path(@store.id), class:"btn btn-outline-primary" %>
             <hr>
-            <%= link_to "Destroy store", store_path(@store.id), data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"}, class:"btn btn-outline-secondary" %>
+            <%= link_to "Destroy store", store_path(@store.id), data:{turbo_method: :delete}, class:"btn btn-outline-secondary" %>
           <% end %>
         <% end %>
       </div>
