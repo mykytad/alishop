@@ -21,7 +21,7 @@
       <div class="mb-5 text-center">
         <h4 class="mb-3 h2"><%= @store.name %> Orders</h4>
       </div>
-      <% if @store.store_new_orders == 0 %>
+      <% if @store.orders.count == 0 %><!--@store.store_new_orders == 0-->
         <p class="h2"> You don't have orders yet </p>
       <% else %>
         <div class="col-12 d-flex flex-column">
