@@ -11,14 +11,14 @@ RSpec.feature "create store", type: :feature do
     click_button "Create store"
 
     expect(body).to have_content "Shop"
-    expect(body).to have_content "Shop description"
+    expect(body).to have_content "Shop Orders"
+    expect(body).to have_link "Edit store"
   end
 
   it "creates a new store and product" do
     log_in(test_user)
     test_store
 
-    click_link :store_link
     click_link "Create a new product"
     fill_in :product_name, with: "Phone"
     fill_in :product_description, with: "color: space grey"
