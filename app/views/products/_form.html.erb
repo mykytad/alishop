@@ -1,6 +1,6 @@
-<main class="m-auto d-flex col-12"> <!--  w-100  -->
+<main class="m-auto d-flex col-12">
     <div class="col-5">
-        <%= form_with model: [ @store, @product ], html: { multipart: true } do |form| %>  
+        <%= form_with model: [ @store, @product ], html: { multipart: true } do |form| %> 
             <div class="mb-3">
                 <%= form.label :name, class:"form-label" %></br>
                 <%= form.text_field :name, placeholder:"Product name",required: :true, class:"form-control" %>
