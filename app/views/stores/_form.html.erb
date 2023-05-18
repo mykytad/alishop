@@ -1,21 +1,21 @@
-<main class="m-auto d-flex col-12"> <!--  w-100  -->
+<main class="m-auto d-flex col-12">
     <div class="col-5">
         <h2> Store creation </h2>
-        <%= form_with model: @store do |form| %>  
+        <%= form_with model: @store do |form| %>
             <div class="mb-3">
-                <%= form.label :name, class:"form-label" %></br>
-                <%= form.text_field :name, class:"form-control" %>
+                <%= form.label :name, class: "form-label" %></br>
+                <%= form.text_field :name, required: :true, class: "form-control" %>
             </div>
             <div class="mb-3">
-                <%= form.label :description, class:"form-label" %></br>
-                <%= form.text_area :description, class:"form-control" %>
+                <%= form.label :description, class: "form-label" %></br>
+                <%= form.text_area :description, required: :true, class: "form-control" %>
             </div>
             <div class="mb-3">
-                <%= form.label :phone, class:"form-label" %></br>
-                <%= form.text_field :phone, class:"form-control" %>
+                <%= form.label :phone, class: "form-label" %></br>
+                <%= form.text_field :phone, required: :true, class: "form-control" %>
             </div>
             <div>
-                <%= form.submit "Create store", class:"btn btn-primary" %>
+                <%= form.submit "Create store", class: "btn btn-primary" %>
             </div>
         <% end %>
     </div>
