@@ -18,9 +18,9 @@ class StoresController < ApplicationController
     @store.user_id = current_user.id
 
     if @store.save
-      redirect_to @store
+      redirect_to manager_store_orders_path(@store.id)
     else
-      render :new
+      return render(:new, status: :unprocessable_entity)
     end
   end
 
@@ -42,7 +42,7 @@ class StoresController < ApplicationController
     @store = current_user_store
     @store.destroy
 
-    redirect_to manager_stores_path
+    redirect_to current_user
   end
 
   private

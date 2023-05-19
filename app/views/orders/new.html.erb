@@ -10,7 +10,7 @@
   </div>
 <% end %>
 
-<main> 
+<main>
   <div class="row g-5">
 
     <div class="col-md-5 col-lg-4 order-md-last">
@@ -41,7 +41,7 @@
         <div class="row g-3">
           <div class="col-sm-6">
             <%= form.label :name, class:"form-label" %>
-            <%= form.text_field :name, class:"form-control" %>
+            <%= form.text_field :name, value: current_user.name, class:"form-control" %>
             <div class="invalid-feedback">
               Valid first name is required.
             </div>
@@ -49,7 +49,7 @@
 
           <div class="col-sm-6">
             <%= form.label :last_name, class:"form-label" %>
-            <%= form.text_field :last_name, class:"form-control" %>
+            <%= form.text_field :last_name, required: :true, class:"form-control" %>
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -57,7 +57,7 @@
 
           <div class="col-12">
             <%= form.label :email, class:"form-label" %>
-            <%= form.text_field :email, placeholder:"you@example.com", autocomplete: "email", class:"form-control" %>
+            <%= form.text_field :email, value: current_user.email, required: :true, placeholder:"you@example.com", autocomplete: "email", class:"form-control" %>
             <div class="invalid-feedback">
               Please enter a valid email address for shipping updates.
             </div>
@@ -65,7 +65,7 @@
 
           <div class="col-12">
             <%= form.label :address, class:"form-label" %>
-            <%= form.text_field :address, class:"form-control" %>
+            <%= form.text_field :address, required: :true, class:"form-control" %>
             <div class="invalid-feedback">
               Please enter your shipping address.
             </div>
@@ -73,7 +73,7 @@
 
           <div class="col-12">
             <%= form.label :zip, class:"form-label" %>
-            <%= form.text_field :zip, class:"form-control" %>
+            <%= form.text_field :zip, required: :true, class:"form-control" %>
             <div class="invalid-feedback">
               Zip code required.
             </div>

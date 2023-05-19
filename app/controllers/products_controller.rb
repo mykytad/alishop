@@ -17,7 +17,12 @@ class ProductsController < ApplicationController
 
   def create
     @product = store.products.create(product_params)
-    redirect_to manager_store_path(@store)
+
+    if @product.save
+      redirect_to manager_store_path(@store)
+    else
+      return render(:new, status: :unprocessable_entity)
+    end
   end
 
   def edit

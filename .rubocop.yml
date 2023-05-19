@@ -59,6 +59,9 @@ Style/Next:
 Style/SymbolProc:
   Enabled: false
 
+Style/RedundantReturn:
+  Enabled: false
+
 AllCops:
   Exclude:
     - 'config/**/*'
