@@ -7,7 +7,7 @@ class Manager::StoresController < ManagerController
     @store = Store.find(params[:id])
   end
 
-def edit
+  def edit
     @store = current_user_store
   end
 
