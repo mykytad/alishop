@@ -1,3 +1,12 @@
+<% if @product.errors.any? %>
+  <div id="error_explanation" data-turbo-cache="false">
+    <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <main class="m-auto d-flex col-12">
     <div class="col-5">
         <%= form_with model: [ @store, @product ], html: { multipart: true } do |form| %> 

@@ -20,7 +20,7 @@ class StoresController < ApplicationController
     if @store.save
       redirect_to manager_store_orders_path(@store.id)
     else
-      render :new
+      return render(:new, status: :unprocessable_entity)
     end
   end
 
