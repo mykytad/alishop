@@ -5,7 +5,7 @@
 
         <% if current_user %>
           <% if @store.user_id == current_user.id %>
-            <%= link_to "Edit store", edit_store_path(@store.id), class:"btn btn-outline-primary" %>
+            <%= link_to "Edit store", edit_manager_store_path(@store.id), class:"btn btn-outline-primary" %>
             <hr>
             <%= link_to "Show all store product", manager_store_path(@store.id), class:"btn btn-outline-primary" %>
             <hr>
