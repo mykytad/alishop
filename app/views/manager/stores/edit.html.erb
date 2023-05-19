@@ -1,3 +1,4 @@
+<h2> Edit creation </h2>
 <main class="m-auto d-flex col-12">
     <div class="col-5">
         <% if @store.errors.any? %>
@@ -9,7 +10,7 @@
                 </ul>
             </div>
         <% end %>
-        <%= form_with model: @store do |form| %>
+        <%= form_with model: [ :manager, @store] do |form| %>
             <div class="mb-3">
                 <%= form.label :name, class: "form-label" %></br>
                 <%= form.text_field :name, required: :true, class: "form-control" %>
@@ -23,7 +24,7 @@
                 <%= form.text_field :phone, required: :true, class: "form-control" %>
             </div>
             <div>
-                <%= form.submit "Create store", class: "btn btn-primary" %>
+                <%= form.submit "Edit store", class: "btn btn-primary" %>
             </div>
         <% end %>
     </div>
