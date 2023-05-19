@@ -9,9 +9,9 @@
             <hr>
             <%= link_to "Show all store product", manager_store_path(@store.id), class:"btn btn-outline-primary" %>
             <hr>
-            <%= link_to "Create a new product", new_store_product_path(@store.id), class:"btn btn-outline-primary" %>
+            <%= link_to "Create a new product", new_manager_store_product_path(@store.id), class:"btn btn-outline-primary" %>
             <hr>
-            <%= link_to "Destroy store", store_path(@store.id), data:{turbo_method: :delete}, class:"btn btn-outline-secondary" %>
+            <%= link_to "Destroy store", manager_store_path(@store.id), data:{turbo_method: :delete}, class:"btn btn-outline-secondary" %>
           <% end %>
         <% end %>
       </div>
