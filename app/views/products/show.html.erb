@@ -1,7 +1,17 @@
 <div class="d-flex col-12">
   <div class="col-9">
-    <h2> <%= @product.name %> </h2>
-    <%= image_tag @product.image.url(:large),alt: @product.name, class: "col-11 product_image" if @product.image? %>
+    <div>
+      <h2> <%= @product.name %> </h2>
+      <%= image_tag @product.image.url(:large),alt: @product.name, class: "col-11 product_image" if @product.image? %>
+    </div>
+    <div class="reviews">
+      <div class="reviews_views">
+        <%= render @product.reviews%>
+      </div>
+      <div class="reviews_form">
+        <%= render "reviews/form" %>
+      </div>
+    </div>
   </div>
 
   <div class="col-3">
