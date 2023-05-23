@@ -1,40 +1,44 @@
-<div class="d-flex col-12">
-  <div class="col-9">
-    <div>
-      <h2> <%= @product.name %> </h2>
-      <%= image_tag @product.image.url(:large),alt: @product.name, class: "col-11 product_image" if @product.image? %>
+<div class="">
+  <div class="d-flex col-12">
+    <div class="col-9">
+      <div>
+        <h2> <%= @product.name %> </h2>
+        <%= image_tag @product.image.url(:large),alt: @product.name, class: "col-11 product_image" if @product.image? %>
+      </div>
     </div>
-    <div class="reviews">
-      <div class="reviews_views">
-        <%= render @product.reviews%>
-      </div>
-      <div class="reviews_form">
-        <%= render "reviews/form" %>
-      </div>
+
+    <div class="col-3">
+      <p> 
+        <%= @product.description %>
+      </p>
+      <p>
+        <span class=""> Store: <%= link_to @product.store.name, store_path(@product.store.id) %></span>
+      </p>
+      <p>
+        <% if @product.discount == 0 %>
+          <span class="card-text"> <%= @product.price %>$ </span>
+        <% else %>
+          <span class="discount"><%= @product.price - @product.discount %>$</span>
+          <span class="line-through"><%= @product.price %>$</span>
+      <% end %>
+        <%= link_to "Buy", cart_add_path({:product_id => @product.id}), class:"btn btn-primary" %>
+
+        <% if current_user %>
+          <% if @product.store.user_id == current_user.id %>
+            <%= link_to "Edit", edit_store_product_path(@product.store_id, @product.id), class:"btn btn-outline-primary" %>
+          <% end %>
+        <% end %>
+      </p>
     </div>
   </div>
+  <div class="reviews">
+    <h4>Reviews</h4>
+    <div class="reviews_views">
+      <%= render @product.reviews %>
+    </div>
 
-  <div class="col-3">
-    <p> 
-      <%= @product.description %>
-    </p>
-    <p>
-      <span class=""> Store: <%= link_to @product.store.name, store_path(@product.store.id) %></span>
-    </p>
-    <p>
-      <% if @product.discount == 0 %>
-        <span class="card-text"> <%= @product.price %>$ </span>
-      <% else %>
-        <span class="discount"><%= @product.price - @product.discount %>$</span>
-        <span class="line-through"><%= @product.price %>$</span>
-    <% end %>
-      <%= link_to "Buy", cart_add_path({:product_id => @product.id}), class:"btn btn-primary" %>
-
-      <% if current_user %>
-        <% if @product.store.user_id == current_user.id %>
-          <%= link_to "Edit", edit_store_product_path(@product.store_id, @product.id), class:"btn btn-outline-primary" %>
-        <% end %>
-      <% end %>
-    </p>
+    <div class="reviews_form">
+      <%= render "reviews/form" %>
+    </div>
   </div>
 </div>
