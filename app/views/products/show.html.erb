@@ -38,7 +38,7 @@
     </div>
 
     <div class="reviews_form">
-      <%= render "reviews/form" %>
+      <%= link_to "leave review", new_store_product_review_path(@product.store_id, @product) %>
     </div>
   </div>
 </div>
