@@ -1,10 +1,10 @@
-<%= form_with model: [@product, @reviews ] do |form| %>
+<%= form_with model: [ @store, @product, @review ] do |form| %>
   <div>
-    <%= f.label :body, class:"form-label" %>
-    <%= f.text_area :body, class:"form-control" %>
+    <%= form.label :body, class:"form-label" %>
+    <%= form.text_area :body, class:"form-control" %>
   </div>
 
   <div>
-    <%= f.submit "Leave review", class:"btn btn-primary" %>
+    <%= form.submit "Leave review", class:"btn btn-primary" %>
   </div>
 <% end %>

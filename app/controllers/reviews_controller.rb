@@ -1,10 +1,12 @@
 class ReviewsController < ApplicationController
   def new
+    @store = Store.find(params[:store_id])
     @product = Product.find(params[:product_id])
     @review = @product.reviews.new
   end
 
   def create
+    @store = Store.find(params[:store_id])
     @product = Product.find(params[:product_id])
     @review = @product.review.create(review_params)
     @review.user_id = current_user.id
