@@ -8,10 +8,13 @@ class ReviewsController < ApplicationController
   def create
     @store = Store.find(params[:store_id])
     @product = Product.find(params[:product_id])
-    @review = @product.review.create(review_params)
+    @review = @product.reviews.create(review_params)
     @review.user_id = current_user.id
-    @review.save
-    redirect_to product_path(@product)
+    if @review.save
+      redirect_to store_product_path(@store, @product)
+    else
+      render :new
+    end
   end
 
   def destroy
