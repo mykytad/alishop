@@ -1,5 +1,5 @@
 <div class="col-3">
-  <%= link_to store_product_path(product.store_id, product.id), class:"link-dark nav-link" do%>
+  <%= link_to store_product_path(product.store_id, product.id), class:"link-dark nav-link", id:"product-cart" do%>
     <div class="card bg-body-tertiary" style="width: 18rem;">
       <%= image_tag product.image.url(:card),alt: product.name, class: "card-img-top" if product.image? %>
       <div class="card-body">

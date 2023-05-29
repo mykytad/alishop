@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   end
 
   resources :stores do
-    resources :products
+    resources :products do
+      resources :reviews
+    end
   end
 
   namespace :manager do
