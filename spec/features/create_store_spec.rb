@@ -40,4 +40,16 @@ RSpec.feature "create store", type: :feature do
     expect(body).to have_content "Phone"
     expect(body).to have_content "900"
   end
+
+  it "leave review" do
+    test_product
+    visit root_path
+    click_link "product-cart"
+    click_link "Leave review"
+    fill_in :review_body, with: "Lorem ipsum dolor sit amet"
+    click_button "Leave review"
+
+    expect(body).to have_content "Tomas"
+    expect(body).to have_content "Lorem ipsum dolor sit amet"
+  end
 end
