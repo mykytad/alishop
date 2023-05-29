@@ -20,7 +20,7 @@
         <% else %>
           <span class="discount"><%= @product.price - @product.discount %>$</span>
           <span class="line-through"><%= @product.price %>$</span>
-      <% end %>
+        <% end %>
         <%= link_to "Buy", cart_add_path({:product_id => @product.id}), class:"btn btn-primary" %>
 
         <% if current_user %>
@@ -38,7 +38,7 @@
     </div>
 
     <div class="reviews_form">
-      <%= link_to "leave review", new_store_product_review_path(@product.store_id, @product) %>
+    <%= link_to "Leave reviews", new_store_product_review_path(@product.store_id, @product) %>
     </div>
   </div>
 </div>
