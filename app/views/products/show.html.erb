@@ -4,6 +4,8 @@
       <div>
         <h2> <%= @product.name %> </h2>
         <%= image_tag @product.image.url(:large),alt: @product.name, class: "col-11 product_image" if @product.image? %>
+        <%= image_tag @product.image.url(:large),alt: @product.name, class: "col-11 product_image" if @product.images? %>
+
       </div>
     </div>
 
@@ -22,15 +24,10 @@
           <span class="line-through"><%= @product.price %>$</span>
         <% end %>
         <%= link_to "Buy", cart_add_path({:product_id => @product.id}), class:"btn btn-primary" %>
-
-        <% if current_user %>
-          <% if @product.store.user_id == current_user.id %>
-            <%= link_to "Edit", edit_store_product_path(@product.store_id, @product.id), class:"btn btn-outline-primary" %>
-          <% end %>
-        <% end %>
       </p>
     </div>
   </div>
+
   <div class="reviews">
     <h4>Reviews</h4>
     <div class="reviews_views">
@@ -38,7 +35,7 @@
     </div>
 
     <div class="reviews_form">
-    <%= link_to "Leave reviews", new_store_product_review_path(@product.store_id, @product) %>
+      <%= link_to "Leave reviews", new_store_product_review_path(@product.store_id, @product) %>
     </div>
   </div>
 </div>
