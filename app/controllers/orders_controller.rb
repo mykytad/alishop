@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    
     payments = []
     @cart.stores.each do |store|
       order = Order.new(order_params)

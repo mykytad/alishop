@@ -3,8 +3,23 @@
     <div class="col-9">
       <div>
         <h2> <%= @product.name %> </h2>
-        <%= image_tag @product.image.url(:large),alt: @product.name, class: "col-11 product_image" if @product.image? %>
-        <%= image_tag @product.image.url(:large),alt: @product.name, class: "col-11 product_image" if @product.images? %>
+        <div id="carouselExample" class="carousel slide">
+          <div class="carousel-inner">
+              <% @product.images.each_with_index do |image, i| %>
+                <div class="carousel-item <%= "active" if i == 0 %>">
+                  <%= image_tag(image.large.url, alt: @product.name, class:"d-block w-100") %>
+                </div>
+              <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
 
       </div>
     </div>
@@ -35,7 +50,7 @@
     </div>
 
     <div class="reviews_form">
-      <%= link_to "Leave reviews", new_store_product_review_path(@product.store_id, @product) %>
+      <%= render "reviews/form" %>
     </div>
   </div>
 </div>

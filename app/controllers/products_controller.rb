@@ -9,5 +9,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @store = @product.store
+    @review = Review.new
   end
 end
