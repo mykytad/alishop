@@ -36,7 +36,7 @@ class Manager::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :discount, :image {images:[]})  #:image,
+    params.require(:product).permit(:name, :description, :price, :discount, :image, { images: [] })
   end
 
   def store
