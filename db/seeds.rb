@@ -23,7 +23,7 @@ if Rails.env.development?
 
   i = 0
   image = File.open("public/product1.png")
-  while i <= 5
+  while i <= 9
     Product.create!(
       name: Faker::Coffee.blend_name,
       description: Faker::Coffee.notes,
@@ -33,33 +33,6 @@ if Rails.env.development?
       image: image
     )
     i += 1
-  end
-
-  a = 0
-  image = File.open("public/product2.png")
-  while a <= 5
-    Product.create!(
-      name: Faker::Coffee.blend_name,
-      description: Faker::Coffee.notes,
-      price: 600,
-      store_id: store.id,
-      image: image
-    )
-    a += 1
-  end
-
-  b = 0
-  image = File.open("public/product3.png")
-  while b <= 5
-    Product.create!(
-      name: Faker::Coffee.blend_name,
-      description: Faker::Coffee.notes,
-      price: 600,
-      discount: rand(0..15),
-      store_id: store.id,
-      image: image
-    )
-    b += 1
   end
   puts "success"
 end
