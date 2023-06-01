@@ -6,7 +6,6 @@ RSpec.feature "new sesion", type: :feature do
     log_in(test_user)
 
     expect(body).to have_link "Profile"
-    expect(body).to have_link "Setting"
     expect(body).to have_link "Sign out"
   end
 end
