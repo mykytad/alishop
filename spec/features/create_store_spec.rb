@@ -45,7 +45,6 @@ RSpec.feature "create store", type: :feature do
     test_product
     visit root_path
     click_link "product-cart"
-    click_link "Leave review"
     fill_in :review_body, with: "Lorem ipsum dolor sit amet"
     click_button "Leave review"
 
