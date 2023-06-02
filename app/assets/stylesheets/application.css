@@ -40,6 +40,9 @@
   width: 279px;
 }
 .carousel_image{
-  height: 700px;
-  width: 700px;
+  height: 600px;
+}
+.product_card_img{
+  width: 286px;
+  border-radius:  5px 5px 0 0 ;
 }
