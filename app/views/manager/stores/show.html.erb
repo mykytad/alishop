@@ -31,10 +31,10 @@
         </div>
 
         <% @store.products.each do |product|%>
-          <div class="col-11 d-flex justify-content-between bg-body-tertiary">
+          <div class="col-11 d-flex justify-content-between bg-body-tertiary manager_store_item_product">
             <div class="d-flex col-6">
               <p class="col-2">
-                <%= image_tag product.image.url(:card),alt: product.name, class: "card-img-top" if product.image? %>
+                <img src= <%= product.images[0] %> alt= "<%= product.name%>" class="product_manager_img">
               </p>
               <p class="col-2 px-2">
                 <%= product.name %>

@@ -30,7 +30,7 @@ if Rails.env.development?
       price: 600,
       discount: rand(0..15),
       store_id: store.id,
-      image: image
+      # images: image
     )
     i += 1
   end
