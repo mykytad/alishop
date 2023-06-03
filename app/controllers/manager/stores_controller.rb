@@ -37,7 +37,7 @@ class Manager::StoresController < ManagerController
   def current_user_store
     current_user.stores.find(params[:id])
   end
-  
+
   def manager
     store = Store.find(params[:id])
     if current_user.id != store.user_id
