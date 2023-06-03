@@ -3,7 +3,7 @@ class ManagerController < ApplicationController
   before_action :manager
 
   def manager
-    store = Store.find(params[:id])
+    store = Store.find(params[:store_id])
     if current_user.id != store.user_id
       redirect_to root_url
     end

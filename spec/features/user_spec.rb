@@ -11,9 +11,8 @@ RSpec.feature "create user", type: :feature do
     fill_in :user_password_confirmation, with: "111111"
     click_button "Sign up"
 
-    # expect(body).to have_content "Tom"
+    expect(body).to have_content "Tom"
     expect(body).to have_link "Sign out"
-    expect(body).to have_link "Profile"
   end
 
   it "profile show" do

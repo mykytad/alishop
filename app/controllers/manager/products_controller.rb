@@ -1,4 +1,4 @@
-class Manager::ProductsController < ApplicationController
+class Manager::ProductsController < ManagerController
   def new
     @product = store.products.new
   end
