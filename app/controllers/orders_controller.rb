@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
           order_product.product_price = product.price - product.discount
           order_product.product_count = @cart.count(product.id.to_s)
           order_product.product_name = product.name
-          order_product.product_image = product.image
+          order_product.product_image = product.images[0]
           order_product.save
         end
         sum_price = 0

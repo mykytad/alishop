@@ -53,7 +53,7 @@
             <div class="text-body-secondary d-flex col-3 justify-content-between">
               <% if order_product.product %>
                 <p class="col-3">
-                  <%= image_tag order_product.product.image.url(:mini),alt: order_product.product.name, class: "card-img-top" if order_product.product.image? %>
+                <img src= <%= order_product.product_image %> alt= "<%= order_product.product_name%>" >
                 </p>
               <% else %>
                 <p class="col-4">

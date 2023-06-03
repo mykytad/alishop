@@ -4,7 +4,6 @@ class Product < ApplicationRecord
   has_many :orders, through: :order_products
   has_many :reviews
 
-  mount_uploader :image, ImageUploader
   mount_uploaders :images, ImageUploader
   serialize :images, JSON # If you use SQLite, add this line.
 

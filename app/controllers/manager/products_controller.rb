@@ -1,4 +1,4 @@
-class Manager::ProductsController < ApplicationController
+class Manager::ProductsController < ManagerController
   def new
     @product = store.products.new
   end
@@ -36,7 +36,7 @@ class Manager::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :discount, :image, { images: [] })
+    params.require(:product).permit(:name, :description, :price, :discount, { images: [] })
   end
 
   def store

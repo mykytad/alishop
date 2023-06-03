@@ -24,3 +24,32 @@
   display:block;
   margin-bottom: 10px
  }
+.side_bloc_button{
+  width: 70px;
+  margin-left: 15px;
+}
+.side_bloc_price_wrap{
+  margin-top: 46px;
+  margin-bottom: 25px;
+}
+.side_bloc_price{
+  margin-top: 10px;
+}
+.reviews_form{
+  margin-top: 250px;
+  width: 279px;
+}
+.carousel_image{
+  height: 600px;
+}
+.product_card_img{
+  width: 286px;
+  border-radius:  5px 5px 0 0 ;
+}
+.manager_store_item_product{
+  min-height: 35px;
+  max-height: 65px;
+ }
+.product_manager_img{
+  width: 65px;
+}
