@@ -1,6 +1,6 @@
 <div class="">
 
-  <div class="d-flex justify-content-between col-12 ">
+  <div class="d-flex justify-content-between col-12">
     <div class="col-8">
       <div>
         <h2> <%= @product.name %> </h2>
@@ -26,7 +26,6 @@
     </div>
 
     <div class="col-3 side_bloc">
-
       <div class="d-flex align-items-center side_bloc_price_wrap">
         <% if @product.discount == 0 %>
           <span class="card-text h4 side_bloc_price"> <%= @product.price %>$ </span>
@@ -45,20 +44,28 @@
       <p>
         <span class=""> Store: <%= link_to @product.store.name, store_path(@product.store.id) %></span>
       </p>
-      <p> 
-        <%= @product.description %>
-      </p>
-      <div class="reviews">
-        <div class="reviews_form">
-          <h4>Reviews</h4>
-          <%= render "reviews/form" %>
-        </div>
-      </div>
+      
     </div>
     
   </div>
-  <div class="reviews">
-    <%= render @product.reviews %>
+  
+  <div class="d-flex justify-content-between under_blok col-12">
+    <div class="col-8">
+    <h4 class="h3">Product discription</h4>
+    <p class="pt-2"> 
+      <%= @product.description %>
+    </p>
+    </div>
+    <div class="col-3 reviews">
+      <div class="reviews_form">
+        <h4>Reviews</h4>
+        <%= render "reviews/form" %>
+      </div>
+
+      <div class="reviews_views">
+        <%= render @product.reviews %>
+      </div>
+    </div>
   </div>
 
 </div>

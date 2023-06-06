@@ -35,10 +35,6 @@
 .side_bloc_price{
   margin-top: 10px;
 }
-.reviews_form{
-  margin-top: 250px;
-  width: 279px;
-}
 .carousel_image{
   height: 600px;
 }
@@ -52,4 +48,7 @@
  }
 .product_manager_img{
   width: 65px;
+}
+.under_blok{
+  padding-top: 50px;
 }
