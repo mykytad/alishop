@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :load_cart
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @orders = Order.where(:user_id => current_user.id)
@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    if :authenticate_user!
+    # if :authenticate_user!
       payments = []
       @cart.stores.each do |store|
         order = Order.new(order_params)
@@ -68,15 +68,16 @@ class OrdersController < ApplicationController
       @cart.clear_product
 
       redirect_to checkout_payments_path(:ids => payment_ids)
-    else
-      User.create(
-      name: :name,
-      email: :email,
-      phone: :phone,
-      password: "qwerty",
-      password_confirmation: "qwerty"
-    )
-    end
+    # else
+    #   @user = User.create(
+    #   name: :name,
+    #   email: :email,
+    #   phone: :phone,
+    #   password: "qwerty",
+    #   password_confirmation: "qwerty"
+    #   )
+    #   sign_in @user
+    # end
   end
 
   def edit

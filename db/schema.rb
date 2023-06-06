@@ -51,11 +51,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_02_094955) do
     t.string "name", null: false
     t.string "description", null: false
     t.integer "price", null: false
-    t.integer "discount", null: false
+    t.integer "discount", default: 0, null: false
     t.integer "store_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
     t.string "images"
   end
 
