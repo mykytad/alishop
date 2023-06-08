@@ -62,6 +62,9 @@ Style/SymbolProc:
 Style/RedundantReturn:
   Enabled: false
 
+Metrics/ClassLength:
+  Enabled: false
+
 AllCops:
   Exclude:
     - 'config/**/*'

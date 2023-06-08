@@ -24,9 +24,12 @@
   display:block;
   margin-bottom: 10px
  }
-.side_bloc_button{
+.product_side_bloc_button{
   width: 70px;
   margin-left: 15px;
+}
+.product_show_side_bloc{
+  padding: 10px;
 }
 .side_bloc_price_wrap{
   margin-top: 46px;
@@ -35,6 +38,9 @@
 .side_bloc_price{
   margin-top: 10px;
 }
+.product_show_index{
+  padding: 10px;
+}
 .carousel_image{
   height: 600px;
 }
@@ -42,13 +48,21 @@
   width: 286px;
   border-radius:  5px 5px 0 0 ;
 }
+.product_show_under_blok{
+  margin-top: 50px;
+}
+.reviews{
+  padding: 10px;
+}
+.prooduct_description_show_under_blok{
+  padding: 10px;
+}
+
+/* manager portaol */
 .manager_store_item_product{
   min-height: 35px;
   max-height: 65px;
  }
 .product_manager_img{
   width: 65px;
-}
-.under_blok{
-  padding-top: 50px;
 }
