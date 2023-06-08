@@ -2,7 +2,10 @@
 
   <div class="d-flex justify-content-between col-12">
     <div class="col-8 product_show_index">
-      <h2> <%= @product.name %> </h2>
+      <div class="d-flex align-items-center">
+        <h2 class="product_name"> <%= @product.name %> </h2>
+        <span class="" > <%= @product.rating %> 3,7</span>
+      </div>
       <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
           <% @product.images.each_with_index do |image, i| %>

@@ -20,6 +20,10 @@
  .discount{
   color:red
  }
+
+ .product_name{
+  margin-right: 15px;
+ }
  .product_image{
   display:block;
   margin-bottom: 10px

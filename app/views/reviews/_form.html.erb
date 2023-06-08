@@ -3,6 +3,10 @@
     <%= form.label :body, class:"form-label" %>
     <%= form.text_area :body, class:"form-control" %>
   </div>
+  <div  class="mb-2">
+    <%= form.label :rating, class:"form-label" %>
+    <%= form.select :rating, [0, 1, 2, 3, 4, 5], class:"form-control" %>
+  </div>
 
   <div>
     <%= form.submit "Leave review", class:"btn btn-outline-primary" %>

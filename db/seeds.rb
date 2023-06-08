@@ -44,7 +44,8 @@ if Rails.env.development?
     review = Review.create!(
       body: Faker::Movies::StarWars.quote,
       user_id: rand(1..5),
-      product_id: rand(1..10)
+      product_id: rand(1..10),
+      rating: rand(1..5)
     )
     r += 1
   end
