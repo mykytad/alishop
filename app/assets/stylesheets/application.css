@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ 
+ /* product cart */
  .line-through{
   text-decoration: line-through;
   font-size: 12px;
@@ -20,7 +22,8 @@
  .discount{
   color:red
  }
-
+ 
+/* product */
  .product_name{
   margin-right: 15px;
  }
@@ -62,6 +65,15 @@
   padding: 10px;
 }
 
+/* review */
+.review_name
+{
+margin-bottom: 5px;
+}
+.review_body{
+  margin-top: 5px;
+}
+
 /* manager portaol */
 .manager_store_item_product{
   min-height: 35px;
@@ -69,4 +81,7 @@
  }
 .product_manager_img{
   width: 65px;
+}
+.manager_order_img{
+  width: 50px;
 }
