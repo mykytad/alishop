@@ -15,4 +15,17 @@ class Product < ApplicationRecord
   def price_with_discount
     price - discount
   end
+
+  def calc_rating
+    if reviews.count > 0
+      reviews.sum(:rating).to_f / reviews.count
+    else
+      return 0
+    end
+  end
+
+  def update_rating
+    self.rating = calc_rating
+    save
+  end
 end

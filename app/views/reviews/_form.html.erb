@@ -1,11 +1,11 @@
 <%= form_with model: [ @store, @product, @review ] do |form| %>
   <div  class="mb-2">
     <%= form.label :body, class:"form-label" %>
-    <%= form.text_area :body, class:"form-control" %>
+    <%= form.text_area :body, required: true, class:"form-control" %>
   </div>
   <div  class="mb-2">
     <%= form.label :rating, class:"form-label" %>
-    <%= form.select :rating, ["Select a rating", 1, 2, 3, 4, 5], class:"star-rating" %>
+    <%= form.select :rating, [ 1, 2, 3, 4, 5], {prompt:"Select a rating"}, required: true, class:"star-rating" %>
   </div>
 
   <div>

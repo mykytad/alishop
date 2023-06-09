@@ -4,7 +4,7 @@
     <div class="col-8 product_show_index">
       <div class="d-flex align-items-center">
         <h2 class="product_name"> <%= @product.name %> </h2>
-        <span> <%= @product.rating %> 3,7</span>
+        <span> <%= @product.rating.round(1) %> </span>
       </div>
       <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
@@ -64,7 +64,7 @@
       </div>
 
       <div class="reviews_views">
-        <%= render @product.reviews %>
+        <%= render @product.reviews.order(:id => :DESC) %>
       </div>
     </div>
   </div>
