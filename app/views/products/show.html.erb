@@ -4,7 +4,7 @@
     <div class="col-8 product_show_index">
       <div class="d-flex align-items-center">
         <h2 class="product_name"> <%= @product.name %> </h2>
-        <span> <%= @product.rating.round(1) %> </span>
+        <span> <%= @product.rating.round(1) if @product.rating %> </span>
       </div>
       <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
