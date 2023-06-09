@@ -15,14 +15,16 @@ RSpec.describe Product, type: :model do
       user_id: user.id,
       rating: 4
     )
+
     expect(product.calc_rating).to eq(3.5)
   end
 
   it "no review" do
     create_product
+
     expect(product.calc_rating).to eq(0)
   end
-  
+
   def create_product
     user = User.create!(
       name: "Tom",
