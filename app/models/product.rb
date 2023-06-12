@@ -28,4 +28,8 @@ class Product < ApplicationRecord
     self.rating = calc_rating
     save
   end
+
+  after_update do
+    store.update_rating
+  end
 end
