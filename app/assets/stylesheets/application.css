@@ -22,10 +22,20 @@
  .discount{
   color:red
  }
+ .product_rating{
+  font-size: 13px;
+ }
  
-/* product */
+/* product show */
  .product_name{
   margin-right: 15px;
+ }
+ .progress{
+  width: 100px;
+ }
+ .progress_card{
+  height: 12px;
+  width: 75px;
  }
  .product_image{
   display:block;
