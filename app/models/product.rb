@@ -18,7 +18,7 @@ class Product < ApplicationRecord
 
   def calc_rating
     if reviews.count > 0
-      reviews.sum(:rating).to_f / reviews.count
+      (reviews.sum(:rating).to_f / reviews.count).round(1)
     else
       return 0
     end

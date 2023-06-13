@@ -7,7 +7,7 @@
       <div class="d-flex align-items-center">
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<%= store.rating * 20 if store.rating %>" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: <%= store.rating * 20 %>%">
-            <small class="product_rating"> <%= store.rating.round(1) if store.rating %> </small>
+            <small class="product_rating"> <%= store.rating if store.rating %> </small>
           </div>
         </div>
       </div>

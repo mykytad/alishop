@@ -13,7 +13,7 @@ class Store < ApplicationRecord
 
   def calc_rating
     if products.count > 0
-      products.sum(:rating) / products.count
+      (products.sum(:rating) / products.count).round(1)
     else
       return 0
     end
