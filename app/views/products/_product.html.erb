@@ -4,11 +4,14 @@
       <img src= <%= product.images[0] %> alt= "<%= product.name%>" class="product_card_img">
       <div class="card-body">
         <h5 class="card-title"> <%=product.name%> </h5>
-        <div class="progress progress_card" role="progressbar" aria-label="Basic example" aria-valuenow="<%= product.rating * 20 %>" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress-bar" style="width: <%= product.rating * 20 %>%">
+
+        <div class="d-flex align-items-center">
+          <div class="progress progress_card" role="progressbar" aria-label="Basic example" aria-valuenow="<%= product.rating * 20 %>" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: <%= product.rating * 20 %>%">
+            </div>
           </div>
+          <small><%= product.reviews.count %> reviews</small>
         </div>
-        <small><%= product.reviews.count %> reviews</small>
 
         <% if product.discount == 0 %>
           <p class="card-text"> <%= product.price %>$ </p>
