@@ -3,7 +3,15 @@
     <div class="card bg-body-tertiary" style="width: 18rem;">
       <img src= <%= product.images[0] %> alt= "<%= product.name%>" class="product_card_img">
       <div class="card-body">
-        <h5 class="card-title"> <%=product.name%></h5>
+        <h5 class="card-title"> <%=product.name%> </h5>
+
+        <div class="d-flex align-items-center">
+          <div class="progress progress_card" role="progressbar" aria-label="Basic example" aria-valuenow="<%= product.rating * 20 if product.rating %>" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: <%= product.rating * 20 if product.rating %>%">
+            </div>
+          </div>
+          <small><%= product.reviews.count %> reviews</small>
+        </div>
 
         <% if product.discount == 0 %>
           <p class="card-text"> <%= product.price %>$ </p>

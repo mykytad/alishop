@@ -65,6 +65,9 @@ Style/RedundantReturn:
 Metrics/ClassLength:
   Enabled: false
 
+Style/NumericPredicate:
+  Enabled: false
+
 AllCops:
   Exclude:
     - 'config/**/*'

@@ -10,4 +10,17 @@ class Store < ApplicationRecord
   def store_new_orders
     orders.where(:status => :new).count
   end
+
+  def calc_rating
+    if products.count > 0
+      (products.sum(:rating) / products.count).round(1)
+    else
+      return 0
+    end
+  end
+
+  def update_rating
+    self.rating = calc_rating
+    save
+  end
 end

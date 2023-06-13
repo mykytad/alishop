@@ -13,12 +13,35 @@
  *= require_tree .
  *= require_self
  */
+ 
+ /* product cart */
  .line-through{
   text-decoration: line-through;
   font-size: 12px;
  }
  .discount{
   color:red
+ }
+ .product_rating{
+  font-size: 13px;
+ }
+
+ /* store show */
+.store_show_name{
+  margin-right: 10px;
+} 
+
+/* product show */
+ .product_name{
+  margin-right: 15px;
+ }
+ .progress{
+  width: 100px;
+  margin-right: 5px;
+ }
+ .progress_card{
+  height: 12px;
+  width: 75px;
  }
  .product_image{
   display:block;
@@ -30,6 +53,12 @@
 }
 .product_show_side_bloc{
   padding: 10px;
+}
+.product_show_store_side_bloc{
+  margin-right: 10px;
+}
+.product_show_store_name_side_bloc{
+  font-size: 14px;
 }
 .side_bloc_price_wrap{
   margin-top: 46px;
@@ -58,6 +87,15 @@
   padding: 10px;
 }
 
+/* review */
+.review_name
+{
+margin-bottom: 5px;
+}
+.review_body{
+  margin-top: 5px;
+}
+
 /* manager portaol */
 .manager_store_item_product{
   min-height: 35px;
@@ -65,4 +103,7 @@
  }
 .product_manager_img{
   width: 65px;
+}
+.manager_order_img{
+  width: 50px;
 }

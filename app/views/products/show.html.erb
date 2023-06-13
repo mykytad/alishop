@@ -2,7 +2,19 @@
 
   <div class="d-flex justify-content-between col-12">
     <div class="col-8 product_show_index">
-      <h2> <%= @product.name %> </h2>
+      <div class="d-flex align-items-center">
+        <h2 class="product_name"> <%= @product.name %> </h2>
+
+        <div class="d-flex align-items-center">
+          <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<%= @product.rating * 20 if @product.rating %>" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: <%= @product.rating * 20 if @product.rating%>%">
+              <small class="product_rating"> <%= @product.rating if @product.rating %> </small>
+            </div>
+          </div>
+          <small> <%= @product.reviews.count %> reviews</small>
+        </div>
+
+      </div>
       <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
           <% @product.images.each_with_index do |image, i| %>
@@ -39,9 +51,19 @@
           <span>Buy</span>
         <% end %>
       </div>
-      <p>
-        <span class=""> Store: <%= link_to @product.store.name, store_path(@product.store.id) %></span>
-      </p>
+
+      <div class="d-flex align-items-center">
+        <div class="product_show_store_side_bloc">
+          <span class="product_show_store_name_side_bloc"> Store: <%= link_to @product.store.name, store_path(@product.store.id) %></span>
+        </div>
+
+          <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<%= @product.store.rating * 20 %>" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: <%= @product.store.rating * 20 %>%">
+              <small class="product_rating"> <%= @product.store.rating.round(1) if @product.rating %> </small>
+            </div>
+          </div>
+
+      </div>
       
     </div>
     
@@ -61,7 +83,7 @@
       </div>
 
       <div class="reviews_views">
-        <%= render @product.reviews %>
+        <%= render @product.reviews.order(:id => :DESC) %>
       </div>
     </div>
   </div>
