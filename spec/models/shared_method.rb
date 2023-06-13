@@ -33,6 +33,6 @@ def create_product
     description: "color: green",
     price: "222",
     discount: "89",
-    store_id: @store.id,
+    store_id: @store.id
   )
 end

@@ -4,7 +4,7 @@ require 'models/shared_method'
 RSpec.describe Product, type: :model do
   it "leave review" do
     create_product
-    
+
     Review.create!(
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       product_id: @product_laptop.id,
