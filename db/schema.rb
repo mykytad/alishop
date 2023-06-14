@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_09_154731) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_14_075736) do
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "order_products", force: :cascade do |t|
     t.string "product_name", null: false
     t.integer "product_price", null: false
@@ -57,6 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_154731) do
     t.datetime "updated_at", null: false
     t.string "images"
     t.float "rating"
+    t.integer "category_id"
   end
 
   create_table "reviews", force: :cascade do |t|
