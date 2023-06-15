@@ -17,6 +17,7 @@ if Rails.env.development?
     )
     u += 1
   end
+  puts "users create"
 
   store = Store.create!(
     name: Faker::Company.name,
@@ -24,6 +25,19 @@ if Rails.env.development?
     description: Faker::Company.catch_phrase,
     user_id: rand(1..5)
   )
+  puts "store create"
+
+  c = 0 
+  categories = ["Pet supplies", "Goods for gamers", "Household products", "Clothes", "Sports and hobbies"]
+  while c <= 4
+    for item in categories
+      category = Category.create!(
+        name: item
+      )
+      c += 1
+    end
+  end
+  puts "categories create"
 
   i = 0
   image = File.open("public/product1.png")
@@ -34,10 +48,12 @@ if Rails.env.development?
       price: 600,
       discount: rand(0..15),
       store_id: store.id,
-      images: [image]
+      images: [image],
+      category_id: rand(0..5)
     )
     i += 1
   end
+  puts "products create"
 
   r = 0
   while r <= 30
@@ -49,5 +65,7 @@ if Rails.env.development?
     )
     r += 1
   end
+  puts "review create"
+  
   puts "success"
 end

@@ -1,6 +1,7 @@
 class Manager::ProductsController < ManagerController
   def new
     @product = store.products.new
+    @categories = Category.all
   end
 
   def create
@@ -36,7 +37,7 @@ class Manager::ProductsController < ManagerController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :discount, { images: [] })
+    params.require(:product).permit(:name, :description, :price, { images: [] }, :category_id)
   end
 
   def store

@@ -28,8 +28,8 @@
                 <small> if discount equals 0 enter 0 <small>
             </div>
             <div class="mb-3">
-                <%= form.label :category, class:"form-label" %></br>
-                <%= form.select :category,[ "Pet supplies", "Goods for gamers", "Household products", "Clothes", "Sports and hobbies" ], {prompt:"Select a category ..."}, required: :true, class:"form-select" %>
+                <%= form.label :category_id, class:"form-label" %></br>
+                <%= form.select :category_id, @categories.collect { |c| [ c.name, c.id ] }, {prompt:"Select a category ..."}, required: :true, class:"form-select" %>
             </div>
             <div class="mb-3">
                 <%= form.hidden_field :image_cache %>
