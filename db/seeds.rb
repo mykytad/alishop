@@ -27,10 +27,10 @@ if Rails.env.development?
   )
   puts "store create"
 
-  c = 0 
+  c = 0
   categories = ["Pet supplies", "Goods for gamers", "Household products", "Clothes", "Sports and hobbies"]
-  while c <= 4
-    for item in categories
+  while c <= categories.count - 1
+    categories.each do |item|
       category = Category.create!(
         name: item
       )
@@ -66,6 +66,6 @@ if Rails.env.development?
     r += 1
   end
   puts "review create"
-  
+
   puts "success"
 end

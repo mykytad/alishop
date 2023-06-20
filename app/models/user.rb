@@ -7,5 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   after_create do
     UserMailer.with(user: self).welcome_email.deliver_later
-  end  
+  end
 end
