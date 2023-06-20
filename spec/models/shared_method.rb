@@ -6,6 +6,9 @@ def create_product
     password: "qwerty",
     password_confirmation: "qwerty"
   )
+  @category = Category.create!(
+    name: "Clothes"
+  )
   @store = Store.create!(
     name: "Cactus",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -18,7 +21,8 @@ def create_product
     price: "2220",
     discount: "89",
     store_id: @store.id,
-    rating: 3
+    rating: 3,
+    category_id: @category.id
   )
   @product_tablet = Product.create!(
     name: "Tablet",
@@ -26,13 +30,15 @@ def create_product
     price: "222",
     discount: "89",
     store_id: @store.id,
-    rating: 4
+    rating: 4,
+    category_id: @category.id
   )
   @product_laptop = Product.create!(
     name: "Laptop",
     description: "color: green",
     price: "222",
     discount: "89",
-    store_id: @store.id
+    store_id: @store.id,
+    category_id: @category.id
   )
 end

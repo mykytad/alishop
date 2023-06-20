@@ -29,7 +29,7 @@
             </div>
             <div class="mb-3">
                 <%= form.label :category_id, class:"form-label" %></br>
-                <%= form.select :category_id, @categories.collect { |c| [ c.name, c.id ] }, {prompt:"Select a category ..."}, required: :true, class:"form-select" %>
+                <%= form.select :category_id, @categories.collect { |c| [ c.name, c.id ] }, {prompt:"Select a category ..."}, required: :true, class:"form-select", id:"product_category" %>
             </div>
             <div class="mb-3">
                 <%= form.hidden_field :image_cache %>

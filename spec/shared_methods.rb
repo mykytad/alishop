@@ -23,6 +23,7 @@ def test_store
 end
 
 def test_product
+  Category.create!(name: "Pet supplies")
   log_in(test_user)
   test_store
   click_link "Create a new product"
@@ -30,6 +31,7 @@ def test_product
   fill_in :product_description, with: "color: space grey"
   fill_in :product_price, with: "950"
   fill_in :product_discount, with: "0"
+  select "Pet supplies", from: :product_category
   click_button "Create product"
 end
 
