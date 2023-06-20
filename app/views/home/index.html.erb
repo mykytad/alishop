@@ -3,6 +3,19 @@
   <small> <%= link_to "All products", products_path, class:"btn btn-outline-secondary" %> </small>
 </div>
 
+<div class="d-flex justify-content-between">
+  <% @categories.each do |category| %>
+    <%= form_tag(products_path, method: :get) do %>
+      <div class="d-flex">
+        <%= hidden_field_tag "category_id", category.id, class:"form-control me-2" %>
+        <%= submit_tag category.name, class:"btn btn-outline-secondary" %>
+      </div>
+    <%end%>
+  <% end %>
+</div>
+
+<%= render "home/categories"%>
+
 <div class="row g-4 mt-1">
 
   <% @products.each do |product|%>
@@ -15,7 +28,7 @@
 
 <div class="d-flex justify-content-between col-3"> 
   <h3> Last stores </h3>
-  <small> <%= link_to "All stores", stores_path, class:"btn btn-outline-secondary" %> </small> 
+  <small> <%= link_to "All stores", stores_path, class:"btn btn-outline-secondary" %> </small>
 </div>
 
 <div class="row g-4 mt-1">
