@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 if Rails.env.development?
   u = 0
-  while 5 > u
+  while u < 5
     user = User.create!(
       name: Faker::JapaneseMedia::OnePiece.character,
       email: Faker::Internet.email,
@@ -29,7 +29,7 @@ if Rails.env.development?
 
   c = 0
   categories = ["Pet supplies", "Goods for gamers", "Household products", "Clothes", "Sports and hobbies"]
-  while categories.count > c
+  while c < categories.count
     categories.each do |item|
       category = Category.create!(
         name: item
@@ -41,7 +41,7 @@ if Rails.env.development?
 
   i = 0
   image = File.open("public/product1.png")
-  while 10 > i
+  while i < 10
     Product.create!(
       name: Faker::Coffee.blend_name,
       description: Faker::Coffee.notes,
@@ -56,7 +56,7 @@ if Rails.env.development?
   puts "products create"
 
   r = 0
-  while 30 > r
+  while r < 30
     review = Review.create!(
       body: Faker::Movies::StarWars.quote,
       user_id: rand(1..5),
