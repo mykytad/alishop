@@ -1,6 +1,6 @@
 <h1> ALL PRODUCTS </h1>
-
-<div class="row g-4">
+<%= render "home/categories"%>
+<div class="row g-4 index_product_wrap">
 
   <% @products.each do |product|%>
     <%= render product %>

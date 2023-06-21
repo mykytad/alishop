@@ -1,9 +1,10 @@
 <div class="col-3">
   <%= link_to store_product_path(product.store_id, product.id), class:"link-dark nav-link", id:"product-cart" do%>
     <div class="card bg-body-tertiary" style="width: 18rem;">
-      <img src= <%= product.images[0] %> alt= "<%= product.name%>" class="product_card_img">
+      <img src= <%= product.images[0] %> alt= "<%= product.name %>" class="product_card_img">
       <div class="card-body">
-        <h5 class="card-title"> <%=product.name%> </h5>
+        <h5 class="card-title"> <%= product.name %> </h5>
+        <small> <%= product.category.name %> </small>
 
         <div class="d-flex align-items-center">
           <div class="progress progress_card" role="progressbar" aria-label="Basic example" aria-valuenow="<%= product.rating * 20 if product.rating %>" aria-valuemin="0" aria-valuemax="100">

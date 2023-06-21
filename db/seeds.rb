@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 if Rails.env.development?
   u = 0
-  while u <= 4
+  while u < 5
     user = User.create!(
       name: Faker::JapaneseMedia::OnePiece.character,
       email: Faker::Internet.email,
@@ -17,6 +17,7 @@ if Rails.env.development?
     )
     u += 1
   end
+  puts "users create"
 
   store = Store.create!(
     name: Faker::Company.name,
@@ -24,23 +25,38 @@ if Rails.env.development?
     description: Faker::Company.catch_phrase,
     user_id: rand(1..5)
   )
+  puts "store create"
+
+  c = 0
+  categories = ["Pet supplies", "Goods for gamers", "Household products", "Clothes", "Sports and hobbies"]
+  while c < categories.count
+    categories.each do |item|
+      category = Category.create!(
+        name: item
+      )
+      c += 1
+    end
+  end
+  puts "categories create"
 
   i = 0
   image = File.open("public/product1.png")
-  while i <= 9
+  while i < 10
     Product.create!(
       name: Faker::Coffee.blend_name,
       description: Faker::Coffee.notes,
       price: 600,
       discount: rand(0..15),
       store_id: store.id,
-      images: [image]
+      images: [image],
+      category_id: rand(1..5)
     )
     i += 1
   end
+  puts "products create"
 
   r = 0
-  while r <= 30
+  while r < 30
     review = Review.create!(
       body: Faker::Movies::StarWars.quote,
       user_id: rand(1..5),
@@ -49,5 +65,7 @@ if Rails.env.development?
     )
     r += 1
   end
+  puts "review create"
+
   puts "success"
 end

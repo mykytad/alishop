@@ -16,6 +16,7 @@ RSpec.feature "create store", type: :feature do
   end
 
   it "creates a new store and product" do
+    Category.create!(name: "Pet supplies")
     log_in(test_user)
     test_store
 
@@ -24,6 +25,7 @@ RSpec.feature "create store", type: :feature do
     fill_in :product_description, with: "color: space grey"
     fill_in :product_price, with: "950"
     fill_in :product_discount, with: "0"
+    select "Pet supplies", from: :product_category
     click_button "Create product"
 
     expect(body).to have_content "Phone"
@@ -35,6 +37,7 @@ RSpec.feature "create store", type: :feature do
 
     click_link "Edit"
     fill_in :product_discount, with: "50"
+    select "Pet supplies", from: :product_category
     click_button "Create product"
 
     expect(body).to have_content "Phone"

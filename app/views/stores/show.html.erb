@@ -3,7 +3,7 @@
     <div class="d-flex align-items-center">
         <h1 class="store_show_name"> <%= @store.name %> </h1>
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<%= @store.rating * 20 if @store.rating %>" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar" style="width: <%= @store.rating * 20 %>%">
+            <div class="progress-bar" style="width: <%= @store.rating * 20 if @store.rating%>%">
             <small class="product_rating"> <%= @store.rating if @store.rating %> </small>
             </div>
         </div>

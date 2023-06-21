@@ -3,6 +3,8 @@
   <small> <%= link_to "All products", products_path, class:"btn btn-outline-secondary" %> </small>
 </div>
 
+<%= render "home/categories"%>
+
 <div class="row g-4 mt-1">
 
   <% @products.each do |product|%>
@@ -15,7 +17,7 @@
 
 <div class="d-flex justify-content-between col-3"> 
   <h3> Last stores </h3>
-  <small> <%= link_to "All stores", stores_path, class:"btn btn-outline-secondary" %> </small> 
+  <small> <%= link_to "All stores", stores_path, class:"btn btn-outline-secondary" %> </small>
 </div>
 
 <div class="row g-4 mt-1">
