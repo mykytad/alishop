@@ -34,6 +34,9 @@
 /* product index */
 .index_product_wrap{
 margin-top: 1px;}
+.category_header{
+  margin-bottom: 35px;
+}
 
 /* product show */
  .product_name{
@@ -78,8 +81,8 @@ margin-top: 1px;}
   height: 600px;
 }
 .product_card_img{
-  width: 286px;
-  border-radius:  5px 5px 0 0 ;
+  width: 250px;
+  border-radius: 5px 5px 0 0 ;
 }
 .product_show_under_blok{
   margin-top: 50px;

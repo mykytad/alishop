@@ -25,6 +25,23 @@
         <p class="h2"> You don't have orders yet </p>
       <% else %>
         <div class="col-12 d-flex flex-column">
+
+          <div class="d-flex row">
+            <nav class="col-5">
+              <ul class="nav nav-pills">
+                <li class="nav-item">
+                  <%= link_to "New", manager_store_orders_path(status: :new), class:"nav-link  #{'active' if params[:status] == "new" || params[:status].nil?}" %>
+                </li>
+                <li class="nav-item admin_tab_item">
+                  <%= link_to "In progress",manager_store_orders_path(status: "in progress"), class:"nav-link #{'active' if params[:status] == "in progress" }" %>
+                </li>
+                <li class="nav-item admin_tab_item">
+                  <%= link_to "Completed",manager_store_orders_path(status: :completed), class:"nav-link #{'active' if params[:status] == "completed" }" %>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
           <div class="col-11 d-flex justify-content-between">
             <p class="col-1">
                 №
