@@ -10,6 +10,15 @@ class Manager::OrdersController < ManagerController
     @orders = @orders.order(:id => :DESC)
 
     @orders = @orders.where(status: status)
+    @data_keys = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+    ]
+    @data_values = [0, 10, 5, 2, 20, 30, 45]
   end
 
   def show

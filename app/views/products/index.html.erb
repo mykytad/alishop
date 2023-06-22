@@ -1,15 +1,18 @@
-
 <div class="d-flex justify-content-between col-12">
 
   <%= render "home/categories" %>
 
   <div class="col-10">
-    <h1> ALL PRODUCTS </h1>
+    <% if @category %>
+      <h1> <%= @category.name.upcase %> PRODUCTS </h1>
+    <% else %>
+      <h1> ALL PRODUCTS </h1>
+    <% end %>
+
     <div class="row g-4 mt-1">
       <% @products.each do |product| %>
         <%= render product %>
       <% end %>
     </div>
   </div>
-
 </div>

@@ -102,6 +102,10 @@ margin-bottom: 5px;
 .review_body{
   margin-top: 5px;
 }
+.review_rating{
+  font-size: 16px;
+  color: #ffc107;
+}
 
 /* manager portaol */
 .manager_store_item_product{
