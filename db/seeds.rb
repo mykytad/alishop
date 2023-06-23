@@ -74,18 +74,31 @@ if Rails.env.development?
   end
   puts "reviews create"
 
-  # Order.create!(
-  #   name: user.name,
-  #   last_name: "Smith",
-  #   email: user.email,
-  #   address: "Landing Lange",
-  #   zip: 4455,
-  #   country: "UA",
-  #   store_id: store.id,
-  #   sum_price: 40,
-  #   created_at: Time.now,
-  #   updated_at:Time.now
-  # )
+  o = 0
+  while o < 15
+    order = Order.create!(
+      name: user.name,
+      last_name: "Smith",
+      email: user.email,
+      address: "Landing Lange",
+      zip: 4455,
+      country: "UA",
+      store_id: store.id,
+      user_id:user.id,
+      sum_price: 40,
+      created_at: Time.now - rand(0..7).day,
+      updated_at:Time.now - rand(0..7).day
+    )
+    Payment.create!(
+      user_id: user.id,
+      order_id: order.id,
+      payment_type: "MasterCard/VISA",
+      status: true,
+      created_at: order.created_at,
+      updated_at: order.updated_at
+    )
+    o += 1
+  end
   # o = 0
   # while o < 2
   #   Order.create!(

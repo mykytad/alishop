@@ -19,6 +19,9 @@ class Manager::OrdersController < ManagerController
   end
 
   def statistic
+    @store = Store.find(params[:store_id])
+    @orders = @store.orders
+    @orders = @orders.order(:id => :DESC)
     @data_keys = [
       'January',
       'February',

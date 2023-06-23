@@ -7,6 +7,8 @@
       <hr>
       <%= link_to "Create a new product", new_manager_store_product_path(@store.id), class:"btn btn-outline-primary" %>
       <hr>
+      <%= link_to "Statistics", statistic_manager_store_orders_path(@store.id), class:"btn btn-outline-primary" %>
+      <hr>
       <%= link_to "Edit store", edit_manager_store_path(@store.id), class:"btn btn-outline-primary" %>
     </div>
 
