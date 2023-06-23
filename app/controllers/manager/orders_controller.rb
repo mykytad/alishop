@@ -10,21 +10,24 @@ class Manager::OrdersController < ManagerController
     @orders = @orders.order(:id => :DESC)
 
     @orders = @orders.where(status: status)
-    @data_keys = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-    ]
-    @data_values = [0, 10, 5, 2, 20, 30, 45]
   end
 
   def show
     @order = Order.find(params[:id])
     @order_products = @order.order_products
     @products = @order.products
+  end
+
+  def statistic
+    @data_keys = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June'
+    ]
+    @data_values = [0, 10, 5, 2, 20, 30]
   end
 
   def destroy

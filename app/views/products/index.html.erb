@@ -4,9 +4,9 @@
 
   <div class="col-10">
     <% if @category %>
-      <h1> <%= @category.name.upcase %> PRODUCTS </h1>
+      <h2> <span class="product_category_name"><%= @category.name.upcase %></span> PRODUCTS </h2>
     <% else %>
-      <h1> ALL PRODUCTS </h1>
+      <h2> ALL PRODUCTS </h2>
     <% end %>
 
     <div class="row g-4 mt-1">

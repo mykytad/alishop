@@ -11,6 +11,8 @@
             <hr>
             <%= link_to "Create a new product", new_manager_store_product_path(@store.id), class:"btn btn-outline-primary" %>
             <hr>
+            <%= link_to "Statistics", statistic_manager_store_orders_path(@store.id), class:"btn btn-outline-primary" %>
+            <hr>
             <%= link_to "Destroy store", manager_store_path(@store.id), data:{turbo_method: :delete}, class:"btn btn-outline-secondary" %>
           <% end %>
         <% end %>
@@ -44,7 +46,7 @@
 
           <div class="col-11 d-flex justify-content-between">
             <p class="col-1">
-                №
+              №
             </p>
             <p class="col-2">
               Status
@@ -79,13 +81,8 @@
               <%= link_to "More", manager_store_order_path(order.store_id, order.id), class:"col-1 px-2" %>
             </div>
           <% end %>
-        
         </div>
       <% end %>
-
-      <canvas id="myChart" width="400px" height="400px" data-labels="<%= @data_keys %>" data-data="<%= @data_values %>"></canvas>
-
     </div>
-
   </div>
 </main>

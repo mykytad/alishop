@@ -42,6 +42,9 @@ margin-top: 1px;}
  .product_name{
   margin-right: 15px;
  }
+ .product_category_name{
+  text-decoration: underline;
+ }
  .progress{
   width: 100px;
   margin-right: 5px;
@@ -120,4 +123,8 @@ margin-bottom: 5px;
 }
 .manager_tabs_wrap{
   margin-bottom: 10px;
+}
+.statistic_chart_wrap{
+  height: 200px;
+  width: 200px;
 }

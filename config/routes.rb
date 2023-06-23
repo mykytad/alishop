@@ -32,7 +32,11 @@ Rails.application.routes.draw do
 
   namespace :manager do
     resources :stores do
-      resources :orders
+      resources :orders do
+        collection do
+          get "statistic"
+        end
+      end
       resources :products
     end
 

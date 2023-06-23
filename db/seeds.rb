@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 if Rails.env.development?
   u = 0
-  while u < 5
-    user = User.create!(
+  while u < 2
+    User.create!(
       name: Faker::JapaneseMedia::OnePiece.character,
       email: Faker::Internet.email,
       phone: Faker::PhoneNumber.cell_phone_in_e164.to_i,
@@ -17,13 +17,20 @@ if Rails.env.development?
     )
     u += 1
   end
+  user = User.create!(
+    name: Faker::JapaneseMedia::OnePiece.character,
+    email: Faker::Internet.email,
+    phone: Faker::PhoneNumber.cell_phone_in_e164.to_i,
+    password: "123456",
+    password_confirmation: "123456"
+  )
   puts "users create"
 
   store = Store.create!(
     name: Faker::Company.name,
     phone: Faker::PhoneNumber.cell_phone_in_e164.to_i,
     description: Faker::Company.catch_phrase,
-    user_id: rand(1..5)
+    user_id: user.id
   )
   puts "store create"
 
@@ -59,13 +66,101 @@ if Rails.env.development?
   while r < 30
     review = Review.create!(
       body: Faker::Movies::StarWars.quote,
-      user_id: rand(1..5),
+      user_id: user.id  ,
       product_id: rand(1..10),
       rating: rand(1..5)
     )
     r += 1
   end
-  puts "review create"
+  puts "reviews create"
 
+  # Order.create!(
+  #   name: user.name,
+  #   last_name: "Smith",
+  #   email: user.email,
+  #   address: "Landing Lange",
+  #   zip: 4455,
+  #   country: "UA",
+  #   store_id: store.id,
+  #   sum_price: 40,
+  #   created_at: Time.now,
+  #   updated_at:Time.now
+  # )
+  # o = 0
+  # while o < 2
+  #   Order.create!(
+  #     name: user.name,
+  #     last_name: "Smith",
+  #     email: user.email,
+  #     address: "Landing Lange",
+  #     zip: 4455,
+  #     country: "UA",
+  #     store_id: store.id,
+  #     created_at: Time.now - 1.day,
+  #     updated_at:Time.now - 1.day
+  #   )
+  #   o += 1
+  # end
+  # o = 0
+  # while o < 3
+  #   Order.create!(
+  #     name: user.name,
+  #     last_name: "Smith",
+  #     email: user.email,
+  #     address: "Landing Lange",
+  #     zip: 4455,
+  #     country: "UA",
+  #     store_id: store.id,
+  #     created_at: Time.now - 2.day,
+  #     updated_at:Time.now - 2.day
+  #   )
+  #   o += 1
+  # end
+  # o = 0
+  # while o < 3
+  #   Order.create!(
+  #     name: user.name,
+  #     last_name: "Smith",
+  #     email: user.email,
+  #     address: "Landing Lange",
+  #     zip: 4455,
+  #     country: "UA",
+  #     store_id: store.id,
+  #     created_at: Time.now - 3.day,
+  #     updated_at:Time.now - 3.day
+  #   )
+  #   o += 1
+  # end
+  # o = 0
+  # while o < 5
+  #   Order.create!(
+  #     name: user.name,
+  #     last_name: "Smith",
+  #     email: user.email,
+  #     address: "Landing Lange",
+  #     zip: 4455,
+  #     country: "UA",
+  #     store_id: store.id,
+  #     created_at: Time.now - 5.day,
+  #     updated_at:Time.now - 5.day
+  #   )
+  #   o += 1
+  # end
+  # o = 0
+  # while o < 8
+  #   Order.create!(
+  #     name: user.name,
+  #     last_name: "Smith",
+  #     email: user.email,
+  #     address: "Landing Lange",
+  #     zip: 4455,
+  #     country: "UA",
+  #     store_id: store.id,
+  #     created_at: Time.now - 7.day,
+  #     updated_at:Time.now - 7.day
+  #   )
+  #   o += 1
+  # end
+  puts "orders create"
   puts "success"
 end
