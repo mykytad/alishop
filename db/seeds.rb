@@ -66,7 +66,7 @@ if Rails.env.development?
   while r < 30
     review = Review.create!(
       body: Faker::Movies::StarWars.quote,
-      user_id: user.id  ,
+      user_id: user.id,
       product_id: rand(1..10),
       rating: rand(1..5)
     )
@@ -84,10 +84,10 @@ if Rails.env.development?
       zip: 4455,
       country: "UA",
       store_id: store.id,
-      user_id:user.id,
+      user_id: user.id,
       sum_price: 40,
       created_at: Time.now - rand(0..7).day,
-      updated_at:Time.now - rand(0..7).day
+      updated_at: Time.now - rand(0..7).day
     )
     Payment.create!(
       user_id: user.id,
@@ -99,81 +99,6 @@ if Rails.env.development?
     )
     o += 1
   end
-  # o = 0
-  # while o < 2
-  #   Order.create!(
-  #     name: user.name,
-  #     last_name: "Smith",
-  #     email: user.email,
-  #     address: "Landing Lange",
-  #     zip: 4455,
-  #     country: "UA",
-  #     store_id: store.id,
-  #     created_at: Time.now - 1.day,
-  #     updated_at:Time.now - 1.day
-  #   )
-  #   o += 1
-  # end
-  # o = 0
-  # while o < 3
-  #   Order.create!(
-  #     name: user.name,
-  #     last_name: "Smith",
-  #     email: user.email,
-  #     address: "Landing Lange",
-  #     zip: 4455,
-  #     country: "UA",
-  #     store_id: store.id,
-  #     created_at: Time.now - 2.day,
-  #     updated_at:Time.now - 2.day
-  #   )
-  #   o += 1
-  # end
-  # o = 0
-  # while o < 3
-  #   Order.create!(
-  #     name: user.name,
-  #     last_name: "Smith",
-  #     email: user.email,
-  #     address: "Landing Lange",
-  #     zip: 4455,
-  #     country: "UA",
-  #     store_id: store.id,
-  #     created_at: Time.now - 3.day,
-  #     updated_at:Time.now - 3.day
-  #   )
-  #   o += 1
-  # end
-  # o = 0
-  # while o < 5
-  #   Order.create!(
-  #     name: user.name,
-  #     last_name: "Smith",
-  #     email: user.email,
-  #     address: "Landing Lange",
-  #     zip: 4455,
-  #     country: "UA",
-  #     store_id: store.id,
-  #     created_at: Time.now - 5.day,
-  #     updated_at:Time.now - 5.day
-  #   )
-  #   o += 1
-  # end
-  # o = 0
-  # while o < 8
-  #   Order.create!(
-  #     name: user.name,
-  #     last_name: "Smith",
-  #     email: user.email,
-  #     address: "Landing Lange",
-  #     zip: 4455,
-  #     country: "UA",
-  #     store_id: store.id,
-  #     created_at: Time.now - 7.day,
-  #     updated_at:Time.now - 7.day
-  #   )
-  #   o += 1
-  # end
   puts "orders create"
   puts "success"
 end
