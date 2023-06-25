@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_075736) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "products"
+    t.string "phone"
     t.string "name", null: false
     t.string "last_name", null: false
     t.string "email", null: false

@@ -110,6 +110,10 @@ margin-bottom: 5px;
   color: #ffc107;
 }
 
+/* order */
+.order_list{
+  font-size: 15px;
+}
 /* manager portaol */
 .manager_store_item_product{
   min-height: 35px;
@@ -125,6 +129,5 @@ margin-bottom: 5px;
   margin-bottom: 10px;
 }
 .statistic_chart_wrap{
-  height: 800px;
   width: 800px;
 }

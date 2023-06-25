@@ -70,7 +70,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:name, :last_name, :email, :address, :zip, :country, :status)
+    params.require(:order).permit(:name, :last_name, :email, :address, :phone, :zip, :country, :status)
   end
 
   def create_order_product(product, order)

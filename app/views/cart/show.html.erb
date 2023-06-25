@@ -6,18 +6,18 @@
   <%= link_to "Clear", clear_path %>
   <% @products.each do |product| %>
     <div class = "col-12 d-flex row justify-content-between">
-      <div class = "col-4">
+      <div class = "col-3">
         <span> <%= product.name %> </span>
       </div>
 
-      <div class = "col-6 row justify-content-end align-items-center">
+      <div class = "col-9 row justify-content-end align-items-center">
         <%= link_to "Add", cart_add_path({:product_id => product.id}), title:"add", class:"btn btn-primary rounded-pill px-3 col-2" %>
         
         <span class="col-1"> <%= @cart.count(product.id.to_s)%> </span>
         
         <%= link_to "Delete", cart_delete_path({:product_id => product.id}), title:"delete", class:"btn btn-danger rounded-pill px-3 col-2" %>
         
-        <span class = "col-1"> <%= product.price_with_discount * @cart.count(product.id.to_s) %>$ </span>
+        <span class = "col-1"> <%= number_to_currency(product.price_with_discount) * @cart.count(product.id.to_s) %>$</span>
 
         <%= link_to "", cart_delete_all_path({:product_id => product.id}), title:"delete_all", class:"btn-close btn_close" %>
       </div>
@@ -30,7 +30,7 @@
     <%= link_to "Place order", new_order_path,  class:"btn btn-primary rounded-pill" %>
   </div>
   <div class="col-6 justify-content-end">
-    <strong class="align-self-end"><%= @sum %>$</strong>
+    <strong class="align-self-end"><%= number_to_currency(@sum) %>$</strong>
   </div>
   </div>
 

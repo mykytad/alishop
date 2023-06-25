@@ -44,41 +44,39 @@
             </nav>
           </div>
 
-          <div class="col-11 d-flex justify-content-between">
+          <div class="col-12 d-flex justify-content-between">
             <p class="col-1">
               №
             </p>
             <p class="col-2">
               Status
             </p>
-            <p class="col-1">
+            <p class="col-2">
               Price
             </p>
-            <p class="col-3">
+            <p class="col-4">
               Client email
             </p>
             <p class="col-2">
               Created at
             </p>
-            <p class="col-2">
-              Payment status
+            <p class="col-1">
+               status
             </p>
-            <p class="col-1"></p>
           </div>
 
           <%@orders.each do |order|%>
-            <div class="col-11 d-flex justify-content-between bg-body-tertiary">
-              <p class="col-1 px-2"><%=order.id%></p>
-              <p class="col-2"><%=order.status%></p>
-              <p class="col-1"><%=order.sum_price%></p>
-              <p class="col-3"><%=order.email%></p>
-              <p class="col-2"><%=order.created_at.to_s(:short)%></p>
+            <div class="col-12 d-flex justify-content-between bg-body-tertiary order_list">
+              <p class="col-1 px-2"><%= link_to order.id, manager_store_order_path(order.store_id, order.id) %></p>
+              <p class="col-2"><%= order.status %></p>
+              <p class="col-2"><%= number_to_currency(order.sum_price) %></p>
+              <p class="col-4"><%= order.email %></p>
+              <p class="col-2"><%= time_ago_in_words(order.created_at) %> <span>ago</span></p>
               <% if order.payment.status? %>
-                <p class="col-2">paid</p>
+                <p class="col-1">paid</p>
               <% else %>
-                <p class="col-2">not paid</p>
+                <p class="col-1">not paid</p>
               <% end %>
-              <%= link_to "More", manager_store_order_path(order.store_id, order.id), class:"col-1 px-2" %>
             </div>
           <% end %>
         </div>

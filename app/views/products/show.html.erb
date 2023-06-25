@@ -38,9 +38,9 @@
     <div class="col-3 product_show_side_bloc">
       <div class="d-flex align-items-center side_bloc_price_wrap">
         <% if @product.discount == 0 %>
-          <span class="card-text h4 side_bloc_price"> <%= @product.price %>$ </span>
+          <span class="card-text h4 side_bloc_price"> <%= number_to_currency(@product.price) %>$ </span>
         <% else %>
-          <span class="discount h4 side_bloc_price"><%= @product.price - @product.discount %>$</span>
+          <span class="discount h4 side_bloc_price"><%= number_to_currency(@product.price - @product.discount) %>$</span>
           <span class="line-through"><%= @product.price %>$</span>
         <% end %>
 

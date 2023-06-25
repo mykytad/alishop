@@ -46,7 +46,7 @@
       </div>
 
       <%@orders.each do |order|%>
-        <div class="col-11 d-flex justify-content-between bg-body-tertiary">
+        <div class="col-11 d-flex justify-content-between bg-body-tertiary order_list">
           <p class="text-body-secondary col-2 px-2"><%= order.id %></p>
           <p class="text-body-secondary col-2"><%= order.status %></p>
           <p class="text-body-secondary col-2"><%= number_to_currency(order.sum_price) %></p>

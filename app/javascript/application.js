@@ -6,10 +6,12 @@ import 'chart.js'
 document.addEventListener('turbo:load', () => {
   var ctx = document.getElementById('myChart').getContext('2d');
   var myChart = new Chart(ctx, {
-  type: 'line',
+  type: 'bar',
   data: {
     labels: JSON.parse(ctx.canvas.dataset.labels),
     datasets: [{
+      label: 'Your orders',
+      backgroundColor: "#20c997",
       data: JSON.parse(ctx.canvas.dataset.data),
     }]
   },
