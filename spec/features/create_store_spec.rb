@@ -54,6 +54,6 @@ RSpec.feature "create store", type: :feature do
 
     expect(body).to have_content "Tomas"
     expect(body).to have_content "Lorem ipsum dolor sit amet"
-    expect(body).to have_content "Rating: 4"
+    expect(body).to have_content "4.0"
   end
 end
