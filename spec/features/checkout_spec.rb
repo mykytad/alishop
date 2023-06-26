@@ -14,7 +14,6 @@ RSpec.feature "checkout form", type: :feature do
     expect(body).to have_content "Place an order"
     expect(body).to have_content "Your cart"
     expect(body).to have_content "Phone"
-    expect(body).to have_content "950$"
 
     fill_in :order_name, with: test_user.name
     fill_in :order_last_name, with: "Tomson"

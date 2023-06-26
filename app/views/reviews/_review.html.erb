@@ -1,6 +1,11 @@
 <hr>
 <div class="review_wrap">
-  <p class="review_name"> <strong><%= review.user.name %></strong> </p>
-  <small class="review_rating">Rating: <%= review.rating %> </small>
+  <p class="review_name"> <strong><%= review.user.name %></strong> 
+    <small class="review_rating">
+      <% review.rating.times do |i| %>
+        &#9733;
+      <%end%>
+    </small>
+  </p>
   <p class="review_body"><em><%= review.body %></em></p>
 </div>

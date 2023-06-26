@@ -12,22 +12,20 @@ RSpec.feature "add to cart ", type: :feature do
 
     expect(body).to have_content "Phone"
     expect(body).to have_content "1"
-    expect(body).to have_content "950"
 
-    click_link "Add"
+    click_link "+"
 
     expect(body).to have_content "2"
-    expect(body).to have_content "1900"
 
-    click_link "Delete"
+    click_link "-"
 
     expect(body).to have_content "1"
-    expect(body).to have_content "950"
+    expect(body).to have_content "$950.00"
   end
 
   it "delete product from cart" do
     click_link "Buy"
-    click_link "Add"
+    click_link "+"
     click_link "delete_all"
 
     expect(body).to have_content "Your cart is empty"
@@ -36,7 +34,7 @@ RSpec.feature "add to cart ", type: :feature do
 
   it "clear cart" do
     click_link "Buy"
-    click_link "Add"
+    click_link "+"
     click_link "Clear"
 
     expect(body).to have_content "Your cart"

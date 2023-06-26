@@ -1,9 +1,18 @@
-<h1> ALL PRODUCTS </h1>
-<%= render "home/categories"%>
-<div class="row g-4 index_product_wrap">
+<div class="d-flex justify-content-between col-12">
 
-  <% @products.each do |product|%>
-    <%= render product %>
-  <% end%>
+  <%= render "home/categories" %>
 
+  <div class="col-10">
+    <% if @category %>
+      <h2> <span class="product_category_name"><%= @category.name.upcase %></span> PRODUCTS </h2>
+    <% else %>
+      <h2> ALL PRODUCTS </h2>
+    <% end %>
+
+    <div class="row g-4 mt-1">
+      <% @products.each do |product| %>
+        <%= render product %>
+      <% end %>
+    </div>
+  </div>
 </div>

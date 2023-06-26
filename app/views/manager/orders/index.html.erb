@@ -11,6 +11,8 @@
             <hr>
             <%= link_to "Create a new product", new_manager_store_product_path(@store.id), class:"btn btn-outline-primary" %>
             <hr>
+            <%= link_to "Statistics", statistic_manager_store_orders_path(@store.id), class:"btn btn-outline-primary" %>
+            <hr>
             <%= link_to "Destroy store", manager_store_path(@store.id), data:{turbo_method: :delete}, class:"btn btn-outline-secondary" %>
           <% end %>
         <% end %>
@@ -25,47 +27,60 @@
         <p class="h2"> You don't have orders yet </p>
       <% else %>
         <div class="col-12 d-flex flex-column">
-          <div class="col-11 d-flex justify-content-between">
+
+          <div class="d-flex row manager_tabs_wrap">
+            <nav class="col-5">
+              <ul class="nav nav-pills">
+                <li class="nav-item">
+                  <%= link_to "New", manager_store_orders_path(status: "new"), class:"nav-link  #{'active' if params[:status] == "new" || params[:status].nil?}" %>
+                </li>
+                <li class="nav-item admin_tab_item">
+                  <%= link_to "In progress",manager_store_orders_path(status: "in progress"), class:"nav-link #{'active' if params[:status] == "in progress" }" %>
+                </li>
+                <li class="nav-item admin_tab_item">
+                  <%= link_to "Completed",manager_store_orders_path(status: "completed"), class:"nav-link #{'active' if params[:status] == "completed" }" %>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-12 d-flex justify-content-between">
             <p class="col-1">
-                №
+              №
             </p>
             <p class="col-2">
               Status
             </p>
-            <p class="col-1">
+            <p class="col-2">
               Price
             </p>
-            <p class="col-3">
+            <p class="col-4">
               Client email
             </p>
             <p class="col-2">
               Created at
             </p>
-            <p class="col-2">
-              Payment status
+            <p class="col-1">
+               status
             </p>
-            <p class="col-1"></p>
           </div>
 
           <%@orders.each do |order|%>
-            <div class="col-11 d-flex justify-content-between bg-body-tertiary">
-              <p class="col-1 px-2"><%=order.id%></p>
-              <p class="col-2"><%=order.status%></p>
-              <p class="col-1"><%=order.sum_price%></p>
-              <p class="col-3"><%=order.email%></p>
-              <p class="col-2"><%=order.created_at.to_s(:short)%></p>
+            <div class="col-12 d-flex justify-content-between bg-body-tertiary order_list">
+              <p class="col-1 px-2"><%= link_to order.id, manager_store_order_path(order.store_id, order.id), id:"more_link" %></p>
+              <p class="col-2"><%= order.status %></p>
+              <p class="col-2"><%= number_to_currency(order.sum_price) %></p>
+              <p class="col-4"><%= order.email %></p>
+              <p class="col-2"><%= time_ago_in_words(order.created_at) %> <span>ago</span></p>
               <% if order.payment.status? %>
-                <p class="col-2">paid</p>
+                <p class="col-1">paid</p>
               <% else %>
-                <p class="col-2">not paid</p>
+                <p class="col-1">not paid</p>
               <% end %>
-              <%= link_to "More", manager_store_order_path(order.store_id, order.id), class:"col-1 px-2" %>
             </div>
           <% end %>
-        
         </div>
       <% end %>
     </div>
-
   </div>
 </main>
