@@ -26,12 +26,12 @@
             </div>
             <div>
               <span class=""><%= @cart.count(product.id.to_s) %>x</span>
-              <span class="text-body-secondary"><%= number_to_currency(product.price - product.discount) %>$</span>
+              <span class="text-body-secondary"><%= number_to_currency(product.price - product.discount) %></span>
             </div>
           </li>
       <% end %>
       <li class="list-group-item d-flex justify-content-between">
-        <span>Total (USD)</span> <strong><%= number_to_currency(@sum) %>$</strong>
+        <span>Total (USD)</span> <strong><%= number_to_currency(@sum) %></strong>
       </li>
       </ul>
     </div>
