@@ -5,6 +5,10 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.where(:user_id => current_user.id)
     @orders = @orders.order(id: :DESC)
+
+    if params[:order_search].present?
+      @orders = @orders.where("(id) like ?", "%#{params[:order_search]}%")
+    end
   end
 
   def show
@@ -64,6 +68,14 @@ class OrdersController < ApplicationController
       redirect_to manager_store_order_path(@order.store_id, @order.id)
     else
       render :edit
+    end
+  end
+
+  def vue_table
+    @orders = Order.where(:user_id => current_user.id)
+    respond_to do |format|
+      format.html
+      format.json { render :json => @orders.to_json }
     end
   end
 

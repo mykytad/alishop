@@ -1,0 +1,31 @@
+<div id="app">
+  <form class="user_order_search" id="search">
+    Search <input name="query" v-model="searchQuery" class="">
+  </form>
+  <demo-grid
+    :data="gridData"
+    :columns="gridColumns"
+    :filter-key="searchQuery">
+  </demo-grid>
+</div>
+<script type="module">
+  import { createApp } from 'vue'
+  import DemoGrid from '/grid.js'
+
+  createApp({
+    components: {
+      DemoGrid
+    },
+    data: () => ({
+      searchQuery: '',
+      gridColumns: [
+        "id",
+        "status",
+        "email",
+        "sum_price",
+        "created_at"
+      ],
+      gridData: <%= @orders.to_json.html_safe %>
+    })
+  }).mount('#app')
+</script>
