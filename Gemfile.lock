@@ -146,6 +146,8 @@ GEM
       net-imap
       net-pop
       net-smtp
+    make_exportable (1.1.0)
+      rails
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
@@ -321,6 +323,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   letter_opener
+  make_exportable
   mini_magick
   pry-rails
   puma (~> 5.0)
