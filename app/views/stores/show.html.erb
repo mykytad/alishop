@@ -1,19 +1,25 @@
 <div>
-    
-    <div class="d-flex align-items-center">
-        <h1 class="store_show_name"> <%= @store.name %> </h1>
-        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<%= @store.rating * 20 if @store.rating %>" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar" style="width: <%= @store.rating * 20 if @store.rating%>%">
-            <small class="product_rating"> <%= @store.rating if @store.rating %> </small>
+  <div class="d-flex align-items-center">
+    <h1 class="store_show_name"> <%= @store.name %> </h1>
+    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<%= @store.rating * 20 if @store.rating %>" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar" style="width: <%= @store.rating * 20 if @store.rating%>%">
+        <small class="product_rating"> <%= @store.rating if @store.rating %> </small>
+      </div>
+    </div>
+  </div>
+  <p> <%= @store.description %> </p>
+  <p> <%= @store.phone %> </p>
+  <div class="d-flex justify-content-between col-12">
+
+    <%= render "home/categories" %>
+
+    <div class="row g-4 d-flex flex-column col-10">
+        <div class="col-12">
+            <div class="row g-4 mt-1">
+                <% @store.products.each do |product|%>
+                    <%= render product %>
+                <% end %>
             </div>
         </div>
-    </div>
-    <p> <%= @store.description %> </p>
-    <p> <%= @store.phone %> </p>
-
-    <div class="row g-4">
-        <% @store.products.each do |product| %>
-            <%= render product %>
-        <% end %>
     </div>
 </div>

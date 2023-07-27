@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   get "cart/show" =>"cart#show"
   get "clear" => "cart#clear"
 
-  resources :orders 
+  resources :orders do 
+    collection do
+      get "vue_table"
+    end
+  end
 
   resources :payments, only: [] do
     # member do payments/:id/foo

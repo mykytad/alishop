@@ -25,6 +25,14 @@
 
   <div class="col-md-7 col-lg-8">
     <h4 class="mb-5">Your orders</h4>
+    <%# --- %>
+    <%= form_tag("#", method: :get) do %>
+      <div class="d-flex">
+        <%= text_field_tag "order_search", params[:order_search], placeholder: "order search...", class:"form-control me-2" %>
+        <%= submit_tag "Search", class:"btn btn-outline-secondary" %>
+      </div>
+    <% end %>
+    <%# --- %>
     <div class="col-12 d-flex flex-column">
       <div class="col-11 d-flex justify-content-between">
         <p class="col-2">
