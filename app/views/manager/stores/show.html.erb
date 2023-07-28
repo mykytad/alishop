@@ -11,55 +11,55 @@
       <hr>
       <%= link_to "Edit store", edit_manager_store_path(@store.id), class:"btn btn-outline-primary" %>
       <hr>
-      <%= link_to "export product", manager_store_path(@store.id), class:"btn btn-outline-primary" %> <!--@store.to_export("csv")-->
+      <%= link_to "Export csv product",manager_store_path(@store.id, :format => :csv), download:["Products_" + @store.name], class:"btn btn-outline-primary" %> <!--@store.to_export("csv")-->
     </div>
 
   </div>
   
-    <div class="col-md-7 col-lg-8">
-      <h2><%= @store.name%> products</h2>
+  <div class="col-md-7 col-lg-8">
+    <h2><%= @store.name%> products</h2>
 
-      <div class="col-12 d-flex flex-column">
-        <div class="col-11 d-flex justify-content-between">
-          <p class="col-6">
-            Name
-          </p>
-          <p class="col-1">
-            Price
-          </p>
-          <p class="col-1">
-            Discount
-          </p>
-          <p class="col-1"></p>
-          <p class="col-1"></p>
-        </div>
-
-        <% @store.products.each do |product|%>
-          <div class="col-11 d-flex justify-content-between bg-body-tertiary manager_store_item_product">
-            <div class="d-flex col-6">
-              <p class="col-2">
-                <img src= <%= product.images[0] %> alt= "<%= product.name%>" class="product_manager_img">
-              </p>
-              <p class="col-3 px-2">
-                <%= product.name %>
-              </p>
-            </div>
-            <p class="col-1">
-              <%= number_to_currency(product.price - product.discount) %>
-            </p>
-            <p class="col-1">
-              <%= product.discount %>
-            </p>
-            <p class="col-1 px-2">
-              <%= link_to "Edit", edit_manager_store_product_path(product.store_id, product.id) %>
-            </p>
-            <p class="col-1 px-2">
-              <%= link_to "Delete", manager_store_product_path(product.store_id, product.id), data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"} %>
-            </p>
-          </div>
-        <% end %>
+    <div class="col-12 d-flex flex-column">
+      <div class="col-11 d-flex justify-content-between">
+        <p class="col-6">
+          Name
+        </p>
+        <p class="col-1">
+          Price
+        </p>
+        <p class="col-1">
+          Discount
+        </p>
+        <p class="col-1"></p>
+        <p class="col-1"></p>
       </div>
 
+      <% @store.products.each do |product| %>
+        <div class="col-11 d-flex justify-content-between bg-body-tertiary manager_store_item_product">
+          <div class="d-flex col-6">
+            <p class="col-2">
+              <img src= <%= product.images[0] %> alt= "<%= product.name%>" class="product_manager_img">
+            </p>
+            <p class="col-3 px-2">
+              <%= product.name %>
+            </p>
+          </div>
+          <p class="col-1">
+            <%= number_to_currency(product.price - product.discount) %>
+          </p>
+          <p class="col-1">
+            <%= product.discount %>
+          </p>
+          <p class="col-1 px-2">
+            <%= link_to "Edit", edit_manager_store_product_path(product.store_id, product.id) %>
+          </p>
+          <p class="col-1 px-2">
+            <%= link_to "Delete", manager_store_product_path(product.store_id, product.id), data:{turbo_method: :delete, turbbo_confirm: "Are you surw?"} %>
+          </p>
+        </div>
+      <% end %>
     </div>
+
+  </div>
 
 </div>
