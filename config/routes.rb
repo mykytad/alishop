@@ -41,7 +41,11 @@ Rails.application.routes.draw do
           get "statistic"
         end
       end
-      resources :products
+      resources :products do
+        collection do
+          get "export"
+        end
+      end
     end
 
     resources :products, only: [:index]

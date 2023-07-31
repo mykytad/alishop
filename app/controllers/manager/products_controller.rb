@@ -35,6 +35,32 @@ class Manager::ProductsController < ManagerController
     redirect_to manager_store_path(@store)
   end
 
+  def export
+    @store = Store.find(params[:store_id])
+    respond_to do |format|
+      format.html
+      format.csv { 
+        products = @store.products
+        products_csv = products.map do |product|
+          ["\"#{product.name}\"", product.price, "\"#{product.description}\""].join(",")
+        end
+
+        products_csv = products_csv.join("\n")
+        send_data(products_csv, :filename => @store.name + "_products" + ".csv")
+        # render :plain => products_csv
+      }
+      format.json{
+        products = @store.products
+        products_json = products.map do |product|
+          product.to_json(:only => [:name, :price, :description])
+        end
+
+        products_json = products_json.join(" ")
+        send_data(products_json, :filename => @store.name + "_products.json")
+      }
+    end
+  end
+
   private
 
   def product_params
