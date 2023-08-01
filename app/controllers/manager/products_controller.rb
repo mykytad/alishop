@@ -42,7 +42,7 @@ class Manager::ProductsController < ManagerController
       format.csv do
         products = @store.products
         products_csv = products.map do |product|
-          ["\"#{product.name}\"", product.price, "\"#{product.description}\""].join(",")
+          ["\"#{product.name}\"", product.price, product.discount, "\"#{product.description}\""].join(",")
         end
 
         products_csv = products_csv.join("\n")
@@ -52,10 +52,10 @@ class Manager::ProductsController < ManagerController
       format.json do
         products = @store.products
         products_json = products.map do |product|
-          product.to_json(:only => [:name, :price, :description])
+          product.to_json(:only => [:name, :price, :discount, :description])
         end
 
-        products_json = products_json.join(" ")
+        # products_json = products_json.join("\n")
         send_data(products_json, :filename => "#{@store.name}_products.json")
       end
     end
