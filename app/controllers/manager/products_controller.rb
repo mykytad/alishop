@@ -53,13 +53,13 @@ class Manager::ProductsController < ManagerController
       format.json do
         products = store.products
         products_json = products.map do |product|
-          {name: product.name, price: product.price}
+          { name: product.name, price: product.price }
         end
         products_json = JSON.generate(products_json)
-        #__1__
+        # __1__
         # products_json = products.to_json(:only => [:name, :price, :discount, :description])
 
-        #__2__
+        # __2__
         # products_json = products.map do |product|
         #   product.to_json(:only => [:name, :price, :discount, :description])
         # end
@@ -72,12 +72,14 @@ class Manager::ProductsController < ManagerController
   end
 
   def import
-    
   end
 
   def post_import
     file = params[:file]
     file_data = file.read
+    # if file_data ".csv"
+
+    # end
     file_data = file_data.split("\n")
     file_data.each do |product_data|
       product_data = product_data.split(",")
@@ -90,7 +92,7 @@ class Manager::ProductsController < ManagerController
         store_id: @store.id
       )
     end
-    redirect_to manager_store_path(@store.id), notice: "import success" 
+    redirect_to manager_store_path(@store.id), notice: "import success"
   end
 
   private
