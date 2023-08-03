@@ -1,4 +1,6 @@
 class Manager::ProductsController < ManagerController
+  before_action :store
+
   def new
     @product = store.products.new
     @categories = Category.all
@@ -36,29 +38,59 @@ class Manager::ProductsController < ManagerController
   end
 
   def export
-    @store = Store.find(params[:store_id])
     respond_to do |format|
       format.html
       format.csv do
-        products = @store.products
+        products = store.products
         products_csv = products.map do |product|
           ["\"#{product.name}\"", product.price, product.discount, "\"#{product.description}\""].join(",")
         end
 
         products_csv = products_csv.join("\n")
-        send_data(products_csv, :filename => "#{@store.name}_products.csv")
+        send_data(products_csv, :filename => "#{store.name}_products.csv")
         # render :plain => products_csv
       end
       format.json do
-        products = @store.products
+        products = store.products
         products_json = products.map do |product|
-          product.to_json(:only => [:name, :price, :discount, :description])
+          {name: product.name, price: product.price}
         end
+        products_json = JSON.generate(products_json)
+        #__1__
+        # products_json = products.to_json(:only => [:name, :price, :discount, :description])
 
-        # products_json = products_json.join("\n")
+        #__2__
+        # products_json = products.map do |product|
+        #   product.to_json(:only => [:name, :price, :discount, :description])
+        # end
+
+        # products_json = products_json.join(",")
+        # products_json = "[#{products_json}]"
         send_data(products_json, :filename => "#{@store.name}_products.json")
       end
     end
+  end
+
+  def import
+    
+  end
+
+  def post_import
+    file = params[:file]
+    file_data = file.read
+    file_data = file_data.split("\n")
+    file_data.each do |product_data|
+      product_data = product_data.split(",")
+      Product.create!(
+        name: product_data[0],
+        description: product_data[3],
+        price: product_data[1],
+        discount: product_data[2],
+        category_id: Category.first.id,
+        store_id: @store.id
+      )
+    end
+    redirect_to manager_store_path(@store.id), notice: "import success" 
   end
 
   private
