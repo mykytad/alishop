@@ -53,7 +53,7 @@ class Manager::ProductsController < ManagerController
       format.json do
         products = store.products
         products_json = products.map do |product|
-          { name: product.name, price: product.price, discount: product.discount, description: product.description}
+          { name: product.name, price: product.price, discount: product.discount, description: product.description }
         end
         products_json = JSON.generate(products_json)
         # __1__
@@ -77,7 +77,6 @@ class Manager::ProductsController < ManagerController
   def post_import
     file = params[:file]
     file_data = file.read
-    # binding.pry
     if params[:file].content_type == 'text/csv'
       file_data = file_data.split("\n")
       file_data.each do |product_data|
@@ -93,8 +92,6 @@ class Manager::ProductsController < ManagerController
       end
     elsif params[:file].content_type == "application/json"
       file_data = JSON.parse(file_data)
-      binding.pry
-      # file_data = file_data
       file_data.each do |product_data|
         Product.create!(
           name: product_data["name"],
