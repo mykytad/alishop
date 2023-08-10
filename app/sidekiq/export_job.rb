@@ -1,8 +1,7 @@
 class ExportJob
   include Sidekiq::Job
-  queue_as :default 
 
-  def perform(*args)
+  def perform
     respond_to do |format|
       format.html
       format.csv do
