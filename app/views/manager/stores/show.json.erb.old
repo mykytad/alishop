@@ -1,0 +1,5 @@
+<% @store.products.each do |product| %>
+  <%= product.name %>
+  <%= product.price %>
+  <%= product.description %>
+<% end %>

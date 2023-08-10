@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "cart/show" =>"cart#show"
   get "clear" => "cart#clear"
 
-  resources :orders do 
+  resources :orders do
     collection do
       get "vue_table"
     end
@@ -41,7 +41,13 @@ Rails.application.routes.draw do
           get "statistic"
         end
       end
-      resources :products
+      resources :products do
+        collection do
+          get "export"
+          get "import"
+          post "post_import"
+        end
+      end
     end
 
     resources :products, only: [:index]

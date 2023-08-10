@@ -49,6 +49,10 @@ gem "mini_magick"
 gem "avatarly"
 gem 'country_select'
 gem 'faker'
+gem 'make_exportable'
+gem 'haml'
+gem 'sidekiq'
+gem 'redis'
 
 gem 'rubocop-rails', require: false
 

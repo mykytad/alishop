@@ -1,0 +1,10 @@
+%h2= "Product import"
+%main.m-auto.d-flex.col-12
+  .col-5
+    = form_tag(post_import_manager_store_products_path(@store), method: :post, multipart: true ) do
+      .mb-3
+        = file_field_tag :file, class:"class", accept: ".csv, .json"
+        %br
+        %small= "Upload your file with the product list"
+      .mb-3
+        = submit_tag "Upload file"
