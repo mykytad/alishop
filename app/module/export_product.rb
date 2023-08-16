@@ -1,7 +1,5 @@
-class ExportJob
-  include Sidekiq::Job
-
-  def perform
+module ExportProduct
+  def export_product
     respond_to do |format|
       format.html
       format.csv do
@@ -20,6 +18,16 @@ class ExportJob
           { name: product.name, price: product.price, discount: product.discount, description: product.description }
         end
         products_json = JSON.generate(products_json)
+        # __1__
+        # products_json = products.to_json(:only => [:name, :price, :discount, :description])
+
+        # __2__
+        # products_json = products.map do |product|
+        #   product.to_json(:only => [:name, :price, :discount, :description])
+        # end
+
+        # products_json = products_json.join(",")
+        # products_json = "[#{products_json}]"
         send_data(products_json, :filename => "#{@store.name}_products.json")
       end
     end

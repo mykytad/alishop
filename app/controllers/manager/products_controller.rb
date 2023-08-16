@@ -1,5 +1,7 @@
 class Manager::ProductsController < ManagerController
   before_action :store
+  # include ExportProduct
+  # include ImportProduct
 
   def new
     @product = store.products.new
@@ -38,37 +40,7 @@ class Manager::ProductsController < ManagerController
   end
 
   def export
-    respond_to do |format|
-      format.html
-      format.csv do
-        products = store.products
-        products_csv = products.map do |product|
-          ["\"#{product.name}\"", product.price, product.discount, "\"#{product.description}\""].join(",")
-        end
-
-        products_csv = products_csv.join("\n")
-        send_data(products_csv, :filename => "#{store.name}_products.csv")
-        # render :plain => products_csv
-      end
-      format.json do
-        products = store.products
-        products_json = products.map do |product|
-          { name: product.name, price: product.price, discount: product.discount, description: product.description }
-        end
-        products_json = JSON.generate(products_json)
-        # __1__
-        # products_json = products.to_json(:only => [:name, :price, :discount, :description])
-
-        # __2__
-        # products_json = products.map do |product|
-        #   product.to_json(:only => [:name, :price, :discount, :description])
-        # end
-
-        # products_json = products_json.join(",")
-        # products_json = "[#{products_json}]"
-        send_data(products_json, :filename => "#{@store.name}_products.json")
-      end
-    end
+    export_product
   end
 
   def import
@@ -77,36 +49,10 @@ class Manager::ProductsController < ManagerController
   def post_import
     file = params[:file]
     file_data = file.read
-    if params[:file].content_type == 'text/csv'
-      file_data = file_data.split("\n")
-      file_data.each do |product_data|
-        product_data = product_data.split(",")
-        Product.create!(
-          name: product_data[0],
-          description: product_data[3],
-          price: product_data[1],
-          discount: product_data[2],
-          category_id: Category.first.id,
-          store_id: @store.id
-        )
-      end
-    elsif params[:file].content_type == "application/json"
-      file_data = JSON.parse(file_data)
-      file_data.each do |product_data|
-        Product.create!(
-          name: product_data["name"],
-          description: product_data["description"],
-          price: product_data["price"],
-          discount: product_data["discount"],
-          category_id: Category.first.id,
-          store_id: @store.id
-        )
-      end
-    else
-      redirect_to manager_store_path(@store.id), alert: "import error"
-    end
-
-    redirect_to manager_store_path(@store.id), notice: "import success"
+    store_id = @store.id
+    file_type = params[:file].content_type
+    ImportProductJob.perform_later(file_type, file_data, store_id)
+    redirect_to manager_store_path(@store.id), notice: "import in progress"
   end
 
   private
