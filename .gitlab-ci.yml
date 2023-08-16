@@ -28,29 +28,18 @@ rubocop:   # This job runs in the test stage.
   script:
     - bundle exec rubocop
 
-
-
 services:
-  - postgres:latest
   - redis:latest
-  - name: docker.elastic.co/elasticsearch/elasticsearch:6.5.4
-    alias: elasticsearch
-
 variables:
-  POSTGRES_DB: lauber_backend_test
-  POSTGRES_USER: runner
-  POSTGRES_PASSWORD: ""
-  REDIS_HOST: redis
-  REDIS_URL: redis://redis:6379
-  ELASTICSEARCH_URL: "http://elasticsearch:9200"
+  POSTGRES_PASSWORD: postgres
+  DATABASE_URL: "postgres://postgres:postgres@postgres/test"
+  REDIS_URL: "redis://redis:6379/0"
+  RAILS_ENV: test
+  NODE_ENV: test
+  BUNDLE_PATH: vendor/bundle
+  GIT_DEPTH: 20
+  GIT_SUBMODULE_STRATEGY: none
+  GET_SOURCES_ATTEMPTS: 3
+  BUILD_ASSETS_IMAGE: "false"
+  CODECOV_TOKEN: "1234567a-1234-1a1a-1234a-1234567"
 
-before_script:
-  - apt-get update -qq && apt-get install -y -qq nodejs libpq-dev cmake libicu-dev
-  - echo "$RAILS_MASTER_KEY" -> config/master.key
-  - RAILS_ENV=test bundle install --jobs $(nproc)  "${FLAGS[@]}"
-  - cp config/database.yml.example config/database.yml
-  - RAILS_ENV=test rails db:setup
-
-rspec:
-  script:
-    - bundle exec rspec
