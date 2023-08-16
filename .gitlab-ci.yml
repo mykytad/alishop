@@ -31,8 +31,6 @@ rubocop:   # This job runs in the test stage.
 services:
   - redis:latest
 variables:
-  POSTGRES_PASSWORD: postgres
-  DATABASE_URL: "postgres://postgres:postgres@postgres/test"
   REDIS_URL: "redis://redis:6379/0"
   RAILS_ENV: test
   NODE_ENV: test
