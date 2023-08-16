@@ -30,14 +30,4 @@ rubocop:   # This job runs in the test stage.
 
 services:
   - redis:latest
-  stages:
-  - test
-
-test:
- script:
-   - echo "hello world!"
- stage: test
- variables:
-    REDIS_PORT: 6379
-    REDIS_HOST: redis
-    REDIS_URL: redis://redis:6379
+Host: redis
