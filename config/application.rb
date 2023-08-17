@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module AliShop
   class Application < Rails::Application
+    config.api_only = true
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
