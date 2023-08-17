@@ -34,16 +34,6 @@ class Manager::OrdersController < ManagerController
       orders = orders.count
     end
     @data_values = @data_values.reverse
-    # @data_keys = [
-    #   Time.now.strftime("%d.%m.%g"),
-    #   (Time.now - 1.day).strftime("%d.%m.%g"),
-    #   (Time.now - 2.day).strftime("%d.%m.%g"),
-    #   (Time.now - 3.day).strftime("%d.%m.%g"),
-    #   (Time.now - 4.day).strftime("%d.%m.%g"),
-    #   (Time.now - 5.day).strftime("%d.%m.%g"),
-    #   (Time.now - 6.day).strftime("%d.%m.%g")
-    # ]
-    # @data_values = [1, 10, 7, 4, 20, 24, 15]
   end
 
   def destroy

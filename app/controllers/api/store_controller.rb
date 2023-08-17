@@ -1,10 +1,3 @@
-class StoresController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+class Api::StoresController < ApiController
 
-  def index
-    render json: @store
-  end
-
-  def show
-  end
 end

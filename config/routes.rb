@@ -53,6 +53,12 @@ Rails.application.routes.draw do
     resources :products, only: [:index]
   end
 
+  namespace :api do
+    resources :stores, only: [:index, :show] do
+      resources :products, only: [:index, :show]
+    end
+  end
+
   resources :products, only: [:index]
   resources :users
 
