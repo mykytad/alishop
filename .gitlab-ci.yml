@@ -32,11 +32,3 @@ services:
   - redis:latest
 variables:
   REDIS_URL: "redis://redis:6379/0"
-  RAILS_ENV: test
-  NODE_ENV: test
-  BUNDLE_PATH: vendor/bundle
-  GIT_DEPTH: 20
-  GIT_SUBMODULE_STRATEGY: none
-  GET_SOURCES_ATTEMPTS: 3
-  BUILD_ASSETS_IMAGE: "false"
-  CODECOV_TOKEN: "1234567a-1234-1a1a-1234a-1234567"
