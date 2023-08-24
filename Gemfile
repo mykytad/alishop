@@ -53,6 +53,7 @@ gem 'make_exportable'
 gem 'haml'
 gem 'sidekiq'
 gem 'redis'
+gem 'pg'
 
 gem 'rubocop-rails', require: false
 

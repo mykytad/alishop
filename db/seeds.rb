@@ -11,7 +11,7 @@ if Rails.env.development?
     User.create!(
       name: Faker::JapaneseMedia::OnePiece.character,
       email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.cell_phone_in_e164.to_i,
+      phone: 111_111_111,
       password: "123456",
       password_confirmation: "123456"
     )
@@ -20,7 +20,7 @@ if Rails.env.development?
   user = User.create!(
     name: Faker::JapaneseMedia::OnePiece.character,
     email: Faker::Internet.email,
-    phone: Faker::PhoneNumber.cell_phone_in_e164.to_i,
+    phone: 111_111_111,
     password: "123456",
     password_confirmation: "123456"
   )
@@ -28,7 +28,7 @@ if Rails.env.development?
 
   store = Store.create!(
     name: Faker::Company.name,
-    phone: Faker::PhoneNumber.cell_phone_in_e164.to_i,
+    phone: 111_111_111,
     description: Faker::Company.catch_phrase,
     user_id: user.id
   )
