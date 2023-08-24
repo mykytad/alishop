@@ -52,7 +52,7 @@ if Rails.env.development?
     Product.create!(
       name: Faker::Coffee.blend_name,
       description: Faker::Coffee.notes,
-      price: 600,
+      price: rand(50..999),
       discount: rand(0..15),
       store_id: store.id,
       images: [image],
