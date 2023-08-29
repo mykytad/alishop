@@ -6,7 +6,7 @@ FROM ruby:3.1.2
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         nodejs \
-        sqlite3 \
+        postgresql \
     && rm -rf /var/lib/apt/lists/*
 
 # throw errors if Gemfile has been modified since Gemfile.lock
