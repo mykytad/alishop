@@ -1,5 +1,5 @@
 def test_user
-  User.create(
+  user = User.create(
     name: "Tomas",
     email: "tomas@example.com",
     phone: "0987654321",
@@ -36,7 +36,6 @@ def test_product
 end
 
 def test_order
-  # save_and_open_page
   click_link "Buy"
   click_link "Place order"
   fill_in :order_name, with: test_user.name

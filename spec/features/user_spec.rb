@@ -18,5 +18,7 @@ RSpec.feature "create user", type: :feature do
   it "profile show" do
     log_in(test_user)
     click_link :profile_link
+
+    expect(body).to have_link "Tomas"
   end
 end

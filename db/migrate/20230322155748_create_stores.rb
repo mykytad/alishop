@@ -3,7 +3,7 @@ class CreateStores < ActiveRecord::Migration[7.0]
     create_table :stores do |t|
       t.string :name, null: false
       t.string :description, null: false
-      t.integer :phone, null: false
+      t.string :phone, null: false
       t.timestamps
     end
   end

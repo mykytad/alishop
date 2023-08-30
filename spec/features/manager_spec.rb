@@ -12,8 +12,8 @@ RSpec.feature "manager", type: :feature do
     expect(body).to have_content "Shop"
     expect(body).to have_content "1"
 
-    click_link :store_link
-    # visit manager_store_orders_path(test_store.id)
+    # click_link :store_link
+    visit manager_store_orders_path(store.id)
     expect(body).to have_content "Shop Orders"
     expect(body).to have_content "new"
     expect(body).to have_content test_user.email
@@ -28,6 +28,7 @@ RSpec.feature "manager", type: :feature do
 
   it "change order" do
     click_link :store_link
+    # visit manager_store_orders_path(store.id)
     click_link "more_link"
     select "completed", from: :order_status
 
