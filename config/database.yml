@@ -21,18 +21,24 @@ test:
   # <<: *default
   adapter: postgresql
   encoding: unicode
-  # database: db/test.sqlite3
   database: alishop_test
+  pool: 5
+  username: postgres
+  password:
+  
 
 development:
   adapter: postgresql
   encoding: unicode
-  # <<: *default
   database: alishop_development
+  username: postgres
+  password:
   # host: localhost
 
   production:
   # adapter: postgresql
   <<: *default
   database: alishop_production
+  username: postgres
+  password:
   # host: localhost
