@@ -18,14 +18,16 @@ default: &default
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  # adapter: postgresql
+  # <<: *default
+  adapter: postgresql
+  encoding: unicode
   # database: db/test.sqlite3
   database: alishop_test
 
 development:
-  # adapter: postgresql
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  # <<: *default
   database: alishop_development
   # host: localhost
 
