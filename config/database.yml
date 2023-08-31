@@ -21,7 +21,7 @@ test:
   # <<: *default
   adapter: postgresql
   encoding: unicode
-  database: gitlabhq_test
+  database: alishop_test
   username: postgres
   password:
   host: localhost
