@@ -29,8 +29,12 @@ development:
   adapter: postgresql
   encoding: unicode
   database: alishop_development
+  username: postgres
+  password:
 
   production:
-  # adapter: postgresql
-  <<: *default
+  adapter: postgresql
+  encoding: unicode  
   database: alishop_production
+  username: postgres
+  password:
