@@ -24,7 +24,7 @@ test:
   database: alishop_test
   pool: 5
   username: postgres
-  password:
+  password: 123456
   
 
 development:
@@ -32,13 +32,13 @@ development:
   encoding: unicode
   database: alishop_development
   username: postgres
-  password:
+  password: 123456
   # host: localhost
 
-  production:
-  # adapter: postgresql
-  <<: *default
-  database: alishop_production
-  username: postgres
-  password:
-  # host: localhost
+  # production:
+  # # adapter: postgresql
+  # <<: *default
+  # database: alishop_production
+  # username: postgres
+  # password:
+  # # host: localhost
