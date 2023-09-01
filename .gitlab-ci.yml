@@ -10,12 +10,11 @@ cache:
 before_script:
   - ruby -v  # Print out ruby version for debugging
   # Uncomment next line if your rails app needs a JS runtime:
-  - apt-get update -qq && apt-get install -y -qq postgresql # new options
+  - apt-get update -qq && apt-get install -y -qq postgresql postgresql-contrib libpq-dev cmake # new options
   - apt-get update -q && apt-get install nodejs -yqq
   - bundle config set --local deployment true  # Install dependencies into ./vendor/ruby
   - bundle install -j $(nproc)
   # new options
-  postgresql-contrib libpq-dev cmake
   - ruby -v
   - which ruby
   - gem install bundler --no-ri --no-rdoc
