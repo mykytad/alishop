@@ -26,6 +26,7 @@ rspec:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
   script:
   #  - RAILS_ENV=test bundle exec rspec # new options
+    - bundle exec rake db:create RAILS_ENV=test
     - bundle exec rake db:setup RAILS_ENV=test
     - bundle exec rspec spec
 
