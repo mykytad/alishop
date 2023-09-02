@@ -32,7 +32,7 @@ development:
   username: postgres
   password:
 
-  production:
+production:
   adapter: postgresql
   encoding: unicode  
   database: alishop_production

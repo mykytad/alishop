@@ -10,17 +10,14 @@ cache:
 before_script:
   - ruby -v  # Print out ruby version for debugging
   # Uncomment next line if your rails app needs a JS runtime:
-  - apt-get update -qq && apt-get install -y -qq postgresql postgresql-contrib libpq-dev cmake # new options
+  # - apt-get update -qq && apt-get install -y -qq postgresql postgresql-contrib libpq-dev cmake # new options
   - apt-get update -q && apt-get install nodejs -yqq
   - bundle config set --local deployment true  # Install dependencies into ./vendor/ruby
   - bundle install -j $(nproc)
   # new options
-  - ruby -v
-  - which ruby
-  - gem install bundler --no-ri --no-rdoc
-  - RAILS_ENV=test bundle install --jobs $(nproc) "${FLAGS[@]}"
-  - cp config/database.yml.gitlab config/database.yml
-  - RAILS_ENV=test bundle exec rake db:create db:schema:load
+  # - which ruby
+  # - RAILS_ENV=test bundle install --jobs $(nproc) "${FLAGS[@]}"
+  # - RAILS_ENV=test bundle exec rake db:create db:schema:load
 
 stages:          # List of stages for jobs, and their order of execution
   - test
@@ -28,9 +25,9 @@ stages:          # List of stages for jobs, and their order of execution
 rspec:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
   script:
-   - RAILS_ENV=test bundle exec rspec # new options
-    # - bundle exec rake db:setup RAILS_ENV=test
-    # - bundle exec rspec spec
+  #  - RAILS_ENV=test bundle exec rspec # new options
+    - bundle exec rake db:setup RAILS_ENV=test
+    - bundle exec rspec spec
 
 rubocop:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
@@ -43,6 +40,6 @@ services:
 variables:
   REDIS_URL: "redis://redis:6379/0"
   # new options
-  POSTGRES_DB: alishop_test
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: ""
+  # POSTGRES_DB: alishop_test
+  # POSTGRES_USER: postgres
+  # POSTGRES_PASSWORD: ""
