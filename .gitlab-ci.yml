@@ -12,7 +12,7 @@ before_script:
   - apt-get update -q && apt-get install nodejs -yqq
   - bundle config set --local deployment true  # Install dependencies into ./vendor/ruby
   - bundle install -j $(nproc)
-  - cp /config/database-ci.yml /config/database.yml
+  - cp config/database-ci.yml config/database.yml
 
 stages:          # List of stages for jobs, and their order of execution
   - test
