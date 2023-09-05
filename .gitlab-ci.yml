@@ -34,5 +34,6 @@ variables:
   REDIS_URL: "redis://redis:6379/0"
   POSTGRES_DB: alishop_test
   POSTGRES_HOST_AUTH_METHOD: trust
+  HOST: postgres
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: ""
