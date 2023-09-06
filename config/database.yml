@@ -5,7 +5,8 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: sqlite3
+  # adapter: sqlite3
+  adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
@@ -17,10 +18,24 @@ default: &default
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
+  # <<: *default
+  adapter: postgresql
+  # host: postgres
+  encoding: unicode
+  database: alishop_test
+  username: postgres
+  password:
 
 development:
   adapter: postgresql
+  encoding: unicode
+  database: alishop_development
+  username: postgres
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode  
   database: alishop_production
-  host: localhost
+  username: postgres
+  password:

@@ -115,6 +115,9 @@ margin-bottom: 5px;
   font-size: 15px;
 }
 /* order show */
+.order_img{
+  width: 55px;
+}
 .user_order_search{
   margin-bottom: 5px;
 }

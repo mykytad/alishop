@@ -9,10 +9,10 @@ cache:
 # services such as redis or postgres
 before_script:
   - ruby -v  # Print out ruby version for debugging
-  # Uncomment next line if your rails app needs a JS runtime:
   - apt-get update -q && apt-get install nodejs -yqq
   - bundle config set --local deployment true  # Install dependencies into ./vendor/ruby
   - bundle install -j $(nproc)
+  - cp config/database-ci.yml config/database.yml
 
 stages:          # List of stages for jobs, and their order of execution
   - test
@@ -30,5 +30,10 @@ rubocop:   # This job runs in the test stage.
 
 services:
   - redis:latest
+  - postgres:latest
 variables:
   REDIS_URL: "redis://redis:6379/0"
+  POSTGRES_DB: alishop_test
+  POSTGRES_HOST_AUTH_METHOD: trust
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: ""

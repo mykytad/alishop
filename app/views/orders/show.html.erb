@@ -53,10 +53,10 @@
             <div class="text-body-secondary d-flex col-3 justify-content-between">
               <% if order_product.product %>
                 <p class="col-3">
-                <img src= <%= order_product.product_image %> alt= "<%= order_product.product_name%>" >
+                  <img src= <%= order_product.product_image %> alt= "<%= order_product.product_name%>" class="order_img" >
                 </p>
               <% else %>
-                <p class="col-4">
+                <p class="col-3">
                   <%= image_tag("no_picture_image.png") %>
                 </p>
               <% end %>

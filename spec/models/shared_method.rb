@@ -1,10 +1,10 @@
 def create_product
   @user = User.create!(
     name: "Tom",
-    phone: "8887777766",
+    phone: "0987654321",
     email: "tom.777@example.test",
-    password: "qwerty",
-    password_confirmation: "qwerty"
+    password: "111111",
+    password_confirmation: "111111"
   )
   @category = Category.create!(
     name: "Clothes"
@@ -12,7 +12,7 @@ def create_product
   @store = Store.create!(
     name: "Cactus",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    phone: "8887777766",
+    phone: "0987654321",
     user_id: @user.id
   )
   @product_phone = Product.create!(
