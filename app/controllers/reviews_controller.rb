@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @store = Store.find(params[:store_id])
     @product = Product.find(params[:product_id])

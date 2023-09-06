@@ -17,7 +17,7 @@
 
           <%= link_to "-", cart_delete_path({:product_id => product.id}), title:"delete", class:"btn btn-danger rounded-pill px-3 col-1" %>
 
-          <span class = "d-flex flex-row-reverse col-2"> <%= number_to_currency(product.price_with_discount) * @cart.count(product.id.to_s) %></span>
+          <span class = "d-flex flex-row-reverse col-2"> <%= product.price_with_discount * @cart.count(product.id.to_s) %>$</span>
 
           <%= link_to "", cart_delete_all_path({:product_id => product.id}), title:"delete_all", class:"btn-close btn_close col-1" %>
       </div>

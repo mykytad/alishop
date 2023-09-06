@@ -41,3 +41,5 @@
 /public/uploads/*
 !/public/uploads/
 !/public/uploads/.keep
+
+dump.rdb
