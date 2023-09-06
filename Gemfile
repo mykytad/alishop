@@ -54,6 +54,7 @@ gem 'make_exportable'
 gem 'haml'
 gem 'sidekiq'
 gem 'redis'
+gem 'elasticsearch'
 
 gem 'rubocop-rails', require: false
 
