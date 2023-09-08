@@ -55,6 +55,9 @@ gem 'haml'
 gem 'sidekiq'
 gem 'redis'
 gem 'elasticsearch'
+gem 'elasticsearch-rails'
+gem 'elasticsearch-persistence'
+gem 'elasticsearch-model'
 
 gem 'rubocop-rails', require: false
 
