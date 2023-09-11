@@ -1,4 +1,6 @@
 class Store < ApplicationRecord
+  include Elasticsearch::Model
+
   has_many :products, :dependent => :destroy
   has_many :orders
   belongs_to :user
