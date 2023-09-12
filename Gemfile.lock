@@ -375,7 +375,6 @@ DEPENDENCIES
   country_select
   debug
   devise
-  elasticsearch
   elasticsearch-model
   elasticsearch-persistence
   elasticsearch-rails
