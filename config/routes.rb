@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "cart/delete_all" => "cart#delete_all"
   get "cart/show" =>"cart#show"
   get "clear" => "cart#clear"
+  get "elsearch" => "search#elsearch"
 
   resources :orders do
     collection do

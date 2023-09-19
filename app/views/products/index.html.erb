@@ -9,6 +9,13 @@
       <h2> ALL PRODUCTS </h2>
     <% end %>
 
+    <%= form_with url: elsearch_path, method: :get do |form|%>
+      <div class="d-flex">
+        <%= form.text_field :query, class:"form-control me-2" %> <!--params[:search], placeholder: "Search", class:"form-control me-2" -->
+        <%= form.submit "Search", class:"btn btn-outline-secondary" %>
+      </div> 
+    <% end %>
+
     <div class="row g-4 mt-1">
       <% @products.each do |product| %>
         <%= render product %>

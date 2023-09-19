@@ -1,7 +1,4 @@
 class Store < ApplicationRecord
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
-
   has_many :products, :dependent => :destroy
   has_many :orders
   belongs_to :user
