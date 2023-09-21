@@ -31,7 +31,8 @@ rubocop:   # This job runs in the test stage.
 services:
   - redis:latest
   - postgres:latest
-  - elasticsearch:latest
+  - name: docker.elastic.co/elasticsearch/elasticsearch:7.17.13
+    alias: elasticsearch
   
 variables:
   REDIS_URL: "redis://redis:6379/0"
