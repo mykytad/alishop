@@ -13,6 +13,7 @@ before_script:
   - bundle config set --local deployment true  # Install dependencies into ./vendor/ruby
   - bundle install -j $(nproc)
   - cp config/database-ci.yml config/database.yml
+  -  curl -XGET 'http://localhost:9200'
 
 stages:          # List of stages for jobs, and their order of execution
   - test
