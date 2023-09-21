@@ -31,7 +31,7 @@ rubocop:   # This job runs in the test stage.
 services:
   - redis:latest
   - postgres:latest
-  # - elasticsearch:latest
+  - elasticsearch:latest
   
 variables:
   REDIS_URL: "redis://redis:6379/0"
@@ -39,4 +39,4 @@ variables:
   POSTGRES_HOST_AUTH_METHOD: trust
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: ""
-  ELASTICSEARCH_URL: "http://localhost:9200"
+  ELASTICSEARCH_URL: "http://elasticsearch:9200"
