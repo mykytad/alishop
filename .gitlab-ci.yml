@@ -31,6 +31,8 @@ rubocop:   # This job runs in the test stage.
 services:
   - redis:latest
   - postgres:latest
+  - elasticsearch:latest
+  
 variables:
   REDIS_URL: "redis://redis:6379/0"
   POSTGRES_DB: alishop_test
