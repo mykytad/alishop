@@ -54,7 +54,7 @@ gem 'make_exportable'
 gem 'haml'
 gem 'sidekiq'
 gem 'redis'
-gem 'elasticsearch'
+gem 'elasticsearch', "~> 7.10.1"
 gem 'searchkick'
 
 gem 'rubocop-rails', require: false
