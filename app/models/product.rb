@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  searchkick
   belongs_to :store
   belongs_to :category
   has_many :order_products

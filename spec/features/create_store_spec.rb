@@ -15,7 +15,7 @@ RSpec.feature "create store", type: :feature do
     expect(body).to have_link "Edit store"
   end
 
-  it "creates a new store and product" do
+  it "creates a new product" do
     Category.create!(name: "Pet supplies")
     log_in(test_user)
     test_store
