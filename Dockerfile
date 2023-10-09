@@ -18,6 +18,7 @@ COPY Gemfile Gemfile.lock /usr/src/app/
 RUN bundle install -j $(nproc)
 
 COPY . /usr/src/app
+COPY /usr/src/app/config/database-docker.yml /usr/src/app/config/database.yml
 
 # For Rails
 EXPOSE 3000
