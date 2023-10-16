@@ -23,3 +23,17 @@ COPY /usr/src/app/config/database-docker.yml /usr/src/app/config/database.yml
 # For Rails
 EXPOSE 3000
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+
+# pspostgres
+FROM postgres:13
+
+RUN localedef -i de_DE -c -f UTF-8 -A /usr/share/locale/locale.alias de_DE.UTF-8
+
+ENV LANG de_DE.utf8
+
+# redis
+# FROM redis
+
+# COPY redis.conf /usr/local/etc/redis/redis.conf
+
+# CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
