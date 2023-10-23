@@ -5,7 +5,6 @@ default: &default
   timeout: 5000
 test:
   adapter: postgresql
-  # host: postgres
   encoding: unicode
   database: alishop_test
   username: postgres

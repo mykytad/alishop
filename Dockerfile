@@ -6,7 +6,9 @@ FROM ruby:3.1.2
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         nodejs \
-        postgresql \
+        postgresql \ 
+        postgresql-client \
+        libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # throw errors if Gemfile has been modified since Gemfile.lock
@@ -18,22 +20,8 @@ COPY Gemfile Gemfile.lock /usr/src/app/
 RUN bundle install -j $(nproc)
 
 COPY . /usr/src/app
-COPY /usr/src/app/config/database-docker.yml /usr/src/app/config/database.yml
+COPY ./config/database-docker.yml /usr/src/app/config/database.yml
 
 # For Rails
 EXPOSE 3000
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
-
-# pspostgres
-FROM postgres:13
-
-RUN localedef -i de_DE -c -f UTF-8 -A /usr/share/locale/locale.alias de_DE.UTF-8
-
-ENV LANG de_DE.utf8
-
-# redis
-# FROM redis
-
-# COPY redis.conf /usr/local/etc/redis/redis.conf
-
-# CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
