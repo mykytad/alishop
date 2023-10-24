@@ -18,18 +18,12 @@ class Product < ApplicationRecord
   validates :discount, presence: true
 
 
-  def self.reindex
-    if ENV['ELASTICSEARCH_URL'].present?
-      super
-    else
+  unless ENV['ELASTICSEARCH_URL'].present?
+    def self.reindex
       nil
     end
-  end
 
-  def self.search(query)
-    if ENV['ELASTICSEARCH_URL'].present?
-      super
-    else
+    def self.search(query)
       where("lower(name) like ?", "%#{query.downcase}%")
     end
   end
