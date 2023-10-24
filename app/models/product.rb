@@ -17,7 +17,6 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :discount, presence: true
 
-
   unless ENV['ELASTICSEARCH_URL'].present?
     def self.reindex
       nil
