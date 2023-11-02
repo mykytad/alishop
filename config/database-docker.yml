@@ -7,19 +7,25 @@ test:
   adapter: postgresql
   encoding: unicode
   database: alishop_test
-  username: postgres
-  password:
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  port: <%= ENV['DATABASE_PORT'] || '5432' %>
+  host: <%= ENV['DATABASE_HOST'] %>
 
 development:
   adapter: postgresql
   encoding: unicode
-  database: alishop_development
-  username: postgres
-  password:
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  port: <%= ENV['DATABASE_PORT'] || '5432' %>
+  host: <%= ENV['DATABASE_HOST'] %>
 
 production:
   adapter: postgresql
   encoding: unicode  
   database: alishop_production
-  username: postgres
-  password:
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  port: <%= ENV['DATABASE_PORT'] || '5432' %>
+  host: <%= ENV['DATABASE_HOST'] %>
