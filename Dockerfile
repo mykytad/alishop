@@ -6,7 +6,9 @@ FROM ruby:3.1.2
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         nodejs \
-        postgresql \
+        postgresql \ 
+        postgresql-client \
+        libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # throw errors if Gemfile has been modified since Gemfile.lock
@@ -18,6 +20,7 @@ COPY Gemfile Gemfile.lock /usr/src/app/
 RUN bundle install -j $(nproc)
 
 COPY . /usr/src/app
+COPY ./config/database-docker.yml /usr/src/app/config/database.yml
 
 # For Rails
 EXPOSE 3000
