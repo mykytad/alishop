@@ -1,5 +1,8 @@
 class Product < ApplicationRecord
-  searchkick
+  if ENV['ELASTICSEARCH_URL'].present?
+    searchkick
+  end
+
   belongs_to :store
   belongs_to :category
   has_many :order_products
@@ -13,6 +16,16 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   validates :discount, presence: true
+
+  unless ENV['ELASTICSEARCH_URL'].present?
+    def self.reindex
+      nil
+    end
+
+    def self.search(query)
+      where("lower(name) like ?", "%#{query.downcase}%")
+    end
+  end
 
   def price_with_discount
     price - discount
