@@ -1,7 +1,7 @@
 class Manager::ProductsController < ManagerController
   before_action :store
-  # include ExportProduct
-  # include ImportProduct
+  include ExportProduct
+  include ImportProduct
 
   def new
     @product = store.products.new
