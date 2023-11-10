@@ -2,7 +2,7 @@ DOCKER
 
 Docker build images
 
-``` docker-compose bbuild ```
+``` docker-compose build ```
 
 Start the docker image in the background
 
