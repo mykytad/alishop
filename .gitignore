@@ -43,3 +43,5 @@
 !/public/uploads/.keep
 
 dump.rdb
+
+.env
